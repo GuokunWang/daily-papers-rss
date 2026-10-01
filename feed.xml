@@ -8,48 +8,59 @@
 <item>
 <title>10月1日 (1/5) Where the Model Changes Its Mind: Hindsight-Divergence Localization for Efficient Reinforcement Learning with Verifiable Rewards</title>
 <link>https://arxiv.org/abs/2609.36864</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36864</guid>
-<description><![CDATA[作者：Fanchao Chen 等（NVIDIA、UC Berkeley、UW–Madison、ETH Zurich）
-总结：RLVR 的组相对方法从 rollout 结果差异中学习，但独立采样完整轨迹成本高，且不在关键决策点探索。HDL 用事后视角下 token 对数概率的变化定位分支点：先生成少量完整根轨迹，再从选定位置生成续写填满训练组；续写复用根前缀，只通过新后缀贡献策略更新。
-论文笔记：https://telegra.ph/每日论文速览--10月1日-15HDL分支采样提效-10-01]]></description>
-<pubDate>Thu, 01 Oct 2026 10:08:00 +0000</pubDate>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.36864#dingtalk-md</guid>
+<description><![CDATA[**作者**：Fanchao Chen 等（NVIDIA、UC Berkeley、UW–Madison、ETH Zurich）
+
+**总结**：RLVR 的组相对方法从 rollout 结果差异中学习，但独立采样完整轨迹成本高，且不在关键决策点探索。HDL 用事后视角下 token 对数概率的变化定位分支点：先生成少量完整根轨迹，再从选定位置生成续写填满训练组；续写复用根前缀，只通过新后缀贡献策略更新。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-15HDL分支采样提效-10-01)]]></description>
+<pubDate>Thu, 01 Oct 2026 10:41:00 +0000</pubDate>
 </item>
 <item>
 <title>10月1日 (2/5) Prompts Live on an Arc: Gaussian Curricula in Fisher–Rao Coordinates for Rollout-Efficient GRPO</title>
 <link>https://arxiv.org/abs/2609.38018</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.38018</guid>
-<description><![CDATA[作者：Mei Okonkwo 等（UW–Madison、UWashington）
-总结：GRPO 只从有分歧的样本组学习，全对或全错的组奖励方差为零，不贡献梯度还消耗采样。本文发现 GRPO 自带自然坐标：Bernoulli Fisher-Rao 流形上的弧长。在弧长坐标下期望更新均匀，零方差组概率被高斯边界层约束，pass@k 目标的梯度是高斯且有闭式解。于是 GRPO 的 prompt 课程就是弧长上的高斯。
-论文笔记：https://telegra.ph/每日论文速览--10月1日-25GRPO弧长课程-10-01-2]]></description>
-<pubDate>Thu, 01 Oct 2026 10:09:00 +0000</pubDate>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.38018#dingtalk-md</guid>
+<description><![CDATA[**作者**：Mei Okonkwo 等（UW–Madison、UWashington）
+
+**总结**：GRPO 只从有分歧的样本组学习，全对或全错的组奖励方差为零，不贡献梯度还消耗采样。本文发现 GRPO 自带自然坐标：Bernoulli Fisher-Rao 流形上的弧长。在弧长坐标下期望更新均匀，零方差组概率被高斯边界层约束，pass@k 目标的梯度是高斯且有闭式解。于是 GRPO 的 prompt 课程就是弧长上的高斯。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-25GRPO弧长课程-10-01-2)]]></description>
+<pubDate>Thu, 01 Oct 2026 10:42:00 +0000</pubDate>
 </item>
 <item>
 <title>10月1日 (3/5) Where Does Staleness Accumulate? Pool Aware Effective Staleness Control for Asynchronous RL in LLM Post-Training</title>
 <link>https://arxiv.org/abs/2609.36830</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36830</guid>
-<description><![CDATA[作者：Chenliang Li 等
-总结：全异步 RL 把采样生成和策略优化重叠，资源利用率高，但轨迹排队期间策略还在更新，引入策略滞后。本文把轨迹过期分解为生成期和等待期，提出 PACE：把超额池占用转成自适应拒绝预算，用结合两期的有效过期分数给已完成轨迹排序，避免仅因跨越多个策略版本就惩罚长轨迹。
-论文笔记：https://telegra.ph/每日论文速览--10月1日-35异步RL过期控制-10-01-2]]></description>
-<pubDate>Thu, 01 Oct 2026 10:10:00 +0000</pubDate>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.36830#dingtalk-md</guid>
+<description><![CDATA[**作者**：Chenliang Li 等
+
+**总结**：全异步 RL 把采样生成和策略优化重叠，资源利用率高，但轨迹排队期间策略还在更新，引入策略滞后。本文把轨迹过期分解为生成期和等待期，提出 PACE：把超额池占用转成自适应拒绝预算，用结合两期的有效过期分数给已完成轨迹排序，避免仅因跨越多个策略版本就惩罚长轨迹。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-35异步RL过期控制-10-01-2)]]></description>
+<pubDate>Thu, 01 Oct 2026 10:43:00 +0000</pubDate>
 </item>
 <item>
 <title>10月1日 (4/5) Unlocking the Critic: Reward-Free Policy Optimization for LLM Post-Training</title>
 <link>https://arxiv.org/abs/2609.37119</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.37119</guid>
-<description><![CDATA[作者：Hongyang Li 等（U Luxembourg、Paris-Saclay）
-总结：近期 LLM 后训练 RL 纷纷去掉 critic；即使训了，训完也就扔掉。本文为 critic 翻案：长思维链下 critic 的不稳定多是优化假象，保持策略更新小而低方差即可稳定收敛。训好的 critic 能从轨迹后段估计最终成功的后验概率，提供结果派生的稠密每前缀学习信号，无需完整采样、逐步标注和外部奖励。
-论文笔记：https://telegra.ph/每日论文速览--10月1日-45无奖励策略优化-10-01-2]]></description>
-<pubDate>Thu, 01 Oct 2026 10:11:00 +0000</pubDate>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.37119#dingtalk-md</guid>
+<description><![CDATA[**作者**：Hongyang Li 等（U Luxembourg、Paris-Saclay）
+
+**总结**：近期 LLM 后训练 RL 纷纷去掉 critic；即使训了，训完也就扔掉。本文为 critic 翻案：长思维链下 critic 的不稳定多是优化假象，保持策略更新小而低方差即可稳定收敛。训好的 critic 能从轨迹后段估计最终成功的后验概率，提供结果派生的稠密每前缀学习信号，无需完整采样、逐步标注和外部奖励。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-45无奖励策略优化-10-01-2)]]></description>
+<pubDate>Thu, 01 Oct 2026 10:44:00 +0000</pubDate>
 </item>
 <item>
 <title>10月1日 (5/5) PR-OPD: Privileged Representation On-policy Self-Distillation for Agentic Reinforcement Learning</title>
 <link>https://arxiv.org/abs/2609.36642</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36642</guid>
-<description><![CDATA[作者：Muyang Li 等（UFlorida）
-总结：特权自蒸馏让同一策略在带技能时通过词概率教不带技能的自己。但本文发现：加技能把 WebShop 成功率从 42.2% 提到 56.2%，却只改变不到四分之一词的概率；技能改变了八成以上词的隐状态。PR-OPD 于是对齐隐状态而非概率：GRPO 热启动后，策略为每条轨迹写 hindsight 技能，以其为 teacher 逐层对齐投影隐状态，无需外部技能库，推理零开销。
-今日点评：采样效率与异步过期是高频主题，critic 复兴信号出现——高效 RL 的重心正在从算法结构下沉到采样和训练动力学。
-论文笔记：https://telegra.ph/每日论文速览--10月1日-55对齐隐状态蒸馏-10-01-4]]></description>
-<pubDate>Thu, 01 Oct 2026 10:12:00 +0000</pubDate>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.36642#dingtalk-md</guid>
+<description><![CDATA[**作者**：Muyang Li 等（UFlorida）
+
+**总结**：特权自蒸馏让同一策略在带技能时通过词概率教不带技能的自己。但本文发现：加技能把 WebShop 成功率从 42.2% 提到 56.2%，却只改变不到四分之一词的概率；技能改变了八成以上词的隐状态。PR-OPD 于是对齐隐状态而非概率：GRPO 热启动后，策略为每条轨迹写 hindsight 技能，以其为 teacher 逐层对齐投影隐状态，无需外部技能库，推理零开销。
+
+**今日点评**：采样效率与异步过期是高频主题，critic 复兴信号出现——高效 RL 的重心正在从算法结构下沉到采样和训练动力学。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-55对齐隐状态蒸馏-10-01-4)]]></description>
+<pubDate>Thu, 01 Oct 2026 10:45:00 +0000</pubDate>
 </item>
 </channel>
 </rss>
