@@ -62,5 +62,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-55对齐隐状态蒸馏-10-01-4)]]></description>
 <pubDate>Thu, 01 Oct 2026 10:45:00 +0000</pubDate>
 </item>
+<item>
+<title>10月2日 (1/5) PivotOPD: Learning to Recover from Pivotal Mistakes in Multi-Turn Agents</title>
+<link>https://arxiv.org/abs/2609.40285</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.40285</guid>
+<description><![CDATA[**作者**：Yinghui He 等（NVIDIA、普林斯顿大学、马里兰大学）
+
+**总结**：多轮智能体里一次关键失误会让整条轨迹报废。PivotOPD 定位“枢纽失误”轮次，用教师信号做反向蒸馏防再犯、前向蒸馏教恢复，在四个基准上全面最强，ALFWorld 提升 5.5%，恢复成功率达基座模型 9 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-15枢纽失误恢复蒸馏-10-02-2)]]></description>
+<pubDate>Fri, 02 Oct 2026 00:55:00 +0000</pubDate>
+</item>
+<item>
+<title>10月2日 (2/5) From Imitation to Reward Discovery: On-Policy Warmup for Agentic RL</title>
+<link>https://arxiv.org/abs/2609.39436</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.39436</guid>
+<description><![CDATA[**作者**：Yitong Qiao 等（浙江大学、蚂蚁集团）
+
+**总结**：稀疏奖励下智能体 RL 前期全是无效探索。On-Policy Warmup 让教师在学生自己的轨迹上做蒸馏预热，先发现奖励再进 GRPO：前 20 步提升 41.8 个百分点，达 80% 成功率仅用 19.6 GPU 小时。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-25在策预热加速训练-10-02)]]></description>
+<pubDate>Fri, 02 Oct 2026 00:56:00 +0000</pubDate>
+</item>
+<item>
+<title>10月2日 (3/5) RLTL;DR: Self-improvement by Internalizing Self-generated Feedback</title>
+<link>https://arxiv.org/abs/2609.37633</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.37633</guid>
+<description><![CDATA[**作者**：Michael Kirchhof 等（Apple）
+
+**总结**：GRPO 在完全解不出的任务上奖励全零、采样全浪费。RLTL;DR 让模型每次失败后自己写一句反思、带着反思再试并内化进参数，在 Pass@128 为零的任务上做到评估无反思仍有 12-13% 通过率。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-35自我反思内化训练-10-02-2)]]></description>
+<pubDate>Fri, 02 Oct 2026 00:57:00 +0000</pubDate>
+</item>
+<item>
+<title>10月2日 (4/5) Learn from the Gap: Differential-Aware Advantage Pruning with Adaptive Rollout Sampling for GRPO</title>
+<link>https://arxiv.org/abs/2609.36932</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.36932</guid>
+<description><![CDATA[**作者**：Jiahua Yang 等（OPPO AI Center、暨南大学）
+
+**总结**：GRPO 采样中大量轨迹梯度贡献很低。FastRL 按梯度贡献做差异化优势剪枝、保留高优势且多样的轨迹，并随训练阶段自适应收缩采样量，在视觉推理模型上平均提速 2.07 倍、精度反涨 1.64%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-45优势剪枝提速GRPO-10-02)]]></description>
+<pubDate>Fri, 02 Oct 2026 00:58:00 +0000</pubDate>
+</item>
+<item>
+<title>10月2日 (5/5) Cool the Sampler, Not the Learner: Sampling Temperature Moves the Staleness Cliff of Importance-Corrected GRPO</title>
+<link>https://arxiv.org/abs/2609.36953</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.36953</guid>
+<description><![CDATA[**作者**：Taiheng Pan（墨尔本大学）
+
+**总结**：生产级 RL 采样器滞后太久会突然崩。降温采样把采样温度降到 0.8、学习器侧保持 1.0，崩溃临界点推后一倍，刷新间隔从 96 步放宽到 192 步而 GSM8K 精度同为 0.857。
+
+**今日点评**：今日五篇主题高度统一：RL 训练的算力都烧在“无效采样”上——OPW 把无效探索变监督信号，PivotOPD 把蒸馏预算集中到枢纽轮次，FastRL 剪掉低梯度轨迹，降温采样让刷新减半，RLTL;DR 让零奖励 rollout 也产出反思。大厂与高校在同一天押注同一方向：不是堆更多 rollout，而是让每条 rollout 更值钱。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-55降温采样省算力-10-02)]]></description>
+<pubDate>Fri, 02 Oct 2026 00:59:00 +0000</pubDate>
+</item>
 </channel>
 </rss>
