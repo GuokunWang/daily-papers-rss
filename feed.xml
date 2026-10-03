@@ -119,5 +119,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-55降温采样省算力-10-02)]]></description>
 <pubDate>Fri, 02 Oct 2026 00:59:00 +0000</pubDate>
 </item>
+<item>
+<title>10月3日 (1/5) Asynchronous LLM Post-Training: Group-Mass Capping and Convergence Analysis</title>
+<link>https://arxiv.org/abs/2610.01896</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.01896</guid>
+<description><![CDATA[**作者**：Qijia He 等（俄亥俄州立大学、亚利桑那州立大学）
+
+**总结**：异步训练中 rollout 数据过期会拖慢 GRPO 类算法。GMC-GRPO 用组级质量上限代替逐条裁剪，给出显式延迟收敛界；延迟 128 的极端测试下 MATH500 达 59.03%，远超原生 GRPO 的 35.33%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-15异步GRPO抗延迟-10-03)]]></description>
+<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
+</item>
+<item>
+<title>10月3日 (2/5) From Gradients to Capabilities: Understanding Multi-Teacher On-Policy Distillation</title>
+<link>https://arxiv.org/abs/2610.02179</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.02179</guid>
+<description><![CDATA[**作者**：Siqi Zhu 等（普林斯顿大学、伊利诺伊大学香槟分校、西湖大学）
+
+**总结**：多教师在线蒸馏中，损失平均、Adam 一阶矩和 BF16 精度都在悄悄改写教师信号。研究发现梯度近似得更好不保证任务提升更大，并给出 top-64 交集 KL 等实用结论。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-25多教师蒸馏机理-10-03)]]></description>
+<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
+</item>
+<item>
+<title>10月3日 (3/5) Range-GRPO: Policy Optimization via Pairwise Relations among Reward Intervals</title>
+<link>https://arxiv.org/abs/2610.01548</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.01548</guid>
+<description><![CDATA[**作者**：Ryunyi Lee 等（延世大学）
+
+**总结**：用符合校准把 LLM 裁判的伪奖励表示为区间，通过区间两两比较构造 GRPO 优势。推理基准上分布内、外准确率比最强基线分别高 5.2% 和 7.0%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-35奖励区间GRPO-10-03)]]></description>
+<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
+</item>
+<item>
+<title>10月3日 (4/5) SHARPO: Segment-Level Credit Assignment for Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.00838</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.00838</guid>
+<description><![CDATA[**作者**：Xinchen Du 等（佐治亚理工学院、领英）
+
+**总结**：针对智能体任务终点奖励稀疏、难以归因，用同组成功轨迹做自蒸馏，在交互片段级给 GRPO 优势加有界权重。ALFWorld 成功率 84.90%，比 GRPO 高 14.32 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-45SHARPO分段信用分配-10-03)]]></description>
+<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
+</item>
+<item>
+<title>10月3日 (5/5) Do Your Own Research: Learning to Forecast by Learning to Search</title>
+<link>https://arxiv.org/abs/2610.01955</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.01955</guid>
+<description><![CDATA[**作者**：Yusuf Afifi 等（Future Principle）
+
+**总结**：把多轮搜索放进 RL 训练循环，在 2100 多道 Polymarket 预测题上单轮 GRPO 训练预测智能体。校准误差降三成，以约 5% 推理成本超越 Claude Opus 4.5。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-55自主搜索学预测-10-03)
+
+**今日点评**：今天的五篇有一个共同主题——让 RL 训练更“聪明地”用数据：GMC-GRPO 驯服过期 rollout，多教师蒸馏拆解监督信号的扭曲，Range-GRPO 把裁判的不确定性变成学习信号，SHARPO 在片段级做信用分配，预测智能体则把搜索本身变成可训练的技能。高效 RL 的前沿，正从“堆更多 rollout”转向“让每条数据的价值被精确计量”。]]></description>
+<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
+</item>
 </channel>
 </rss>
