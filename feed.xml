@@ -176,5 +176,62 @@
 **今日点评**：今天的五篇有一个共同主题——让 RL 训练更“聪明地”用数据：GMC-GRPO 驯服过期 rollout，多教师蒸馏拆解监督信号的扭曲，Range-GRPO 把裁判的不确定性变成学习信号，SHARPO 在片段级做信用分配，预测智能体则把搜索本身变成可训练的技能。高效 RL 的前沿，正从“堆更多 rollout”转向“让每条数据的价值被精确计量”。]]></description>
 <pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
 </item>
+<item>
+<title>10月4日 (1/5) Sharpening Tax in Post-Training</title>
+<link>https://arxiv.org/abs/2610.01509</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.01509</guid>
+<description><![CDATA[**作者**：Changdae Oh 等（Meta Superintelligence Labs（Meta 超级智能实验室）、Stanford University（斯坦福大学）、University of Wisconsin–Madison（威斯康星大学麦迪逊分校））
+
+**总结**：Meta 超级智能实验室团队系统测量了 RL 后训练的隐性代价：单次采样准确率提升的同时，多次采样的解题覆盖率下降，并把这种代价量化为锐化税指标。在十四对基座与后训练模型、四大家族、三个智能体基准的四十二个组合上，该现象普遍存在；作者提出的即插即用采样器 PTGS 能同时改善准确率和覆盖率。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-15RL后训练的锐化税-10-04)]]></description>
+<pubDate>Sun, 04 Oct 2026 01:00:26 +0000</pubDate>
+</item>
+<item>
+<title>10月4日 (2/5) CARM: Cancellation-Aware Response Masking for LLM Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.02039</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.02039</guid>
+<description><![CDATA[**作者**：Yafei Zhang 等（Moore Threads AI（摩尔线程））
+
+**总结**：摩尔线程 AI 发现 LLM 强化学习中几何平均序列掩码的抵消漏洞：正负方向的概率漂移会互相抵消，让严重偏离的回答看起来正常。CARM 方法先对每个词元的对数比值取绝对值再平均，堵住漏洞并给出理论保证。AIME 系列数学基准十六次采样平均指标提升三点一三个百分点，四个代码基准平均一次通过率提升二点八八个点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-25序列掩码防抵消-10-04)]]></description>
+<pubDate>Sun, 04 Oct 2026 01:00:27 +0000</pubDate>
+</item>
+<item>
+<title>10月4日 (3/5) On Language Drift during RLVR Post-Training</title>
+<link>https://arxiv.org/abs/2610.02015</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.02015</guid>
+<description><![CDATA[**作者**：Michael Sullivan 等（Saarland University（萨尔大学））
+
+**总结**：萨尔大学从理论上证明：RLVR 只约束最终答案，对思维链没有任何优化压力，因此语言漂移可以无限大，而有监督微调不会；想限制漂移就必然限制期望奖励。实验表明新任务上 RLVR 的漂移远大于微调，且不同随机种子的漂移方向各不相同，CoT 可监控性与性能在数学上不可兼得。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-35RLVR语言漂移-10-04)]]></description>
+<pubDate>Sun, 04 Oct 2026 01:00:28 +0000</pubDate>
+</item>
+<item>
+<title>10月4日 (4/5) Same Reward, Different Skills: When Multimodal RL Learns to Look</title>
+<link>https://arxiv.org/abs/2610.01908</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.01908</guid>
+<description><![CDATA[**作者**：Haocun Ye 等（中国科学院计算技术研究所）
+
+**总结**：中科院计算所用犀利对照揭示：把多模态 RLVR 的训练图片全换成灰色画布，视觉基准提升仍保留一半以上，说明很多提升是走捷径而非真看图。他们提出视觉可解性设计原则，用标准 GRPO 验证：反事实坐标场景发现目标准确率从零点四二五涨到零点八七五，而灰色画布对照组几乎学不到东西。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-45多模态RL真看图-10-04-2)]]></description>
+<pubDate>Sun, 04 Oct 2026 01:00:29 +0000</pubDate>
+</item>
+<item>
+<title>10月4日 (5/5) FERPO: Forward Entropy-Regularized Policy Optimization</title>
+<link>https://arxiv.org/abs/2610.02198</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.02198</guid>
+<description><![CDATA[**作者**：Sebastian Sanokowski 等（Technical University of Munich（慕尼黑工业大学））
+
+**总结**：慕尼黑工业大学提出 FERPO：不再对价值函数求动作梯度，而是先用价值函数加熵与 KL 正则构造最优目标动作分布，再用前向 KL 拟合。二十二个 DeepMind 控制套件任务 IQM 回报达八百九十七点七，超过 REPPO 和两种 PPO；A100 上更新耗时比 REPPO 快百分之二十二点二，代价是峰值显存增加约四分之一。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-55FERPO前向熵正则-10-04-2)
+
+**今日点评**：今日五篇主线是 RL 训练的代价与效率：锐化税讲覆盖率的代价，语言漂移讲可监控性的代价，CARM 是训练管线里的实用补丁，多模态 RLVR 研究警示奖励设计决定学到什么，FERPO 则从算法层面重构 on-policy 更新。建议按 1→3→2→4→5 的顺序阅读。]]></description>
+<pubDate>Sun, 04 Oct 2026 01:00:30 +0000</pubDate>
+</item>
 </channel>
 </rss>
