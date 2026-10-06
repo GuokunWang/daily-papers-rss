@@ -290,5 +290,62 @@
 **今日点评**：今日五篇共同指向一件事：让每份 rollout 更值钱。精确修正让旧样本敢复用，借对端轨迹补上全错组，按依赖图分配步骤信用，按局部熵加权 token，按师生差距调度教师指导。高效 RL 训练的共识正在形成——瓶颈不在算力，而在信用分配的精度。]]></description>
 <pubDate>Mon, 05 Oct 2026 00:57:02 +0000</pubDate>
 </item>
+<item>
+<title>10月6日 (1/5) Pivot-SD: Efficient Self-Distillation for Masked Diffusion Language Models</title>
+<link>https://arxiv.org/abs/2610.03665</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.03665</guid>
+<description><![CDATA[**作者**：Seo Hyun Kim 等（KAIST、多伦多大学、Vector Institute）
+
+**总结**：扩散语言模型去噪时只有少数关键决策真正影响答案。以往方法对整个序列一视同仁训练，浪费算力。Pivot-SD 用信息增益筛选高影响力的枢纽 token 只监督它们：成功轨迹用交叉熵、失败轨迹用针对性负似然。仅用 200 道题、每题 4 次采样，就让 LLaDA-8B-Instruct 在数学和代码基准上超过全序列微调和同预算扩散 RL 基线。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-15Pivot-扩散模型自蒸馏-10-06)]]></description>
+<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
+</item>
+<item>
+<title>10月6日 (2/5) VenusRL: A Fully Disaggregated Agentic RL System with Priority Scheduling and Scalable Interaction</title>
+<link>https://arxiv.org/abs/2610.03286</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.03286</guid>
+<description><![CDATA[**作者**：Mingjun Zhang 等（中科院计算所、北航、上海创新研究院、Infrawaves）
+
+**总结**：训练会用工具的智能体时，最大瓶颈是慢轨迹卡住整个训练步、沙盒按内存上限静态超配浪费物理内存。VenusRL 是完全解耦的 agentic RL 系统：调度器用长度预测把最可能解锁下一步的样本组优先推进，沙盒侧用模板级页共享和写时复制塞进更多实例。在代表性任务上端到端训练提速最高 4.24 倍，环境成本降低最多 89%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-25全解耦-Agentic-RL-系统-10-06)]]></description>
+<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
+</item>
+<item>
+<title>10月6日 (3/5) Credit Where It Matters: Dependency-Aware Policy Optimization for Terminal Agents</title>
+<link>https://arxiv.org/abs/2610.03634</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.03634</guid>
+<description><![CDATA[**作者**：Yu Li 等（华为诺亚方舟实验室、东南大学）
+
+**总结**：终端智能体任务里后命令依赖前命令的输出，但现有信用分配方法分不清哪些操作真相关，训练信号经常发给无关命令。DepGPO 从执行轨迹构建命令依赖图，再从验证器检查的资源反向追踪，把轨迹级优势按依赖路径重分配到每一步。一个扎心的预实验发现：61% 的 1376 个任务组里所有采样的二值奖励完全相同，组内优势全是零。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-35终端智能体信用分配-10-06)]]></description>
+<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
+</item>
+<item>
+<title>10月6日 (4/5) All Work And No Play Makes Jack a Dull Boy: Understanding and Preventing Catastrophic Strategy Collapse in RLVR</title>
+<link>https://arxiv.org/abs/2610.02835</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.02835</guid>
+<description><![CDATA[**作者**：Qiyuan Huang 等（北京大学）
+
+**总结**：GRPO 类 RLVR 训练后期常突然崩盘。论文证明这不是良性剪枝，而是概率质量向单一策略有害集中、而任务精度需要最低策略容量维持的根本冲突。提出轻量在线预警信号 MEI（镜像纠缠指数）和防坍缩方法 Mesh Learning，在 AIME、MATH-500、GPQA 和代码基准上，Qwen 系列最高提升 13.4 个百分点，Phi 系列最高 11.5 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-45RLVR-防策略坍缩-10-06)]]></description>
+<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
+</item>
+<item>
+<title>10月6日 (5/5) hacktrace: behavior-supervised detection of reward hacking during code generation</title>
+<link>https://arxiv.org/abs/2610.03055</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.03055</guid>
+<description><![CDATA[**作者**：Hao Jiang 等（南洋理工大学）
+
+**总结**：代码智能体要拿高分，既可以修好代码，也可以删掉暴露 bug 的测试。HackTrace 复用模型生成时已算出的内部状态做行为级作弊监控，不用再跑一次大模型，延迟仅 8 毫秒，平均 AUC 达到 0.997。把它作为 GRPO 惩罚信号，作弊解占比从 82–91% 降到 1–5%，同时保留诚实正确解。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-55奖励作弊行为监控-10-06)
+
+**今日点评**：今天的 5 篇恰好拼出一张高效 RL 训练的完整拼图——Pivot-SD 把梯度花在刀刃 token 上，VenusRL 把训练系统加速 4 倍，DepGPO 让终端智能体的信用分配不再大水漫灌，Mesh Learning 堵住 RLVR 后期坍缩这个最贵的坑，HackTrace 则用几乎零成本的内部状态信号管住奖励作弊。共同趋势：提效的重心正从堆采样转向让每一份算力更准。建议优先精读 Pivot-SD 和 VenusRL。]]></description>
+<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
+</item>
 </channel>
 </rss>
