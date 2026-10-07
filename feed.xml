@@ -347,5 +347,62 @@
 **今日点评**：今天的 5 篇恰好拼出一张高效 RL 训练的完整拼图——Pivot-SD 把梯度花在刀刃 token 上，VenusRL 把训练系统加速 4 倍，DepGPO 让终端智能体的信用分配不再大水漫灌，Mesh Learning 堵住 RLVR 后期坍缩这个最贵的坑，HackTrace 则用几乎零成本的内部状态信号管住奖励作弊。共同趋势：提效的重心正从堆采样转向让每一份算力更准。建议优先精读 Pivot-SD 和 VenusRL。]]></description>
 <pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
 </item>
+<item>
+<title>10月7日 (1/5) ThunderSyncRL: Lossless Acceleration of Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.05935</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.05935</guid>
+<description><![CDATA[**作者**：Seil Kang 等（斯坦福大学、延世大学、韩国高丽大学、Bespoke Labs）
+
+**总结**：训练长程智能体时同步系统干等 rollout、异步训练又引入策略过期。ThunderSyncRL 让 GRPO 每条轨迹奖励一到就算梯度、OPD 每完成一回合就更新，三者流水线化，并证明与批量同步更新等价；在 SWE-bench Verified 与 Terminal Bench 4.0 上达到相同效果最多快 1.9 倍，零过期。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月7日-15梯度流式加速训练-10-07)]]></description>
+<pubDate>Wed, 07 Oct 2026 00:57:48 +0000</pubDate>
+</item>
+<item>
+<title>10月7日 (2/5) LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches</title>
+<link>https://arxiv.org/abs/2610.06647</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.06647</guid>
+<description><![CDATA[**作者**：Shaokun Zhang 等（NVIDIA）
+
+**总结**：LLM 的 RL 后训练显存开销是权重的数倍，能跑推理的机器跑不起训练。LoGRA 在反向传播中直接累积梯度的低秩草图，配合更新前估计 KL 变化的步长控制；在 7B 上平均省 45.7% 显存且性能不降，27B 在单台 8 卡机上稳定训练超 1100 步。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月7日-25低秩梯度草图省显存-10-07)]]></description>
+<pubDate>Wed, 07 Oct 2026 00:57:49 +0000</pubDate>
+</item>
+<item>
+<title>10月7日 (3/5) Transfer-Stratified On-Policy Distillation for RL-Improved Reasoning Teachers</title>
+<link>https://arxiv.org/abs/2610.05974</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.05974</guid>
+<description><![CDATA[**作者**：Xiaoyu Chen 等（微软、中国科学院软件研究所、西北工业大学）
+
+**总结**：RL 能把教师模型变强，但变强的那部分学生未必学得会。TS-OPD 按师生联合采样成功率把题目分流：缺知识的题用带门控前向 KL，缺稳定性的题用带门控反向 KL，再加熵刹车保护探索；在数学推理上成为搭配 GRPO 改进教师的最强学生蒸馏目标。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月7日-35迁移分层在线蒸馏-10-07)]]></description>
+<pubDate>Wed, 07 Oct 2026 00:57:50 +0000</pubDate>
+</item>
+<item>
+<title>10月7日 (4/5) CLIFT: Conformal Self-Verification for Web Agent Training and Test-Time Scaling</title>
+<link>https://arxiv.org/abs/2610.06829</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.06829</guid>
+<description><![CDATA[**作者**：Yifan Zhang 等（Salesforce AI Research）
+
+**总结**：网页智能体 RL 训练中二值成功太稀疏、请大模型当裁判太贵。CLIFT 让智能体针对自己的 rollout 回答验证问题，经符合预测过滤后变成稠密每步奖励；同一题库在测试时复用做轨迹选择。在 WebArena Infinity 达开源 SOTA，迁移到 GPT-5.5 上同样最强。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月7日-45自验证强化网页智能体-10-07)]]></description>
+<pubDate>Wed, 07 Oct 2026 00:57:51 +0000</pubDate>
+</item>
+<item>
+<title>10月7日 (5/5) Adaptive Expert Guidance for Efficient On-Policy Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.06019</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.06019</guid>
+<description><![CDATA[**作者**：Daniele Affinita 等（瑞士洛桑联邦理工学院、苏黎世大学）
+
+**总结**：手里有个次优专家时，“听多少”不该是人设的超参数。这篇让学习者与专家在每个 episode 内交替控制，专家份额作为可学习参数与策略用同一 on-policy 目标联合优化，随学习者变强自动衰减到零。在 34 个控制任务上样本效率全面超过基线，最终性能达 PPO 水平。
+
+**今日点评**：今日五篇拼出一幅清晰的图景：提效的重心继续从“堆更多采样”转向“让训练本身更便宜、更准”——ThunderSyncRL 与 LoGRA 一个砍时间、一个砍显存，都是不改目标函数的无损优化；TS-OPD、自适应专家指导、CLIFT 则都在回答同一个问题：如何把外部知识以最低代价喂进 RL 循环。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月7日-55专家指导自适应权重-10-07)]]></description>
+<pubDate>Wed, 07 Oct 2026 00:57:52 +0000</pubDate>
+</item>
 </channel>
 </rss>
