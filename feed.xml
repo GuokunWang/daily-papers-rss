@@ -404,5 +404,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月7日-55专家指导自适应权重-10-07)]]></description>
 <pubDate>Wed, 07 Oct 2026 00:57:52 +0000</pubDate>
 </item>
+<item>
+<title>10月8日 (1/5) FC-SWE: Failure-Conditioned RL for Long-Horizon Software Engineering Agents</title>
+<link>https://arxiv.org/abs/2610.07898</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.07898</guid>
+<description><![CDATA[**作者**：Jia Liufu 等（NVIDIA、清华大学）
+
+**总结**：GRPO 训练软件工程智能体时，失败补丁的验证反馈常被直接丢弃。FC-SWE 在失败后把仓库恢复原状，用失败补丁和反馈做上下文生成恢复轨迹，并改造 GRPO 的奖励与优势估计。在 500 个 SWE-bench Verified 任务上一次解决率达 41.7%，超过 GRPO 近 3 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-15失败条件强化学习-10-08)]]></description>
+<pubDate>Thu, 08 Oct 2026 01:20:00 +0000</pubDate>
+</item>
+<item>
+<title>10月8日 (2/5) NeMo-DCR: Bit-Exact Delta-Compressed Refit for Scalable Agentic RL at Trillion-Parameter Scale</title>
+<link>https://arxiv.org/abs/2610.08430</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.08430</guid>
+<description><![CDATA[**作者**：Songlin Jiang 等（NVIDIA、阿尔托大学）
+
+**总结**：Agentic RL 把训练和 rollout 分离，每次更新都要把全量权重同步到 rollout 集群，万亿参数模型跨区传输要 87.5 分钟。NeMo-DCR 只传变化的权重：固定仿射映射把变化投影到 checkpoint 坐标，保证比特精确。用中继树传输，一次万亿参数同步只需 150 秒，比全量传输快 12–40 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-25万亿参数RL权重同步-10-08)]]></description>
+<pubDate>Thu, 08 Oct 2026 01:21:00 +0000</pubDate>
+</item>
+<item>
+<title>10月8日 (3/5) TRACE: Rollout-Guided Quantization-Aware Training for FP4 Reinforcement Learning of MoE Language Models</title>
+<link>https://arxiv.org/abs/2610.07767</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.07767</guid>
+<description><![CDATA[**作者**：Xin Wang 等（阿里巴巴 Token Hub、俄亥俄州立大学）
+
+**总结**：RL 训练大模型的 rollout 开销巨大，低精度 rollout 是提效关键，但现有 FP4 方法没缩小训练与 rollout 两条量化路径的差异。TRACE 用 rollout 端的量化结果指导训练端的舍入决策。在四个 MoE 模型上，联合 FP4 rollout 的 RL 效果与 BF16 相当，解码吞吐最高提升 5.4 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-35FP4量化RL训练MoE-10-08)]]></description>
+<pubDate>Thu, 08 Oct 2026 01:22:00 +0000</pubDate>
+</item>
+<item>
+<title>10月8日 (4/5) Structuring MoE Expert Selection for Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.07332</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.07332</guid>
+<description><![CDATA[**作者**：Bolian Li 等（Apple、普渡大学）
+
+**总结**：长程智能体常用稀疏 MoE 模型，但标准 RL 训练放任专家路由失控，限制性能与效率。这篇工作提出层级路由控制：turn 级对齐语义操作，token 级保持局部一致，并用熵门控稳定训练。在多个基准上成功率提升超 10 个百分点，rollout 吞吐提升 41.1%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-45MoE专家路由RL控制-10-08-3)]]></description>
+<pubDate>Thu, 08 Oct 2026 01:23:00 +0000</pubDate>
+</item>
+<item>
+<title>10月8日 (5/5) RELACE: retrospective likelihood-based action credit estimation for long-horizon language agents</title>
+<link>https://arxiv.org/abs/2610.07349</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.07349</guid>
+<description><![CDATA[**作者**：Sayak Chakrabarti 等（哥伦比亚大学、Zoom）
+
+**总结**：GRPO 的轨迹级监督给多轮智能体做信用分配太粗：terminal 奖励定位不到错误，还会误伤有用动作。RELACE 用“结局增强”上下文下的回溯似然比给每个动作定价，无需 critic。在 ALFWorld 上，1.5B 模型成功率达 96.35%，超过 GiGPO 5.47 个百分点。
+
+**今日点评**：今天的五篇有一个共同主题：让 RL 训练的每一分算力都花在刀刃上——FC-SWE 把失败变成训练信号，NeMo-DCR 把权重同步变成稀疏问题，TRACE 让 FP4 rollout 与训练对齐，MoE 路由控制把架构容量管起来，RELACE 把信用分配做细。Agentic RL 正在从“大力出奇迹”走向“精打细算”，infra 与算法的协同优化是下一阶段的主线。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-55回溯似然信用分配-10-08)]]></description>
+<pubDate>Thu, 08 Oct 2026 01:24:00 +0000</pubDate>
+</item>
 </channel>
 </rss>
