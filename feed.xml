@@ -461,5 +461,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-55回溯似然信用分配-10-08)]]></description>
 <pubDate>Thu, 08 Oct 2026 01:24:00 +0000</pubDate>
 </item>
+<item>
+<title>10月9日 (1/5) ThunderSyncRL: Lossless Acceleration of Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.05935</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.05935</guid>
+<description><![CDATA[**作者**：Seil Kang 等（Stanford University、Yonsei University、Korea University、Bespoke Labs）
+
+**总结**：同步训练 agentic RL 时学习器近半时间空转等待 rollout；异步训练又引入策略陈旧。ThunderSyncRL 用梯度流式调度让反向传播与 rollout、工具调用并行，并证明与同步训练更新完全等价，在 SWE-bench Verified 与 Terminal Bench 4.0 上最多提速 1.9 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-15RL训练无损加速-10-09)]]></description>
+<pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
+</item>
+<item>
+<title>10月9日 (2/5) BoT-GRPO: Efficient Process-Reward RL for Reasoning via Bag-of-Token Aggregation</title>
+<link>https://arxiv.org/abs/2610.09804</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.09804</guid>
+<description><![CDATA[**作者**：Yingxiang Yang 等（Amazon AGI）
+
+**总结**：GRPO 给整条轨迹同一个优势值，浪费了 token 级信号。BoT-GRPO 把 token 级过程奖励按序列长度倒数加权聚合，为每个 token 计算相对优势，无需价值网络。代码生成提速近两倍达到 80% 编译率，AIME 上以一半步数提升 8.1 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-25过程奖励GRPO提效-10-09)]]></description>
+<pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
+</item>
+<item>
+<title>10月9日 (3/5) Before They Can Solve: Predicting Post-Training Coding-Agent Performance from Base Models</title>
+<link>https://arxiv.org/abs/2610.10478</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.10478</guid>
+<description><![CDATA[**作者**：Tan Yu 等（NVIDIA、University of Minnesota – Twin Cities、University of California, Berkeley）
+
+**总结**：一轮 agentic 后训练极其烧钱，选错 base 模型等于白烧。该工作找出后训练成功轨迹的决定性步骤，用三种探针度量 base 模型的潜力，在十组模型对上与真实后训练排名高度一致，Spearman 相关系数最高达 0.988。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-35预测智能体训练潜力-10-09)]]></description>
+<pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
+</item>
+<item>
+<title>10月9日 (4/5) Decoupling Exploration from Optimization in RLVR</title>
+<link>https://arxiv.org/abs/2610.10536</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.10536</guid>
+<description><![CDATA[**作者**：Saif Punjwani 等（Columbia University）
+
+**总结**：给 RLVR 加新颖性奖励常常损害模型质量。ExpDis 把探索与优化解耦：explorer 加新颖性奖励大规模采样，过滤出正确轨迹后蒸馏给学生，学生只做干净优化。Qwen3 上同等算力全面超过 DAPO，AIME26 高出 8.59 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-45RL探索优化解耦-10-09)]]></description>
+<pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
+</item>
+<item>
+<title>10月9日 (5/5) Composing What Each Teacher Learned: Multi-Teacher On-Policy Distillation through Teacher-Relative Shifts</title>
+<link>https://arxiv.org/abs/2610.10460</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.10460</guid>
+<description><![CDATA[**作者**：Hejian Sang 等（Iowa State University、LinkedIn、Harvard University）
+
+**总结**：多教师在线蒸馏直接搬教师终点策略，会连带搬入教师基座的旧偏好。Δ-MOPD 只迁移“教师减基座”的 logit 偏移并重新锚定到学生初始化。三教师组合超过端点组合 4.11 个 Math 分，达到同样效果节省 35% H100 机时。
+
+**今日点评**：今天五篇都在回答同一个问题：RL 训练的每一份算力怎么花才值。ThunderSyncRL 与 BoT-GRPO 分别从系统调度和算法层面把 GRPO 相关训练提速近两倍；Δ-MOPD 让多教师蒸馏省下三成半的 H100 机时；ExpDis 证明把探索和优化解耦后，同等算力能换来更高的 pass@k；而 NVIDIA 的探针则帮你在烧钱之前选对 base 模型。趋势很明确：RL 提效的重心正从“堆更多 rollout”转向“精算每一份算力”。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-55多教师蒸馏提效-10-09)]]></description>
+<pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
+</item>
 </channel>
 </rss>
