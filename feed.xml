@@ -518,5 +518,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-55多教师蒸馏提效-10-09)]]></description>
 <pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
 </item>
+<item>
+<title>10月10日 (1/5) MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</title>
+<link>https://arxiv.org/abs/2610.11959</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.11959</guid>
+<description><![CDATA[**作者**：Xiaomi LLM-Core Team（小米）
+
+**总结**：小米发布 MiMo-V2.6 技术报告，把 RL 算力沿大 batch 高吞吐、多域环境、agentic grading 三个维度规模化（每步 1,568 samples、2.7–3.7B tokens、1M 上下文），Pro 版在 Terminal Bench 2.1 达 89.9、OSWorld-Verified 82.0；并开源训练动态、RL 环境与框架。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-15小米RL自改进-10-10-2)]]></description>
+<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
+</item>
+<item>
+<title>10月10日 (2/5) GRPODropout: Less is More for Online Reinforcement Learning Rollouts</title>
+<link>https://arxiv.org/abs/2610.11854</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.11854</guid>
+<description><![CDATA[**作者**：Hexuan Deng 等（哈工大（深圳）、北京中关村学院、XinzhuAI）
+
+**总结**：在 GRPO 更新前贪心删掉最损害熵的高概率正优势 rollout 并重心化保留优势，Qwen3 三模型十个 benchmark 平均超原始 GRPO 1.55pp，更新样本少 12.1%，actor entropy 高出数倍，开销可忽略。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-25GRPO少即是多-10-10)]]></description>
+<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
+</item>
+<item>
+<title>10月10日 (3/5) Fed-GRPO: Reward-Signal-Driven Federated Group Relative Policy Optimization</title>
+<link>https://arxiv.org/abs/2610.11502</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.11502</guid>
+<description><![CDATA[**作者**：Pengxin Guo 等（香港大学、中山大学）
+
+**总结**：把 GRPO 天然产生的 reward 统计量当作零成本信号，驱动联邦聚合、优化校准与自适应稀疏通信；Qwen2.5-3B 上数学推理平均 39.06%（FedAvg 37.10%，中心化 40.21%），无损压缩 32×，极限带宽下 621× 压缩。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-35联邦GRPO提效-10-10)]]></description>
+<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
+</item>
+<item>
+<title>10月10日 (4/5) ViSkill: Reinforcing VLM Agents with Evolving Visual-Native Skills</title>
+<link>https://arxiv.org/abs/2610.12403</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.12403</guid>
+<description><![CDATA[**作者**：Hongxing Li 等（浙江大学）
+
+**总结**：把 VLM 智能体的成功经验编码为复合视觉技能卡，检索技能同时指导推理与 reward shaping，成功轨迹再蒸馏回库；三环境整体成功率 0.89（+cold-start 0.91），超越所有闭源/开源基线，收敛快于 PPO。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-45视觉技能卡提效-10-10-2)]]></description>
+<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
+</item>
+<item>
+<title>10月10日 (5/5) OnTrack: Real-Time Monitoring and Intervention in LLM Agent Trajectories via Streaming Structure-Aware Optimal Transport</title>
+<link>https://arxiv.org/abs/2610.12375</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.12375</guid>
+<description><![CDATA[**作者**：Babak Barazandeh 等（Cribl AI Research Lab）
+
+**总结**：流式最优传输对齐智能体轨迹与成功参考，每步约 1ms 即可告警或拦截；SWE-bench 上前 8 步判别失败轨迹比内容相似度基线高 +0.057 AUROC，abort 策略省下约 18% 失败运行算力。
+
+**今日点评**：今天的 5 篇凑成了一套“RL 提效全家桶”：小米 MiMo-V2.6 把 RL 当 scaling 维度做基建（吞吐/环境/grading 三维拉满）；GRPODropout 与 Fed-GRPO 分别从“用好每个 rollout”和“联邦场景零成本协调”两个角度给 GRPO 提效；ViSkill 用视觉技能卡让 VLM 智能体学得更快；OnTrack 则从监控侧帮你省下注定失败的算力。共同的信号是：RL 的红利正在从“算法 trick”转向“工程与数据效率”——基建、信号复用、早停，一个都不能少。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-55智能体轨迹监控-10-10-3)]]></description>
+<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
+</item>
 </channel>
 </rss>
