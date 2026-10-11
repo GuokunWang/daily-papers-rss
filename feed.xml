@@ -575,5 +575,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-55智能体轨迹监控-10-10-3)]]></description>
 <pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
 </item>
+<item>
+<title>10月11日 (1/5) RollVerify: Bridging Efficiency and Accuracy in Long-Tail Rollout Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.09914</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.09914</guid>
+<description><![CDATA[**作者**：Yongqiang Yao 等（商汤科技、上海交通大学、香港中文大学、北京航空航天大学、中南大学）
+
+**总结**：RollVerify 在 partial rollout 框架上增加轻量验证阶段：用 off-policy shift（OPS）指标度量部分生成轨迹的偏离程度，对偏离过大的样本做序列级和 token 级验证并截断无效后缀，只保留近 on-policy 的前缀继续 rollout。在 Qwen3-8B 与 Qwen3-30B-A3B（MoE）上均达到与 on-policy 训练相当的精度，同时把训练成本从 98.1/112 GPU days 分别降到 57.5/65.1，实现 1.7× 加速。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-15长尾轨迹验证提速-10-11)]]></description>
+<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
+</item>
+<item>
+<title>10月11日 (2/5) When Should Agents Think? Adaptive Reasoning via Cross-Turn Estimation</title>
+<link>https://arxiv.org/abs/2610.12061</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.12061</guid>
+<description><![CDATA[**作者**：Yiruo Cheng 等（阿里巴巴 Token Hub、中国人民大学）
+
+**总结**：RACE 解决智能体每一轮是否都需要显式思考的问题：删除某轮推理后、若后续参考动作的似然下降很小，则该轮推理可安全省略。基于此提出 LoGiC 渐进式推理覆盖检测，把删除信号同时用于 SFT 数据合成和 agentic RL，让策略学会何时思考、何时直接行动。在 ScienceWorld、WebShop、AppWorld、DeepSearch 上推理 token 最多减少 80.3%，成功率持平或超越更大专有模型智能体。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-25智能体何时思考-10-11)]]></description>
+<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
+</item>
+<item>
+<title>10月11日 (3/5) Residual Advantage: Student-Relative Teacher Guidance for RL with Verifiable Rewards</title>
+<link>https://arxiv.org/abs/2610.11519</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.11519</guid>
+<description><![CDATA[**作者**：Xiaobing Chen 等（腾讯、哈尔滨工程大学、哈尔滨工业大学）
+
+**总结**：RA（Residual Advantage）把教师减学生的概率残差作为有界单步奖励，减去学生策略下的状态价值并做 response 内中心化后叠加到 verifier advantage 上，让教师只在步内重分配 credit、不污染 outcome 标签。CoRA 进一步在同一批学生样本上用 verifier advantage 更新教师 LoRA，使引导自适应学生尝试。在 24 组对比中全部正向，macro Avg@8 提升 1.74–3.58 个百分点，且优于纯教师 OPD。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-35学生相对教师引导-10-11)]]></description>
+<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
+</item>
+<item>
+<title>10月11日 (4/5) SAPD: Step-Aligned Privileged Distillation</title>
+<link>https://arxiv.org/abs/2610.09665</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.09665</guid>
+<description><![CDATA[**作者**：Tianle Wang 等（香港城市大学、深圳大学）
+
+**总结**：SAPD 是一种免 rollout 的自蒸馏方法：把固定参考解答按推理步骤切分，用冻结的特权教师为每个推理转移提供与当前步骤对齐的分布化监督，学生只做离线蒸馏。在 AIME24/25、HMMT25 上平均 47.87% 超过 GRPO 与 OPSD 等 on-policy 基线，训练循环耗时仅为其约一半（9.88 分钟 vs 19.20/22.02，约 2× 加速），输出反而最短。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-45免Rollout自蒸馏-10-11)]]></description>
+<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
+</item>
+<item>
+<title>10月11日 (5/5) PIVOT: Perplexity-Informed KD-to-RL Transition Scheduling for Vertical-Domain Few-Shot Distillation</title>
+<link>https://arxiv.org/abs/2610.11167</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.11167</guid>
+<description><![CDATA[**作者**：Heng Li 等（平安科技（深圳）、中国科学技术大学）
+
+**总结**：PIVOT 解决 KD→RL 流水线中何时从蒸馏切换到强化学习的问题：用教师评估的序列困惑度逐样本动态路由，低困惑度样本提前转入 GRPO 做奖励驱动精炼，高困惑度样本继续 OPD 蒸馏学领域知识，切换比例按 cosine 调度渐进提升。在 Banking77（80.26%）与 HWU64（85.04%）上均超固定切换基线约 2 个百分点，甚至超过教师零样本，训练动态也更平滑。
+
+**今日点评**：今日 5 篇全部围绕“用更少算力做出同样甚至更好的 RL 后训练”：RollVerify 与 SAPD 分别从“修复 partial rollout 的过时样本”和“免 rollout 的离线蒸馏”砍训练成本（1.7× 与约 2×），RACE 让智能体学会省思考 token（最多降 80%），RA/CoRA 与 PIVOT 则在“蒸馏 + RL 如何结合”上做精细化。趋势很清晰：RL 训练的优化重心正从“加数据加算力”转向“样本质量与计算分配的精细管理”，OPD（on-policy distillation）正在成为后训练流水线的标配组件。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-55困惑度调度KD转RL-10-11)]]></description>
+<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
+</item>
 </channel>
 </rss>
