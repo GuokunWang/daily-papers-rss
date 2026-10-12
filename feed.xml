@@ -633,39 +633,6 @@
 <pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
 </item>
 <item>
-<title>10月12日 (1/5) NeMo-DCR: Bit-Exact Delta-Compressed Refit for Scalable Agentic RL at Trillion-Parameter Scale</title>
-<link>https://arxiv.org/abs/2610.08430</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.08430</guid>
-<description><![CDATA[**作者**：Songlin Jiang 等（NVIDIA、Aalto University）
-
-**总结**：针对 agentic RL 训练与 rollout 分离导致的权重同步瓶颈，NVIDIA 提出只传参数增量的比特精确 refit 方案。实测 1T 模型跨 AWS 区域同步从 87.5 分钟压缩到 150 秒，30B–1T 模型快 12–40 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-15RL权重同步增量压缩-10-12-2)]]></description>
-<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
-</item>
-<item>
-<title>10月12日 (2/5) BoT-GRPO: Efficient Process-Reward RL for Reasoning via Bag-of-Token Aggregation</title>
-<link>https://arxiv.org/abs/2610.09804</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.09804</guid>
-<description><![CDATA[**作者**：Yingxiang Yang 等（Amazon AGI、Virginia Tech）
-
-**总结**：Amazon 提出无 critic 的过程监督 GRPO 变体：用长度不变的 bag-of-tokens 聚合把 token 级奖励转成每 token advantage。React 代码生成达 80% 编译率提速 1.9 倍，AIME 仅用一半步数、Pass@k 绝对增益最高 8.1%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-25GRPO过程奖励提效-10-12)]]></description>
-<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
-</item>
-<item>
-<title>10月12日 (3/5) ThunderSyncRL: Lossless Acceleration of Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.05935</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.05935</guid>
-<description><![CDATA[**作者**：Seil Kang 等（Stanford University、Yonsei University、Korea University、Bespoke Labs）
-
-**总结**：用梯度流式化消除同步 agentic RL 的流水线气泡：输入齐备即算梯度，并理论证明与批量同步更新完全等价，实现零策略过期。SWE-bench 同性能下最高 1.9 倍更快。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-35智能体RL无损加速-10-12)]]></description>
-<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
-</item>
-<item>
 <title>10月12日 (4/5) GraphOPD: Graph-Augmented On-Policy Distillation for LLM Agents</title>
 <link>https://arxiv.org/abs/2610.08959</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.08959</guid>
