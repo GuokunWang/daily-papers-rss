@@ -632,5 +632,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-55困惑度调度KD转RL-10-11)]]></description>
 <pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
 </item>
+<item>
+<title>10月12日 (1/5) NeMo-DCR: Bit-Exact Delta-Compressed Refit for Scalable Agentic RL at Trillion-Parameter Scale</title>
+<link>https://arxiv.org/abs/2610.08430</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.08430</guid>
+<description><![CDATA[**作者**：Songlin Jiang 等（NVIDIA、Aalto University）
+
+**总结**：针对 agentic RL 训练与 rollout 分离导致的权重同步瓶颈，NVIDIA 提出只传参数增量的比特精确 refit 方案。实测 1T 模型跨 AWS 区域同步从 87.5 分钟压缩到 150 秒，30B–1T 模型快 12–40 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-15RL权重同步增量压缩-10-12-2)]]></description>
+<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
+</item>
+<item>
+<title>10月12日 (2/5) BoT-GRPO: Efficient Process-Reward RL for Reasoning via Bag-of-Token Aggregation</title>
+<link>https://arxiv.org/abs/2610.09804</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.09804</guid>
+<description><![CDATA[**作者**：Yingxiang Yang 等（Amazon AGI、Virginia Tech）
+
+**总结**：Amazon 提出无 critic 的过程监督 GRPO 变体：用长度不变的 bag-of-tokens 聚合把 token 级奖励转成每 token advantage。React 代码生成达 80% 编译率提速 1.9 倍，AIME 仅用一半步数、Pass@k 绝对增益最高 8.1%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-25GRPO过程奖励提效-10-12)]]></description>
+<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
+</item>
+<item>
+<title>10月12日 (3/5) ThunderSyncRL: Lossless Acceleration of Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.05935</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.05935</guid>
+<description><![CDATA[**作者**：Seil Kang 等（Stanford University、Yonsei University、Korea University、Bespoke Labs）
+
+**总结**：用梯度流式化消除同步 agentic RL 的流水线气泡：输入齐备即算梯度，并理论证明与批量同步更新完全等价，实现零策略过期。SWE-bench 同性能下最高 1.9 倍更快。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-35智能体RL无损加速-10-12)]]></description>
+<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
+</item>
+<item>
+<title>10月12日 (4/5) GraphOPD: Graph-Augmented On-Policy Distillation for LLM Agents</title>
+<link>https://arxiv.org/abs/2610.08959</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.08959</guid>
+<description><![CDATA[**作者**：Bohan Lin 等（小红书、中国科学技术大学、香港科技大学（广州））
+
+**总结**：首次把图结构增强引入智能体的 on-policy 蒸馏：从环境状态变化记录构建步骤依赖图，用随机游走稳态分布给关键步骤打分。在 3 模型规模 × 3 基准上对 11 个基线全面领先，7B 上 ALFWorld 达 91.9%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-45图增强OPD蒸馏-10-12)]]></description>
+<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
+</item>
+<item>
+<title>10月12日 (5/5) Balancing Reference Guidance and Free Generation in Trajectory Rollouts for Reasoning RL</title>
+<link>https://arxiv.org/abs/2610.11128</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.11128</guid>
+<description><![CDATA[**作者**：Hanyu Wang 等（Honda Research Institute USA、宾州州立大学、Honda Research Institute Japan）
+
+**总结**：提出 Adaptive Reference Guidance（ARG）：用参考答案前缀续写在 GRPO 全失败组中生成正确轨迹，并在线学习跨问题的统一前缀选择器。Qwen3-4B/8B 上 5 个数学推理基准聚合 pass@12 最高（67.33%/70.00%）。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-55参考引导与自由生成-10-12)
+
+**今日点评**：今日 5 篇全部围绕“高效 RL 训练”：NeMo-DCR 解决 agentic RL 的权重同步瓶颈（87.5 分钟→150 秒），ThunderSyncRL 用梯度流式化把训练成本压到 1/1.9 且零策略过期，BoT-GRPO 让过程奖励在 GRPO 里真正跑起来（提速 1.9 倍），GraphOPD 和 ARG 则分别从“步骤重要性”和“参考引导”两个角度提高 rollout 样本的利用效率。一个清晰的趋势是：效率优化正从批量级下沉到 token/步骤级——更细的粒度、更准的信用分配，正在成为 RL 提效的主战场。]]></description>
+<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
+</item>
 </channel>
 </rss>
