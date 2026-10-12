@@ -462,17 +462,6 @@
 <pubDate>Thu, 08 Oct 2026 01:24:00 +0000</pubDate>
 </item>
 <item>
-<title>10月9日 (1/5) ThunderSyncRL: Lossless Acceleration of Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.05935</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.05935</guid>
-<description><![CDATA[**作者**：Seil Kang 等（Stanford University、Yonsei University、Korea University、Bespoke Labs）
-
-**总结**：同步训练 agentic RL 时学习器近半时间空转等待 rollout；异步训练又引入策略陈旧。ThunderSyncRL 用梯度流式调度让反向传播与 rollout、工具调用并行，并证明与同步训练更新完全等价，在 SWE-bench Verified 与 Terminal Bench 4.0 上最多提速 1.9 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-15RL训练无损加速-10-09)]]></description>
-<pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
-</item>
-<item>
 <title>10月9日 (2/5) BoT-GRPO: Efficient Process-Reward RL for Reasoning via Bag-of-Token Aggregation</title>
 <link>https://arxiv.org/abs/2610.09804</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.09804</guid>
