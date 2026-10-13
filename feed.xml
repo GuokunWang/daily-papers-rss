@@ -645,5 +645,62 @@
 **今日点评**：今日 5 篇全部围绕“高效 RL 训练”：NeMo-DCR 解决 agentic RL 的权重同步瓶颈（87.5 分钟→150 秒），ThunderSyncRL 用梯度流式化把训练成本压到 1/1.9 且零策略过期，BoT-GRPO 让过程奖励在 GRPO 里真正跑起来（提速 1.9 倍），GraphOPD 和 ARG 则分别从“步骤重要性”和“参考引导”两个角度提高 rollout 样本的利用效率。一个清晰的趋势是：效率优化正从批量级下沉到 token/步骤级——更细的粒度、更准的信用分配，正在成为 RL 提效的主战场。]]></description>
 <pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
 </item>
+<item>
+<title>10月13日 (1/5) Rollout-Time Intervention: Unlocking Agentic Reinforcement Learning Beyond Policy Limits</title>
+<link>https://arxiv.org/abs/2610.13438</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13438</guid>
+<description><![CDATA[**作者**：Chen Xi 等（阿里巴巴、香港科技大学（广州））
+
+**总结**：阿里 Token Hub 与港科大（广州）合作，提出 Rollout-Time Intervention（RTI）：当整组 rollout 全部失败时，用奖励侧证据在 rollout 过程中把失败轨迹修正成成功轨迹，再用困惑度门控过滤分布偏移过大的样本，让智能体 RL 学到自身能力边界之外的成功经验。Qwen3-8B 上 Claw-Eval-Hard20 达 50.00%（GRPO 22.50%，+27.5pp），5 个基准全面领先；且自干预已足够，无需更强教师。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-15Rollout干预扩探索-10-13)]]></description>
+<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
+</item>
+<item>
+<title>10月13日 (2/5) Branching On-Policy Distillation</title>
+<link>https://arxiv.org/abs/2610.13481</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13481</guid>
+<description><![CDATA[**作者**：Dongyang Chen 等（商汤科技、清华大学、北京大学）
+
+**总结**：分支式 on-policy 蒸馏（BranchOPD）：按“学生不确定性＋师生分歧”在学生轨迹上挑选信息量最大的决策点，从共享前缀重采样分支 continuation，教师逐 token 监督主轨迹与分支。相对 7 条独立轨迹，ALFWorld/WebShop 学生生成 token 成本降低约 19%/31%，数学 avg@16 相对 Vanilla OPD 提升 18.55 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-25分支采样OPD提效-10-13)]]></description>
+<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
+</item>
+<item>
+<title>10月13日 (3/5) Matched-Context Group Policy Optimization for LLM Agent Training</title>
+<link>https://arxiv.org/abs/2610.13755</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13755</guid>
+<description><![CDATA[**作者**：Chenxu Zhang 等（美团、帝国理工学院、清华大学、中国科学技术大学）
+
+**总结**：提出 Matched-Context GPO（MCGPO），解决智能体组内相对 RL 的比较错位问题：用“动作前状态摘要＋已观察 rubric 进度”定义比较上下文，只在双动作都有证据支持时构造加权动作偏好，复用已采集轨迹、保持无 critic。WebShop 上 Qwen3-4B/8B 分别提升 3.96/5.16 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-35上下文匹配GRPO-10-13)]]></description>
+<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
+</item>
+<item>
+<title>10月13日 (4/5) S3R: Fast and Faithful RL Rollouts via Self-Sparse Speculative Decoding</title>
+<link>https://arxiv.org/abs/2610.13202</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13202</guid>
+<description><![CDATA[**作者**：Yuhang He 等（香港科技大学（广州））
+
+**总结**：长上下文 RLVR 的 rollout 加速方案 S³R：稀疏注意力只做“自草稿”，全注意力精确验证（speculative sampling），draft 与验证共享同一策略参数、无需额外训练 drafter。证明了 response-wise 精确修正一般恢复不了 dense 策略更新。Qwen3-1.7B/8B 端到端训练吞吐分别达 1.39/1.35 倍，性能相当。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-45稀疏Rollout加速-10-13)]]></description>
+<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
+</item>
+<item>
+<title>10月13日 (5/5) MENTOR: Learning from Failure with On-Policy Pedagogical Intervention</title>
+<link>https://arxiv.org/abs/2610.13594</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13594</guid>
+<description><![CDATA[**作者**：Guanlan Yue 等（西安交通大学）
+
+**总结**：针对 RLVR 的“零奖励崩溃”（整批轨迹零奖励、梯度信号消失），提出 MENTOR：在训练循环里嵌入多智能体“实时导师”，诊断失败根因并动态生成针对性教学 prompt，把系统性失败变成教学机会，即插即用接入 GRPO。Llama-3.2-3B-Instruct 上相对 base 平均相对提升最高达 78.3%。
+
+**今日点评**：今日五篇的共同主题是 RL 提效从“多采样”转向“把每条轨迹用足”——RTI 修失败 rollout、BranchOPD 复用分支压榨采样预算、MCGPO 让比较更可信、S³R 让 rollout 更快更稳、MENTOR 把崩溃变成教学。效率优化正下沉到 token 级和决策级：更细的信用分配、更准的失败利用，是下一阶段 RL 提效的主线。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-55实时导师防崩溃-10-13)]]></description>
+<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
+</item>
 </channel>
 </rss>
