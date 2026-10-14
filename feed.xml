@@ -702,5 +702,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-55实时导师防崩溃-10-13)]]></description>
 <pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
 </item>
+<item>
+<title>10月14日 (1/5) Generalized Proximal Policy Optimization: Unifying LLM RL Algorithms from the Perspective of Divergence</title>
+<link>https://arxiv.org/abs/2610.13015</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13015</guid>
+<description><![CDATA[**作者**：Zhicheng Cai 等（清华大学智能产业研究院（AIR）、字节跳动 Seed）
+
+**总结**：GPPO 用 f-散度视角统一 PPO 及其变体，提出“散度 × 估计器”二维设计空间。最优配置（KL 散度 + Atomic 估计器）在 Qwen3-8B-Base 上相对 GRPO 数学平均提升 49.8%、代码提升 13.9%，超越全部对比基线。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月14日-15GPPO-散度统一框架-10-14)]]></description>
+<pubDate>Wed, 14 Oct 2026 00:57:02 GMT</pubDate>
+</item>
+<item>
+<title>10月14日 (2/5) Trajectory-Aware Policy Optimization: Closing the State Distribution Gap in Long-Horizon LLM RL</title>
+<link>https://arxiv.org/abs/2610.13020</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13020</guid>
+<description><![CDATA[**作者**：Zhicheng Cai 等（清华大学智能产业研究院（AIR）、字节跳动 Seed）
+
+**总结**：TAPO 指出 GRPO/GSPO 只纠正动作级失配、漏掉了轨迹累积的状态分布偏移，提出轨迹感知的状态分布纠正。Qwen3-8B 上相对 GRPO 数学 +48.0%、代码 +11.8%，且训练全程不崩溃。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月14日-25TAPO-轨迹感知优化-10-14)]]></description>
+<pubDate>Wed, 14 Oct 2026 00:57:02 GMT</pubDate>
+</item>
+<item>
+<title>10月14日 (3/5) SOAR: Source-Aware Reinforcement Learning with Precise Credit Assignment for Search Agents</title>
+<link>https://arxiv.org/abs/2610.13157</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13157</guid>
+<description><![CDATA[**作者**：Shengze Huang 等（浙江大学、微软）
+
+**总结**：SOAR 把搜索 agent 的推理轨迹拆成“内部知识 vs 外部证据”两条可观测源流，用源一致奖励做精确信用分配。Qwen2.5-3B/7B 上 7 个 QA 基准平均 EM 为 0.414 / 0.448，证据编造率降至 4.05%（相对下降 74.81%）。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月14日-35SOAR-溯源信用分配-10-14)]]></description>
+<pubDate>Wed, 14 Oct 2026 00:57:02 GMT</pubDate>
+</item>
+<item>
+<title>10月14日 (4/5) A Step Harder, Not a Step Too Far: The Benefits and Limits of Curriculum Difficulty Progression in GRPO</title>
+<link>https://arxiv.org/abs/2610.13669</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.13669</guid>
+<description><![CDATA[**作者**：Ronghan Li 等（大连海事大学）
+
+**总结**：在 GRPO 里“一直选中等难度样本”并非最优；按当前策略在线重估难度、分阶段向更难推进，中等偏难阶段在 GSM8K 上达到 0.6591，高于固定中等课程的 0.6449，但再往更难推进反而跌至 0.6405。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月14日-45GRPO-课程难度进阶-10-14)]]></description>
+<pubDate>Wed, 14 Oct 2026 00:57:02 GMT</pubDate>
+</item>
+<item>
+<title>10月14日 (5/5) Learning More by Training Less: Uncertainty-Guided Progressive Contraction for Efficient Reasoning Post-Training</title>
+<link>https://arxiv.org/abs/2610.12933</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.12933</guid>
+<description><![CDATA[**作者**：Suorong Yang 等（新加坡国立大学、南京大学、复旦大学、悉尼大学、香港中文大学、南洋理工大学）
+
+**总结**：不确定性引导的两阶段渐进收缩把监督压缩到最有学习价值的轨迹上，仅用全量 SFT 0.22% 的优化预算，Qwen3.5-4B 上 AIME24 从 73.3 提升到 90.0，实现 800 倍以上墙钟加速。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月14日-55不确定性压缩训练-10-14)
+
+**今日点评**：今日五篇围绕一个共同主题：RL 训练正在从“堆更多采样”转向“把每条轨迹用得更准”——GPPO 修散度几何、TAPO 补状态分布、SOAR 分清信用归属、GRPO 课程盯住难度带、压缩训练砍掉无效监督。五篇的共同点是都对“训练信号的质量与分配”动手，而非单纯放大算力；其中 GPPO 与 TAPO 出自同一团队、同一实验协议，对照着读最有价值。]]></description>
+<pubDate>Wed, 14 Oct 2026 00:57:02 GMT</pubDate>
+</item>
 </channel>
 </rss>
