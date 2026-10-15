@@ -759,5 +759,62 @@
 **今日点评**：今日五篇围绕一个共同主题：RL 训练正在从“堆更多采样”转向“把每条轨迹用得更准”——GPPO 修散度几何、TAPO 补状态分布、SOAR 分清信用归属、GRPO 课程盯住难度带、压缩训练砍掉无效监督。五篇的共同点是都对“训练信号的质量与分配”动手，而非单纯放大算力；其中 GPPO 与 TAPO 出自同一团队、同一实验协议，对照着读最有价值。]]></description>
 <pubDate>Wed, 14 Oct 2026 00:57:02 GMT</pubDate>
 </item>
+<item>
+<title>10月15日 (1/5) Double-Rollout Reinforcement Learning with Sampling-based Reward Estimation</title>
+<link>https://arxiv.org/abs/2610.16593</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.16593</guid>
+<description><![CDATA[**作者**：Haifeng Qian 等（NVIDIA）
+
+**总结**：NVIDIA 提出双采样 RL：截断每条推理轨迹、从截断点多路续写取平均奖励，替代噪声大的 0/1 结果奖励。Nemotron-3-Nano-30B-A3B 上 AIME 2026 达 95.4%（GRPO 基线 91.5%），仅用 30 个 RL step，精度堪比 10 倍参数模型。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-15NVIDIA-双采样提效-10-15)]]></description>
+<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
+</item>
+<item>
+<title>10月15日 (2/5) ProAS: A Progress-Aware Advantage Shaping Framework for Multi-Turn Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.18683</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.18683</guid>
+<description><![CDATA[**作者**：Bowen Ding 等（华为诺亚方舟实验室、浙江大学、西湖大学）
+
+**总结**：用动态演化的智能体参考图（ARG）做细粒度信用分配：MUI 屏蔽不合理动作的激励，APR 非对称重分配惩罚，无需 critic。Qwen2.5-7B 上 ALFWorld 成功率 94.3%、WebShop 70.8%，收敛最高加速 2.44 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-25华为进度感知优势整形-10-15)]]></description>
+<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
+</item>
+<item>
+<title>10月15日 (3/5) Two Clocks: Why Larger Rollout Batches Learn Slower but Fail on Schedule in Reinforcement Learning with Verifiable Rewards</title>
+<link>https://arxiv.org/abs/2610.18853</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.18853</guid>
+<description><![CDATA[**作者**：Yuante Li 等（卡内基梅隆大学、多伦多大学）
+
+**总结**：双时钟框架解释多步 GRPO 批量扩展：平方根学习率规则保住的是每样本一阶漂移而非进展，存在随学习率变化的临界批量（1e-6→1e-5 时从约 9k 降到约 2k responses）。导出实用调度：小批量起步、失败前切换大批量。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-35RLVR-双时钟批量定律-10-15)]]></description>
+<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
+</item>
+<item>
+<title>10月15日 (4/5) Enabling Token-wise Importance Sampling in Off-Policy RLVR with Proximal KL Regularization</title>
+<link>https://arxiv.org/abs/2610.18738</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.18738</guid>
+<description><![CDATA[**作者**：Hao Bai 等（伊利诺伊大学厄巴纳-香槟分校）
+
+**总结**：证明在覆盖性与局部表达力下，“完整未来 KL 信用”使精确近端优化器成为 token 级重要性采样的唯一驻点策略，无需整 response 权重或 critic。Proximal KL 在 Qwen3-1.7B/4B 的 7 组离策略对比中全面超 GRPO，8 个数学基准微平均最高 +2.58%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-45离策略-RLVR-近端-KL-10-15)]]></description>
+<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
+</item>
+<item>
+<title>10月15日 (5/5) Variance-Optimal State Resampling for Reinforcement Learning with Verifiable Rewards</title>
+<link>https://arxiv.org/abs/2610.15888</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.15888</guid>
+<description><![CDATA[**作者**：Yibo Wang 等（西北大学）
+
+**总结**：把固定 rollout 预算下的状态采样形式化为方差最小化，得到闭式 Neyman 分配；VSR 用前缀回放 buffer + 零成本方差代理即插即用。Qwen2.5-1.5B 上 150 更新仅 39.27M tokens（GiGPO 81.30M），BabyAI 平均成功率 47.6% 对 30.4%，并自然涌现反向课程。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-55方差最优状态重采样-10-15)
+
+**今日点评**：今日 5 篇有一个共同主题：RL 训练正在从“堆更多采样”转向“把每条样本用得更准”——无论是降噪奖励估计（NVIDIA 双采样）、细化信用分配（华为 ProAS、西北 VSR）、复用离策略数据（UIUC Proximal KL），还是算清批量账（CMU 双时钟），核心都是提升每单位算力的学习信号质量。大厂（NVIDIA、华为诺亚）与高校（CMU、UIUC、西北大学）同场攻坚，说明高效 RLVR 已是产学研共同的前线。下一个值得看的点：这些提效手段能否叠加——比如 VSR 的采样 + Proximal KL 的离策略复用 + 双采样的奖励降噪，拼在一起会不会有乘法效应。]]></description>
+<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
+</item>
 </channel>
 </rss>
