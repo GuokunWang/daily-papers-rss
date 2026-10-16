@@ -816,5 +816,62 @@
 **今日点评**：今日 5 篇有一个共同主题：RL 训练正在从“堆更多采样”转向“把每条样本用得更准”——无论是降噪奖励估计（NVIDIA 双采样）、细化信用分配（华为 ProAS、西北 VSR）、复用离策略数据（UIUC Proximal KL），还是算清批量账（CMU 双时钟），核心都是提升每单位算力的学习信号质量。大厂（NVIDIA、华为诺亚）与高校（CMU、UIUC、西北大学）同场攻坚，说明高效 RLVR 已是产学研共同的前线。下一个值得看的点：这些提效手段能否叠加——比如 VSR 的采样 + Proximal KL 的离策略复用 + 双采样的奖励降噪，拼在一起会不会有乘法效应。]]></description>
 <pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
 </item>
+<item>
+<title>10月16日 (1/5) VASPO: Self-Distillation with Privileged Value Estimation</title>
+<link>https://arxiv.org/abs/2610.20516</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.20516</guid>
+<description><![CDATA[**作者**：Fei Wu 等（中国科学技术大学、科大讯飞研究院）
+
+**总结**：把 on-policy 自蒸馏的特权信息同时喂给 critic 与 self-teacher，利用两者互补的位置动力学构造更准的 token 级 PPO advantage。在 Qwen3-4B 六个数学基准上平均相对 PPO 提升 2.59 个百分点，OLMo3-7B 上提升 1.81 个百分点，Knights and Knaves 逻辑推理取得所比方法最高均分。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月16日-15VASPO价值增强自蒸馏-10-16-3)]]></description>
+<pubDate>Fri, 16 Oct 2026 00:59:08 +0000</pubDate>
+</item>
+<item>
+<title>10月16日 (2/5) Hindsight-Privileged RLVR: Single-Rollout Token Credit Without Group Sampling</title>
+<link>https://arxiv.org/abs/2610.20497</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.20497</guid>
+<description><![CDATA[**作者**：Wei Chen 等（华南理工大学、清华大学、香港科技大学、华为 2012 实验室）
+
+**总结**：扔掉 GRPO 的组采样，只用一条 rollout，以其自身的“未来”（实现轨迹与 verifier 反馈）为后见上下文，用因果/后见两种视角的分布差异（归一化 JS 散度）做 token 级信用分配。在 Qwen3-8B 上训练速度达 GRPO 的 1.21~2.30 倍，每 prompt 仅用 1/8 rollout，ALFWorld 上零梯度记录从 43.2% 降至 0。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月16日-25后见特权RLVR-10-16)]]></description>
+<pubDate>Fri, 16 Oct 2026 00:59:08 +0000</pubDate>
+</item>
+<item>
+<title>10月16日 (3/5) RM-OPD: On-Policy Distillation for Generative Reward Models</title>
+<link>https://arxiv.org/abs/2610.20174</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.20174</guid>
+<description><![CDATA[**作者**：Qinglin Su 等（浙江大学、中国科学技术大学、小红书）
+
+**总结**：两阶段训练生成式奖励模型：先各域单独用 GRPO 训出 specialist teacher，再用路由式在策略蒸馏把多域能力融进一个学生，附带域贡献重加权与准则上下文蒸馏。在 DeepSeek-R1-Distill-Qwen-7B 与 Qwen2.5 基座上各维度相对 Mix-RL 提升 1.2~7.3pp，并在 RewardBench 2 等复杂推理任务上出现学生超越老师的效应。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月16日-35OPD融合奖励模型-10-16)]]></description>
+<pubDate>Fri, 16 Oct 2026 00:59:08 +0000</pubDate>
+</item>
+<item>
+<title>10月16日 (4/5) More Methods, Better Agents? A Reality Check on Self-Distillation in Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.19789</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.19789</guid>
+<description><![CDATA[**作者**：Linhao Zhong 等（浙江大学、蚂蚁集团）
+
+**总结**：花 132 次训练、12,124.4 个 H800 GPU 小时，把 10 种 agentic RL 自蒸馏方法与 GRPO 在统一协议下重跑。结论：相对 GRPO 的增益有限且无方法全设置领先，强终点分数常掩盖训练不稳定，更多算力投入不稳定地换来更好性能。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月16日-45AgentRL自蒸馏实测-10-16)]]></description>
+<pubDate>Fri, 16 Oct 2026 00:59:08 +0000</pubDate>
+</item>
+<item>
+<title>10月16日 (5/5) ForkGRPO: Efficient Exploration and Fine-Grained Credit Assignment for Diffusion Language Models</title>
+<link>https://arxiv.org/abs/2610.19408</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.19408</guid>
+<description><![CDATA[**作者**：Zhaoyan Jia 等（南加州大学、凯斯西储大学）
+
+**总结**：针对扩散语言模型的 GRPO 改进：从参考轨迹的高熵中间状态分叉出多个 continuation（复用共享前缀），用组内优势与 Monte Carlo 状态价值差分做段级信用分配。在 LLaDA-8B 上相对 JustGRPO 四基准 +0.4~+1.2pp，生成 token 最多省 27.8%，ForkGRPO-Fast 训练 wall-clock 加速 2.49 倍且精度几乎无损。
+
+**今日点评**：今日五篇的主线都是“RL 训练的效率与信用分配”：VASPO 用特权信息给 PPO 的价值估计加餐，HP-RLVR 干脆扔掉组采样、只用一条 rollout 的后见未来做 token 权重，RM-OPD 把昂贵的多域联合 RL 拆成单域专家加在策略蒸馏融合，ForkGRPO 让扩散 LM 的探索复用共享前缀、省下近三成生成 token。另一面，浙大与蚂蚁的 1.2 万 H800 小时复现研究给热潮泼了盆冷水：自蒸馏在 agentic RL 上的增益没有看起来那么稳，算力堆上去不等于效果跟上去。两条都值得记：提效的方法论在加速收敛，可靠的评估基线同样稀缺。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月16日-55ForkGRPO扩散LM-10-16)]]></description>
+<pubDate>Fri, 16 Oct 2026 00:59:08 +0000</pubDate>
+</item>
 </channel>
 </rss>
