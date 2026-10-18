@@ -930,5 +930,62 @@
 **今日点评**：今日 5 篇一半以上直指“RL 提效”本身：ReFlow 从系统侧把训练吞吐做到 2.06 倍，动量论文从优化器侧给出“调大 β1”的免费午餐，GGPO 从算法侧扔掉重要性权重、对抗策略陈旧；EliteReplay 与 MAI-Gym 则分别回答了“保住解法多样性”和“搭好训练基建”。一个趋势越来越明显：RLVR 的 infra 与优化细节，正在成为比新算法更稀缺的竞争力。]]></description>
 <pubDate>Sat, 17 Oct 2026 00:52:25 +0000</pubDate>
 </item>
+<item>
+<title>10月18日 (1/5) KnowGPO: Knowledge-Grouped Policy Optimization for Search Agents</title>
+<link>https://arxiv.org/abs/2610.22331</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.22331</guid>
+<description><![CDATA[**作者**：Siqi Chen 等（浙江大学、腾讯）
+
+**总结**：浙大与腾讯提出 KnowGPO，用“原子知识条件”表示轨迹的知识获取状态，同知识状态的轨迹组内比较、知识增量做过程奖励。在 Xbench、BrowseComp-ZH、GAIA 上比 GRPO 高 2.0%–5.9%，8B 模型打平/超越 32B 级开源深搜智能体。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-15知识分组策略优化-10-18)]]></description>
+<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
+</item>
+<item>
+<title>10月18日 (2/5) Learning Lean Feedback for Efficient Proof-Candidate Evaluation on GPUs</title>
+<link>https://arxiv.org/abs/2610.21881</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.21881</guid>
+<description><![CDATA[**作者**：Lazar Milikic 等（EPFL）
+
+**总结**：EPFL 用 484 万标注程序训练 Lean 4 判定预测器，两阶段筛选达 87.8% 准确率，单卡 H100 吞吐是 64-worker Lean 基线的 4.2 倍。混合奖励让 GRPO 训练步缩短约 31%，miniF2F pass@1 几乎无损（62.2% vs 62.4%）。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-25精益反馈加速验证-10-18)]]></description>
+<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
+</item>
+<item>
+<title>10月18日 (3/5) Where to Start, How to Move: Analyzing Curricula under GRPO for Long-Horizon LLM Agents</title>
+<link>https://arxiv.org/abs/2610.19349</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.19349</guid>
+<description><![CDATA[**作者**：Minchan Kim 等（首尔国立大学、建国大学）
+
+**总结**：SNU 系统研究长程智能体 GRPO 课程学习：用成功参考前缀引导、从接近完成处开始（End 初始化），在 BFCL 三个模型尺寸上全面超过 GRPO 且省约 8% GPU 时间，AppWorld 上省约 21%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-35GRPO-课程学习分析-10-18)]]></description>
+<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
+</item>
+<item>
+<title>10月18日 (4/5) Many Right Answers, One Training Example: Removing Responder Noise from GRPO for LLM Recommenders</title>
+<link>https://arxiv.org/abs/2610.17771</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.17771</guid>
+<description><![CDATA[**作者**：Xin Li 等（南洋理工大学）
+
+**总结**：NTU 发现 Rank-GRPO 的 advantage 方差 85% 来自“抽到哪条回复”而非生成质量。ReMaRk 对请求全部回复标题取并集一次打分，7 backbone×3 数据集上达到同等验证 recall 只需 25%–53% 步数。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-45GRPO-响应噪声消除-10-18)]]></description>
+<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
+</item>
+<item>
+<title>10月18日 (5/5) MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering</title>
+<link>https://arxiv.org/abs/2610.22344</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.22344</guid>
+<description><![CDATA[**作者**：Shangheng Du 等（华东师范大学、上海人工智能实验室）
+
+**总结**：华东师大与上海 AI Lab 训出 35B MoE 智能体 MLExpert：Kaggle-MLE Factory 把历史 Kaggle 竞赛转成可执行任务，WIRL 以实验结果为边界划分执行窗口共享奖励，MLE-Bench Lite 夺牌率从 37.9% 提到 72.7%，对标 Kimi-K3、GLM-5.3。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-55窗口式智能体-RL-10-18)
+
+**今日点评**：今天的 5 篇有一个共同主题——让 RL 训练更“划算”：KnowGPO 用知识状态分组给更准的过程奖励、Lean 反馈评估器把 verifier 调用加速 4.2 倍、课程学习从接近终点处开始练、ReMaRk 消除回复抽样噪声、MLExpert 用执行窗口给长程 MLE 任务稠密奖励。GRPO 家族仍是主角，但大家都在解决同一个痛点：稀疏奖励下的样本效率。]]></description>
+<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
+</item>
 </channel>
 </rss>
