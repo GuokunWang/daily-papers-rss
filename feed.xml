@@ -1044,5 +1044,62 @@
 **今日点评**：今日 5 篇里有两篇 OPD（STOPD 砍生成成本、Waypoint-OPD 提监督质量），一篇 NVIDIA 开放的 agentic midtraining 配方，一篇 RLHF 奖励建模去噪，一篇 GRPO 基线的理论澄清。主线很清晰：RL 训练的效率与稳定性正在从“调参玄学”变成可工程化的组件。值得动手试的是 STOPD（改动小、加速实）和 midtraining 的数据混合比例（可直接抄）。]]></description>
 <pubDate>Mon, 19 Oct 2026 01:09:22 +0000</pubDate>
 </item>
+<item>
+<title>10月20日 (1/5) Batched Contextual Reinforcement II: Does RLVR Need Long Rollout Windows?</title>
+<link>https://arxiv.org/abs/2610.22887</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.22887</guid>
+<description><![CDATA[**作者**：Bangji Yang 等（UIUC、Tsinghua University、Rutgers University）
+
+**总结**：提出 Concurrent Constraint Reinforcement（CCR），把 3 道可独立验证的数学题塞进同一个 8000-token capped completion，用共享 token 预算与固定分母平均正确率奖励保留短 rollout 窗口下的可学习信号。Qwen3-4B / Qwen3-8B 上每训练步 token 分别减少 82.1% / 79.1%（约为基线 1/5），9 基准准确率不降反升（4B 75.3%→77.7%，8B 68.8%→69.7%）。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-15CCR短窗口训练提效-10-20)]]></description>
+<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
+</item>
+<item>
+<title>10月20日 (2/5) Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.23181</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.23181</guid>
+<description><![CDATA[**作者**：Heming Zou 等（未核实）
+
+**总结**：提出 TreeOPSD：把每个交互 turn 看作树节点，从共享前缀分支备选延续，用终端奖励递归备份出 turn-level 信用，再映射成封闭形式的有界 teacher 分布做 Forward-KL 后验自蒸馏。无 critic、无过程标注、无外部教师；Deep Research 设置下 Qwen3-30B-A3B-Thinking-2507 平均准确率比 GRPO 高 4.97 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-25树感知后验蒸馏-10-20)]]></description>
+<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
+</item>
+<item>
+<title>10月20日 (3/5) Grounded Credit Assignment in Reinforcement Learning for Multi-Turn Search Agents</title>
+<link>https://arxiv.org/abs/2610.23148</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.23148</guid>
+<description><![CDATA[**作者**：Qirui Liu 等（Tencent、华南理工大学、香港科技大学、香港城市大学）
+
+**总结**：针对搜索智能体 GRPO“全 rollout 同一 advantage”导致的 credit conflation，提出 Grounded Credit Assignment（GCA）：按首命中把 rollout 分为有效搜索/冗余搜索/回答三段，用可验证子结果做有界的符号保持残差修正。Qwen2.5-3B / Qwen3-30B-A3B 上 EM 相对 Search-R1 分别 +5.70 / +6.30，证据支撑份额 76.9%→93.4%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-35搜索智能体接地归因-10-20)]]></description>
+<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
+</item>
+<item>
+<title>10月20日 (4/5) MGE-PO: Entropy-Aware Credit Assignment for Mathematical Reasoning</title>
+<link>https://arxiv.org/abs/2610.23245</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.23245</guid>
+<description><![CDATA[**作者**：Jihao Huang 等（未核实）
+
+**总结**：提出四象限（4Q）优势整形：用验证正确性定修正符号、用 rollout 生成熵定修正幅度（低熵成功更大奖励、高熵失败更大惩罚），外加在线熵问题课程 DynZPD 与熵加权参考 KL。Qwen3-8B-Base 训练 8 epoch 后，加到 GRPO 上 6 基准 macro avg@32 提升 +3.69%、macro pass@32 提升 +11.06%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-45熵感知信用分配-10-20)]]></description>
+<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
+</item>
+<item>
+<title>10月20日 (5/5) Distill Until Divergence: Error-Truncated Hindsight Distillation for Agentic RL</title>
+<link>https://arxiv.org/abs/2610.23048</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.23048</guid>
+<description><![CDATA[**作者**：Yibin Huang 等（哈尔滨工业大学）
+
+**总结**：提出 ETRO：按轨迹结果与错误边界路由正负两种技能做 OPD——成功轨迹全程与失败轨迹误前用 Positive 技能，失败关键错误处用 Negative 技能，误后后缀只用 GRPO。Qwen2.5-7B 下 WebShop 85.8%、ALFWorld 97.0%、Search QA 宏平均 51.8%，均为所列方法最优。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-55错误截断后验蒸馏-10-20)
+
+**今日点评**：今天的 5 篇几乎都在回答同一个问题：RL 训练里“信用”到底该怎么给。BCR II 用并发约束让短窗口可学（成本压到 1/5），TreeOPSD 用树分支备份 turn 级信用，GCA 把搜索智能体的“找证据/用证据”信用分开算，MGE-PO 用生成熵给 GRPO 优势整形，ETRO 把后验蒸馏的信用截断在错误边界——credit assignment 正在成为 RLVR 提效的主战场，方法也从“加结构”转向“加约束、减浪费”。]]></description>
+<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
+</item>
 </channel>
 </rss>
