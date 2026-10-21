@@ -1101,5 +1101,62 @@
 **今日点评**：今天的 5 篇几乎都在回答同一个问题：RL 训练里“信用”到底该怎么给。BCR II 用并发约束让短窗口可学（成本压到 1/5），TreeOPSD 用树分支备份 turn 级信用，GCA 把搜索智能体的“找证据/用证据”信用分开算，MGE-PO 用生成熵给 GRPO 优势整形，ETRO 把后验蒸馏的信用截断在错误边界——credit assignment 正在成为 RLVR 提效的主战场，方法也从“加结构”转向“加约束、减浪费”。]]></description>
 <pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
 </item>
+<item>
+<title>10月21日 (1/5) OPDArena: Understanding Learning and Forgetting in On-Policy Distillation</title>
+<link>https://arxiv.org/abs/2610.25651</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.25651</guid>
+<description><![CDATA[**作者**：Yuanze Xu 等（Microsoft Research、南开大学）
+
+**总结**：微软研究院发布 OPDArena，系统对比 SFT、RLVR 与在策略蒸馏（OPD）在 5 个预训练模型上的"学与忘"：用 RLVR 训练出的教师做蒸馏，学生在数学任务上提升的同时基本不遗忘旧能力；而 SFT 教师则导致更严重的灾难性遗忘。论文还提出 OOD 分布变化是比域内变化更可靠的遗忘预警指标。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月21日-15OPD-蒸馏的学与忘-10-21)]]></description>
+<pubDate>Wed, 21 Oct 2026 00:58:44 -0000</pubDate>
+</item>
+<item>
+<title>10月21日 (2/5) Is it RL or Data? A Controlled Comparison of GRPO and Rejection-Sampling Fine-Tuning</title>
+<link>https://arxiv.org/abs/2610.25812</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.25812</guid>
+<description><![CDATA[**作者**：Lakshya Chaudhry（Purdue University）
+
+**总结**：普渡大学做了一次预注册的受控对比：在程序计数任务上用 Qwen3-4B-Base + LoRA，GRPO 在全部三种 prompt 集合上都打败了经过 27 组超参调优的拒绝采样微调（curated 集合上领先 10.9 个百分点）。结论：GRPO 的优势不只是数据筛选带来的，但约 30% 可归因于在线刷新数据。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月21日-25GRPO-优势是-RL-还是数据-10-21)]]></description>
+<pubDate>Wed, 21 Oct 2026 00:58:44 -0000</pubDate>
+</item>
+<item>
+<title>10月21日 (3/5) Arctic-SWE: Revisiting the Long Horizon Agent Training by Modeling-System Co-Design</title>
+<link>https://arxiv.org/abs/2610.24914</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.24914</guid>
+<description><![CDATA[**作者**：Boyi Liu 等（Snowflake、UIUC、休斯顿大学、芝加哥大学）
+
+**总结**：Snowflake 的 Arctic-SWE 用模型-系统协同设计打造可复现的长程智能体 RL 训练基线：在未经加工的 R2E-Gym 原始数据上把 Qwen3.5-4B 训到 SWE-bench Verified 62.0% pass@1，与依赖在线任务合成的 FrogNano（61.5%）相当，但只用了约六分之一的训练 rollout。数据精选后 4B 进一步达到 65.0%/38.3%/59.7%（Verified/Pro-v1/Pro-v2）。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月21日-35异步智能体-RL-工程基线-10-21)]]></description>
+<pubDate>Wed, 21 Oct 2026 00:58:44 -0000</pubDate>
+</item>
+<item>
+<title>10月21日 (4/5) EG-GRPO: Evidence-Guided Step-level Credit Assignment for Deep Search Agents</title>
+<link>https://arxiv.org/abs/2610.25269</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.25269</guid>
+<description><![CDATA[**作者**：Sijia Luo 等（中国人民大学、蚂蚁集团）
+
+**总结**：人大与蚂蚁提出 EG-GRPO，把合成深搜索数据中的证据标注转化为 step-level 过程奖励，并用演化的知识状态做状态条件优势估计。在 5 个深搜索基准上，Qwen3-4B 平均比标准 GRPO 高 4.96 个百分点，GAIA 上 45.9 vs 34.8（+11.11）。step 监督还有效抑制了智能体为答题而提前终止搜索的投机行为。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月21日-45证据引导的-GRPO-信用分配-10-21)]]></description>
+<pubDate>Wed, 21 Oct 2026 00:58:44 -0000</pubDate>
+</item>
+<item>
+<title>10月21日 (5/5) ProbePO: Sparse Probes, Redistributed Credit for Critic-Free LLM Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.24515</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.24515</guid>
+<description><![CDATA[**作者**：Diyi Hu 等（Independent Researcher、UIUC、Meta）
+
+**总结**：ProbePO 把信用分配重构成预算测量问题：用无奖励的不确定性分数挑选部分解状态做稀疏探测，以封顶的续写预算估计期望验证奖励，再把 GRPO 的轨迹级优势重新分配到 token 上。在 3 个模型 × 6 个数学基准的 18 组对比中 16 组最优；对阵 VinePPO 在 DeepSeekMath-7B 上 6 个基准全胜且训练时间少 76%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月21日-55稀疏探测的无评论家-RL-10-21)
+
+**今日点评**：今日点评：今天的 5 篇其实讲的是同一件事——让 RL 训练的监督信号更准、更省。OPDArena 说教师选得对才能学而不忘；"Is it RL or Data"用预注册实验给 GRPO 的优势正了名；Arctic-SWE 把长程智能体 RL 的工程地基夯实；EG-GRPO 和 ProbePO 则分别用证据标注和稀疏探测做细粒度信用分配。实操层面的信号很明确：GRPO 类方法的下一波红利不在换 objective，而在数据（prompt 难度构成、教师来源）和信用分配（step-level 信号）里。只看论文、不做投资建议。]]></description>
+<pubDate>Wed, 21 Oct 2026 00:58:44 -0000</pubDate>
+</item>
 </channel>
 </rss>
