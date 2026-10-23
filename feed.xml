@@ -1215,5 +1215,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月22日-55离策略策略梯度解剖-10-22)]]></description>
 <pubDate>Thu, 22 Oct 2026 00:55:29 +0000</pubDate>
 </item>
+<item>
+<title>10月23日 (1/5) FlashNext-RL: A System Optimization Study for Long-Horizon Agentic RL of Qwen3.8-Flash-Next</title>
+<link>https://arxiv.org/abs/2610.28998</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.28998</guid>
+<description><![CDATA[**作者**：Zhewei Yao 等（Snowflake AI Research）
+
+**总结**：Snowflake AI Research 针对 Qwen3.8-Flash-Next 的 48 层混合注意力架构，做模型专用的长程智能体 RL 系统优化。BF16 全模型在单台 8×B200 上把训练吞吐从约 395 提升到 4438 tokens/s/GPU（约 11.2 倍），支撑起 batch 1024 条 rollout、131K 上下文的真实 SWE RL 运行。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-15Qwen智能体RL提速-10-23)]]></description>
+<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
+</item>
+<item>
+<title>10月23日 (2/5) ReAPO: Retry-Aware Policy Optimization for Efficient Exploration in LLM Reasoning</title>
+<link>https://arxiv.org/abs/2610.28770</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.28770</guid>
+<description><![CDATA[**作者**：Nghi Dao 等（Columbia University、Yale University、UT Austin）
+
+**总结**：把“重试”建模成随机最短路问题，得到 GRPO 的一个简单修改：失败轨迹分配额外生成，成功的重试被强化、前置的失败不被奖励。在 8 个数学/科学推理基准上首答性能全面超过 GRPO；达到 GRPO（2 倍组大小/2 倍训练步数）峰值精度分别少用 39%/31% 的生成 token。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-25重试感知探索提效-10-23)]]></description>
+<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
+</item>
+<item>
+<title>10月23日 (3/5) Flat-RLVR: Sharpness-Aware Reinforcement Learning with Verifiable Rewards for Reasoning Capacity in LLMs</title>
+<link>https://arxiv.org/abs/2610.29281</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.29281</guid>
+<description><![CDATA[**作者**：Yeonbum Kim 等（UNIST（蔚山国立科学技术院））
+
+**总结**：发现 RLVR/GRPO 会导致“分布锐化”——策略分布过度尖峰、稀有但正确的轨迹被压制。用锐度感知最小化（SAM）寻找平坦奖励最优点：Qwen2.5-Math-1.5B 上 Pass@256 从 64.8% 提到 67.3% 而 Pass@1 基本保持，遗忘率从 6.3% 降到 2.8%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-35平坦最优防分布锐化-10-23)]]></description>
+<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
+</item>
+<item>
+<title>10月23日 (4/5) LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data</title>
+<link>https://arxiv.org/abs/2610.30132</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.30132</guid>
+<description><![CDATA[**作者**：Zhennan Wan 等（清华大学）
+
+**总结**：清华提出的零数据长上下文 RL：模型先以紧凑结构化形式合成问题+答案+支持证据，再扩展成多文档长上下文；只保留“有时答对、有时答错”的不稳定题目做 GRPO。Qwen3-4B-Thinking 在 5 个长上下文基准平均从 54.68% 提到 57.42%，超过基于外部语料合成数据的 RL 基线。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-45零数据长上下文推理-10-23)]]></description>
+<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
+</item>
+<item>
+<title>10月23日 (5/5) Self-Credit: Credit Assignment for Long-Horizon Agentic RL via Intra-group Rescaling</title>
+<link>https://arxiv.org/abs/2610.28388</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.28388</guid>
+<description><![CDATA[**作者**：Fangcong Yin 等（Meta、Duke University、NYU）
+
+**总结**：Meta 的端到端智能体 RL：rollout 时策略模型自写带引用的关键回合摘要作为自生成 credit，再用组内重标定对比同 prompt 成功/失败 rollout 去伪存真、加权更新 advantage。BrowseComp-Plus 上 Qwen3-8B/32B 相对 base +37.0/+36.2 分，超过最强基线 8.5/5.6 分。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-55组内重标信用分配-10-23)
+
+**今日点评**：今天的 5 篇有个共同主题：让失败与稀疏信号产生信息量。ReAPO 用随机最短路给“重试”定价，Self-Credit 从失败 rollout 里提炼 credit，Flat-RLVR 保住稀有正确轨迹不被分布锐化压死——三篇都是“别浪费失败”的不同解法。系统侧 FlashNext-RL 则证明：智能体 RL 的下一个 10 倍，可能来自为模型架构定制 infra，而不是换 objective；数据侧 LongZero 把 zero-data 推进到长上下文。RL 的红利继续从“换目标函数”转向“更准的监督信号、更聪明的训练流程、更贴身的系统”。]]></description>
+<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
+</item>
 </channel>
 </rss>
