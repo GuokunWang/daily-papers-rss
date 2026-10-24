@@ -1272,5 +1272,62 @@
 **今日点评**：今天的 5 篇有个共同主题：让失败与稀疏信号产生信息量。ReAPO 用随机最短路给“重试”定价，Self-Credit 从失败 rollout 里提炼 credit，Flat-RLVR 保住稀有正确轨迹不被分布锐化压死——三篇都是“别浪费失败”的不同解法。系统侧 FlashNext-RL 则证明：智能体 RL 的下一个 10 倍，可能来自为模型架构定制 infra，而不是换 objective；数据侧 LongZero 把 zero-data 推进到长上下文。RL 的红利继续从“换目标函数”转向“更准的监督信号、更聪明的训练流程、更贴身的系统”。]]></description>
 <pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
 </item>
+<item>
+<title>10月24日 (1/5) Same Luck, Different Choice: Twin-World Credit Assignment for Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.31544</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.31544</guid>
+<description><![CDATA[**作者**：Zeropy Surio 等（Carnegie Mellon University、University of Michigan、University of Sheffield）
+
+**总结**：智能体 RL 的 episode 级奖励难以分配到每一步决策。TWICE 利用搜索工具链确定性的特点，用"同噪声、不同决策"的双子 rollout 做配对差分，给出无偏的决策优势估计；Qwen2.5-3B/7B 上 7 个搜索问答基准平均超 GRPO 5.3/4.5 分，辅助 token 还少 68%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月24日-15同噪声双世界信用分配-10-24)]]></description>
+<pubDate>Sat, 24 Oct 2026 01:16:41 +0000</pubDate>
+</item>
+<item>
+<title>10月24日 (2/5) When to Follow the Teacher: Advantage-Based On-Policy Distillation</title>
+<link>https://arxiv.org/abs/2610.31563</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.31563</guid>
+<description><![CDATA[**作者**：Mahdi Sabbaghi 等（University of Pennsylvania、University of Southern California）
+
+**总结**：在线策略蒸馏默认老师每一步都对。AOPD 用"老师动作在学生策略下的反事实优势"加权蒸馏信号，只学对学生有用的指导，且无需额外 rollout；自蒸馏下 Qwen3-1.7B 的 AIME24 达 35.0%，超 GRPO 12.7 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月24日-25按优势学老师信号-10-24)]]></description>
+<pubDate>Sat, 24 Oct 2026 01:16:41 +0000</pubDate>
+</item>
+<item>
+<title>10月24日 (3/5) Scaling Laws for Generative Reward Models</title>
+<link>https://arxiv.org/abs/2610.30765</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.30765</guid>
+<description><![CDATA[**作者**：Angel Raychev 等（Stanford University、Thinking Machines、SynthLabs.ai）
+
+**总结**：Stanford/Thinking Machines 的受控对比发现：GRPO 训的 Thinking judge 静态判分精度全胜（4B 上 83.2% vs 64.7%），但做 online DPO 在线奖励时，8 组里 7 组是 SFT 的 Answer-Only judge 训出更强的策略。奖励模型越大越好（大过策略仍有收益），但静态最准的 checkpoint 常不是最好的在线裁判。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月24日-35生成式奖励模型缩放律-10-24)]]></description>
+<pubDate>Sat, 24 Oct 2026 01:16:41 +0000</pubDate>
+</item>
+<item>
+<title>10月24日 (4/5) MOER: Mix-Policy Optimization under Expert Prefix Guidance with Selective Rollback</title>
+<link>https://arxiv.org/abs/2610.30873</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.30873</guid>
+<description><![CDATA[**作者**：Xuyang Zhong 等（City University of Hong Kong、LIGHTSPEED）
+
+**总结**：MOER 把专家数据塞进 RL 循环：注入长度渐进衰减的专家 CoT 前缀让模型补完，失败补全用完整专家轨迹选择性回滚兜底，on/off-policy token 分通道优化。Qwen2.5-Math-7B 上 6 个数学基准平均 49.1 全场最高，OOD 通用推理平均 59.0。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月24日-45专家前缀选择性回滚-10-24)]]></description>
+<pubDate>Sat, 24 Oct 2026 01:16:41 +0000</pubDate>
+</item>
+<item>
+<title>10月24日 (5/5) Uni-Mem: Learning a Long-Horizon Agentic Memory Manager with Unified Online Policy Optimization</title>
+<link>https://arxiv.org/abs/2610.29671</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.29671</guid>
+<description><![CDATA[**作者**：Zhiqian Xia 等（Huawei Technologies（Noah's Ark Lab）、Southeast University、Sun Yat-sen University）
+
+**总结**：华为诺亚的 Uni-Mem 用端到端在线 RL 学统一记忆管理器：Stage-Decoupled GRPO 交替优化记忆构建与检索、组内控制另一阶段变异，Event-Wise Credit Assignment 把反馈定位到责任事件。LoCoMo 上 LLM-as-Judge 总分 88.80%，超最强基线 10.93 个百分点。
+
+**今日点评**：今天 5 篇的共同主题是"让训练信号更准、更省"：TWICE 用"同噪声双世界"让 credit 估计去方差；AOPD 让学生只学对自己有用的老师信号；MOER 用回滚保证混入 RL 的专家信号条条正确；GenRM 缩放律提醒"判得准"不等于"教得好"；Uni-Mem 把 GRPO 按阶段解耦学记忆管理。Credit 分配正从 episode 级走向决策/事件级，RL 提效的下一个红利在信号质量，而不在 rollout 数量。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月24日-55解耦GRPO学记忆管理-10-24)]]></description>
+<pubDate>Sat, 24 Oct 2026 01:16:41 +0000</pubDate>
+</item>
 </channel>
 </rss>
