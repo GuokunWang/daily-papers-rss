@@ -1329,5 +1329,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月24日-55解耦GRPO学记忆管理-10-24)]]></description>
 <pubDate>Sat, 24 Oct 2026 01:16:41 +0000</pubDate>
 </item>
+<item>
+<title>10月25日 (1/5) RIPPLE: Recovery Internalization through Process-Level Policy Learning and Effect-Aware Credit for Long-Horizon Agentic Coding</title>
+<link>https://arxiv.org/abs/2610.31276</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.31276</guid>
+<description><![CDATA[**作者**：Jingxuan Xu 等（新加坡国立大学、上海人工智能实验室、清华大学）
+
+**总结**：RIPPLE 针对长程代码智能体“会批评却不会改”的问题：前缀教师只看轨迹前缀给出恢复监督，RL 按触发、诊断、修正三阶段分配信用。Qwen3.5-27B 在 4 个仓库级基准上平均提升 4.8 分，部署时无需在线 critic。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月25日-15代码智能体自我纠错-10-25)]]></description>
+<pubDate>Sun, 25 Oct 2026 00:51:51 GMT</pubDate>
+</item>
+<item>
+<title>10月25日 (2/5) ReflectPO: Reflection-Guided Policy Optimization for Long-Horizon LLM Agents</title>
+<link>https://arxiv.org/abs/2610.30933</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.30933</guid>
+<description><![CDATA[**作者**：Rumei Li 等（美团）
+
+**总结**：美团的 ReflectPO 从智能体自然轨迹的分支差异与重复访问中构造反思提示，配合树形信用分配训练自主纠错。Qwen3-8B 在 BFCL-v3 多轮与 τ²-bench 上总分从 39.6 提升至 45.4，且相同 rollout token 预算下验证分数更高。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月25日-25长程智能体反思恢复-10-25)]]></description>
+<pubDate>Sun, 25 Oct 2026 00:51:51 GMT</pubDate>
+</item>
+<item>
+<title>10月25日 (3/5) GIFT: Gradient Informed Filtering for Distillation Augmented Reasoning RL</title>
+<link>https://arxiv.org/abs/2610.30796</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.30796</guid>
+<description><![CDATA[**作者**：Shijie Li 等（上海交通大学、腾讯）
+
+**总结**：GIFT 把蒸馏梯度按与 RL 梯度的几何关系分解：平行分量量冲突、正交分量量新信息，再用覆盖退火逐步撤掉教师信号。Qwen3 三个尺度上数学平均分均居首，AIME25 相对提升最高达 9.51%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月25日-35梯度几何筛选蒸馏-10-25)]]></description>
+<pubDate>Sun, 25 Oct 2026 00:51:51 GMT</pubDate>
+</item>
+<item>
+<title>10月25日 (4/5) EPIC: Rethinking Trust Regions for Autoregressive LLM Policies via Exact-KL Prefix Importance-Ratio Clipping</title>
+<link>https://arxiv.org/abs/2610.29999</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.29999</guid>
+<description><![CDATA[**作者**：Chengxi Li 等（清华大学 AIR、字节跳动 Seed）
+
+**总结**：EPIC 指出 token 级裁剪量错了对象——前缀累积比率才是精确的策略漂移度量，并据此构造前缀级信任域。离线 MoE 训练四基准平均 39.34%，超 GSPO 6.50 个百分点，驱动进程内存比路由回放低 77.5%–93.0%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月25日-45前缀级信任域裁剪-10-25)]]></description>
+<pubDate>Sun, 25 Oct 2026 00:51:51 GMT</pubDate>
+</item>
+<item>
+<title>10月25日 (5/5) METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.31656</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.31656</guid>
+<description><![CDATA[**作者**：Ali Najar 等（谢里夫理工大学）
+
+**总结**：METTA 用 TTT 神经记忆做元强化学习的快速适应：episode 内在线更新记忆、跨 episode 聚合摘要，复杂度线性于序列长度。Meta-World 未见任务族测试成功率超 50%，最高领先基线约 40 个百分点。
+
+**今日点评**：今天 5 篇的共同主题是“让长程训练的信号更准、更省”：RIPPLE 与 ReflectPO 从不同路线解决同一个问题——智能体错了能不能自己回来，前者靠前缀教师加分阶段信用，后者直接从自然轨迹的分支与环路里挖恢复信号；GIFT 与 EPIC 都在修 RL 优化的“度量衡”，一个用梯度几何筛选教师信号，一个用前缀比率重建信任域；METTA 则提醒我们，长上下文适应的代价不必是二次的。值得注意的趋势是：credit 分配正在从 episode 级走向阶段与动作级，而 RL 提效的下一个红利很可能不在 rollout 数量，而在信号质量与裁剪粒度。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月25日-55神经记忆测试时适应-10-25)]]></description>
+<pubDate>Sun, 25 Oct 2026 00:51:51 GMT</pubDate>
+</item>
 </channel>
 </rss>
