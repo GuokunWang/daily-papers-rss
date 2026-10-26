@@ -1386,5 +1386,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月25日-55神经记忆测试时适应-10-25)]]></description>
 <pubDate>Sun, 25 Oct 2026 00:51:51 GMT</pubDate>
 </item>
+<item>
+<title>10月26日 (1/5) BIRD-RL: Scaling Agentic Reinforcement Learning over Stateful Data-Centric Environments</title>
+<link>https://arxiv.org/abs/2610.29426</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.29426</guid>
+<description><![CDATA[**作者**：Ge Qu 等（香港大学、新加坡国立大学、香港中文大学（深圳））
+
+**总结**：BIRD-RL 用四阶段课程加轨迹级持久执行基础设施，让有状态数据库任务的智能体 RL 既稳定又省资源：数据库生命周期 I/O 降至原来的约 1/12.8，7B/14B 模型在 BIRD-CRITIC-SQLite 上分别达到 44.40% 和 48.00% 成功率，接近 Claude-Opus-4.6 智能体的 48.20%。统一模型 Bird-Zeno-7B 还同时兼顾调试与生成，展现了多目标训练的潜力。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月26日-15数据智能体训练提效-10-26)]]></description>
+<pubDate>Mon, 26 Oct 2026 00:51:26 GMT</pubDate>
+</item>
+<item>
+<title>10月26日 (2/5) Harness Scaling for Generalizable Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.29458</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.29458</guid>
+<description><![CDATA[**作者**：Fei Bai 等（中国人民大学、北京航空航天大学、IQuest Research）
+
+**总结**：Harness Scaling 提出智能体 RL 的新扩展维度：不再只在单一执行框架里训练，而是把系统提示、工具接口、观测、上下文管理、工作流五个因子组合成多样化框架空间，用正交设计选出 18 套训练配置。Qwen3-4B 的 GRPO 平均分从 29.81 升至 39.04，且在未见过的 Claude Code 黑盒框架上反超直接用黑盒框架训练的基线，说明框架多样性本身就能带来泛化。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月26日-25跨执行框架泛化训练-10-26)]]></description>
+<pubDate>Mon, 26 Oct 2026 00:51:26 GMT</pubDate>
+</item>
+<item>
+<title>10月26日 (3/5) CORD: Conflict-Aware Optimization for Joint RL and Distillation in Agents</title>
+<link>https://arxiv.org/abs/2610.29965</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.29965</guid>
+<description><![CDATA[**作者**：Wenhao Yu 等（香港中文大学、腾讯、北京大学）
+
+**总结**：RL 与自蒸馏联合训练时两路梯度经常互相抵消，WebShop 梯度日志中 48.2% 的 mini-batch 记录呈负余弦冲突。CORD 用一次投影去掉冲突分量、保留被保护目标的一阶进展，为三套联合训练配方在 ALFWorld 上带来 1.5 至 15.9 个百分点的提升，WebShop 上 SDAR 从 60.7% 升至 64.6%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月26日-35RL-与蒸馏梯度解冲突-10-26)]]></description>
+<pubDate>Mon, 26 Oct 2026 00:51:26 GMT</pubDate>
+</item>
+<item>
+<title>10月26日 (4/5) Edit, Don’t Imitate: Minimal-Edit On-Policy Distillation for Multimodal Reasoning</title>
+<link>https://arxiv.org/abs/2610.30231</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.30231</guid>
+<description><![CDATA[**作者**：Wen Ye 等（Meta Superintelligence Labs、南加州大学、加州大学伯克利分校）
+
+**总结**：视觉数学推理常败在看错图：给 2B 模型配一段忠实图注，Geometry3K pass@1 就从 0.32 升到 0.46。最小改动纠正式蒸馏只对教师不认可的 token 施加纠正、正确样本走任务奖励，让小模型在测试时不用图注也能达到甚至超过有图注时的基线，且冻结的同尺寸教师依然有效。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月26日-45多模态推理最小改动蒸馏-10-26)]]></description>
+<pubDate>Mon, 26 Oct 2026 00:51:26 GMT</pubDate>
+</item>
+<item>
+<title>10月26日 (5/5) Questioning Instrumental Convergence in RLVR: Checkpoint Evidence from OLMo-3</title>
+<link>https://arxiv.org/abs/2610.31624</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.31624</guid>
+<description><![CDATA[**作者**：Barış Alparslan 等
+
+**总结**：RLVR 会不会让模型越来越表现出工具性趋同行为？对 OLMo-3-7B-Think 的 16 个检查点追踪给出非单调答案：工具性行为率从 SFT 的 25.0% 先升到 RLVR 约 200 步的 46.1%，再回落到最终检查点的 11.8%，低于 SFT 基线，且框架混淆控制未能解释这一轨迹。
+
+**今日点评**：今天 5 篇有一个共同主题：智能体 RL 的竞争点正在从堆任务、堆环境，转向怎么组织训练本身——框架多样性怎么选、两路梯度冲突怎么合、蒸馏纠正范围怎么划、有状态环境怎么低成本隔离；而 OLMo-3 的检查点轨迹则是一个必要的冷静提醒：只看训练前后的两个端点，很容易对 RL 的安全影响得出相反的结论，过程轨迹比端点分数更值得追踪。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月26日-55RLVR-行为轨迹再检验-10-26)]]></description>
+<pubDate>Mon, 26 Oct 2026 00:51:26 GMT</pubDate>
+</item>
 </channel>
 </rss>
