@@ -1443,5 +1443,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月26日-55RLVR-行为轨迹再检验-10-26)]]></description>
 <pubDate>Mon, 26 Oct 2026 00:51:26 GMT</pubDate>
 </item>
+<item>
+<title>10月27日 (1/5) Frontier-OPD: Discovering the Edge of Agent Capability and Teaching Agents to Go Beyond</title>
+<link>https://arxiv.org/abs/2610.32802</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.32802</guid>
+<description><![CDATA[**作者**：Zheng Jiang 等（清华大学）
+
+**总结**：针对多轮智能体的 on-policy 蒸馏，论文提出“学习前沿”概念：只在学生既不会、给了指导又能接住的决策点上采教师监督。通过共享状态轨迹图做轨迹均衡的分歧聚合筛出候选，再用教师桥接加匹配窗口验证决定是否采纳，在 ALFWorld、WebShop、ScienceWorld 上均优于对照蒸馏基线，且在 ALFWorld 计时设定下以最短耗时到达 55% 解决率目标。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-15OPD学习前沿蒸馏-10-27)]]></description>
+<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
+</item>
+<item>
+<title>10月27日 (2/5) NgramRL: Accelerating RL Post-Training for Structured Generation via Rollout-Aware N-gram Speculative Decoding</title>
+<link>https://arxiv.org/abs/2610.32881</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.32881</guid>
+<description><![CDATA[**作者**：Nilesh Prasad Pandey 等（加州大学圣地亚哥分校、西弗吉尼亚大学）
+
+**总结**：RL 后训练的 rollout 生成可占单步 70% 以上时间，而 GRPO 会反复采样同一批 prompt。NgramRL 用策略自身近期 rollout 构建 per-prompt n-gram 草稿缓存做推测解码，不占 GPU 显存、不改 rollout 分布，热缓存下每前向提交 3.60–7.77 个 token；配合自适应 fan-out 预取器，Spider 上 rollout 吞吐提升 1.38 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-25历史轨迹推测解码加速-10-27)]]></description>
+<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
+</item>
+<item>
+<title>10月27日 (3/5) KnitTrans: Coordinated Trajectory Transfer for Effective and Efficient LLM Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.32389</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.32389</guid>
+<description><![CDATA[**作者**：Bangjun Xiao 等（北京大学、小米）
+
+**总结**：大模型 RL 解耦执行后，rollout 到训练的轨迹交接成为瓶颈。KnitTrans 以保约束的 mini-batch 准入、按需轨迹数据访问与多模态编码去重三招协调这条路径，在 256 卡、235B–671B 模型规模上把架构陈旧度最多降低 93%，多模态任务传输加训练加速最高 5.8 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-35轨迹传输协同提效-10-27)]]></description>
+<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
+</item>
+<item>
+<title>10月27日 (4/5) Where Rounding Happens Matters: Rounding-Location Alignment Stabilizes LLM Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.32951</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.32951</guid>
+<description><![CDATA[**作者**：Yijing Ke 等（字节跳动 Seed、北京大学）
+
+**总结**：推理与训练分属不同系统时，即使权重与 BF16 张量相同，舍入位置的差异也会让 on-policy 更新变相 off-policy 乃至训崩。论文只需把训练侧 RoPE、SwiGLU 与残差 RMSNorm 三处的舍入与推理侧对齐，就在四个 Qwen 家族模型上防止了默认 BF16 基线的崩溃，且仅 RoPE 对齐在所研究的运行中也已足够，开销仅 0.90–2.04% 延迟。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-45舍入位置对齐稳训练-10-27)]]></description>
+<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
+</item>
+<item>
+<title>10月27日 (5/5) Direction-Aware Token Credit Assignment with Reward-Model Gradients</title>
+<link>https://arxiv.org/abs/2610.32772</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.32772</guid>
+<description><![CDATA[**作者**：Yikuan Hu 等（南京大学、新加坡国立大学、清华大学、南洋理工大学）
+
+**总结**：GRPO 把 response 级优势平分给所有 token，但并非每个位置的更新都朝奖励变高的方向走。DATC 以“做功”视角给 token 分信用：把冻结奖励模型的梯度映射到策略 logit 空间，沿 GRPO 更新方向做功越大权重越大，在 Qwen3-14B 与 Llama-3.1-8B 的 Base/Instruct 四组设置上全部跑赢 GRPO。
+
+**今日点评**：今日 5 篇有一个清晰主线：RL 提效正在从“改算法”走向“改执行细节”——Frontier-OPD 筛准监督、NgramRL 复用历史 rollout、KnitTrans 修好轨迹交接、舍入对齐修好数值执行、DATC 把优势精确分到 token；其中 Frontier-OPD 与舍入对齐这两篇最值得精读：前者给智能体蒸馏立了一个可复用的监督筛选框架，后者提醒我们 BF16 时代的训练稳定性可能藏在几个不起眼的舍入位置里。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-55方向感知信用分配-10-27)]]></description>
+<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
+</item>
 </channel>
 </rss>
