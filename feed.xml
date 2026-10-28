@@ -1500,5 +1500,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-55方向感知信用分配-10-27)]]></description>
 <pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
 </item>
+<item>
+<title>10月28日 (1/5) ScaleRLT: Exact Log-Probabilities and Fast Deferred Rollouts for Reinforcement Learning on Looped Transformers</title>
+<link>https://arxiv.org/abs/2610.34427</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.34427</guid>
+<description><![CDATA[**作者**：Dezhen Lu 等（图宾根大学、西安交通大学、伊利诺伊大学香槟分校）
+
+**总结**：针对循环复用层块的语言模型，ScaleRLT 用延迟 rollout 调度提速、混合对数概率保证数值逐比特一致，单卡 rollout 吞吐提升 1.47-1.56 倍，双节点 GRPO 更新缩短 2.71 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月28日-15循环模型-RL-提效-10-28)]]></description>
+<pubDate>Wed, 28 Oct 2026 00:50:56 GMT</pubDate>
+</item>
+<item>
+<title>10月28日 (2/5) S3AC: Stabilized, Selective, and Scalable Actor-Critic for LLM Reasoning</title>
+<link>https://arxiv.org/abs/2610.35518</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.35518</guid>
+<description><![CDATA[**作者**：Shuo Shen 等（上海人工智能实验室）
+
+**总结**：S3AC 用可落地的 Critic 训练配方拿到 token 级优势与 prompt 级基线，配合难度感知提示采样在生成前筛掉浪费的 rollout，在 1.5B 到 397B 模型上胜过现代 GRPO 变体。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月28日-25S3AC-提示筛选提效-10-28)]]></description>
+<pubDate>Wed, 28 Oct 2026 00:50:56 GMT</pubDate>
+</item>
+<item>
+<title>10月28日 (3/5) DoubleFree:Exploiting Exploration History for Rollout-Free Multi-Task LLMs Training</title>
+<link>https://arxiv.org/abs/2610.34272</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.34272</guid>
+<description><![CDATA[**作者**：Yingping Wang 等（香港科技大学（广州）、阿尔伯塔大学）
+
+**总结**：DoubleFree 复用领域专家 RL 训练全程的历史轨迹做免 rollout 合并、预先算好教师监督，多任务合并速度提升 2.99-5.75 倍，GPU 小时减少 80.9-90.1%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月28日-35历史轨迹复用提效-10-28)]]></description>
+<pubDate>Wed, 28 Oct 2026 00:50:56 GMT</pubDate>
+</item>
+<item>
+<title>10月28日 (4/5) Correlation-Aware Exploration for Long-Trace Reasoning</title>
+<link>https://arxiv.org/abs/2610.34949</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.34949</guid>
+<description><![CDATA[**作者**：Junxing Hu 等（京东、微软）
+
+**总结**：Info-GRPO 用潜变量种子承载整条轨迹的多样性，替代与收敛冲突的逐 token 熵正则，AIME24 上 Avg@8 最高提升 4.17%，且用 8 倍更少的采样达到相同的多数投票准确率。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月28日-45长链推理探索防坍缩-10-28)]]></description>
+<pubDate>Wed, 28 Oct 2026 00:50:56 GMT</pubDate>
+</item>
+<item>
+<title>10月28日 (5/5) Audit Where Hacks Pay: Budgeted Strong-Verifier Audits Against Reward Hacking in GRPO</title>
+<link>https://arxiv.org/abs/2610.35716</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.35716</guid>
+<description><![CDATA[**作者**：Shurun Li 等（清华大学、弗吉尼亚理工大学）
+
+**总结**：针对 RLVR 的奖励作弊问题，低通过预算审计（LB）优先审计弱通过数最少的组，把作弊压到接近零，且只用全量审计 28% 的标签。
+
+**今日点评**：今日 5 篇有个共同主线：都在为 RL 训练“省算力、稳训练”。ScaleRLT 解决数值一致性让延迟 rollout 真正可用，S3AC 把 Critic 请回来换更少的 rollout 浪费，DoubleFree 直接复用历史轨迹，Info-GRPO 换一种方式承载探索，审计论文则用更少的强验证标签管住奖励作弊。5 篇里没有大厂重磅新模型发布，但每篇都是能直接指导训练调参与 infra 选型的硬货——建议优先读 ScaleRLT 和 S3AC，前者管速度，后者管稳定性。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月28日-55GRPO-审计防奖励作弊-10-28)]]></description>
+<pubDate>Wed, 28 Oct 2026 00:50:56 GMT</pubDate>
+</item>
 </channel>
 </rss>
