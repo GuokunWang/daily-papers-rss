@@ -1557,5 +1557,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月28日-55GRPO-审计防奖励作弊-10-28)]]></description>
 <pubDate>Wed, 28 Oct 2026 00:50:56 GMT</pubDate>
 </item>
+<item>
+<title>10月29日 (1/5) EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.37609</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.37609</guid>
+<description><![CDATA[**作者**：Sihan Yang 等（北京大学、清华大学）
+
+**总结**：EnvSched 把 agent RL 的数据管理从 prompt 级提升到环境级，用双关系图预测任务奖励方差、把有限 rollout 预算分配给信息量大且覆盖不足的任务。Qwen3-8B 训练 40 步即超过随机调度 120 步的最好成绩，200 步下各尺寸模型在三项 agent 基准上全面提升。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月29日-15环境感知调度提效-10-29)]]></description>
+<pubDate>Thu, 29 Oct 2026 00:55:15 +0000</pubDate>
+</item>
+<item>
+<title>10月29日 (2/5) Bayes-Adaptive MDPs for Rollout Allocation to Enhance GRPO Training</title>
+<link>https://arxiv.org/abs/2610.37429</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.37429</guid>
+<description><![CDATA[**作者**：Faeze Moradi Kalarde 等（多伦多大学、KAIST）
+
+**总结**：AdaRoll-GRPO 指出 GRPO 均分 rollout 是浪费：难题拿不到成功样本、简单题又分多了。它把预算分配建模为贝叶斯自适应 MDP，离线学好分配策略、总预算不变，在 GRPO、Dr.GRPO、DAPO 上均一致提升，且数据集难度异质性越大收益越大。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月29日-25自适应-Rollout-分配-10-29)]]></description>
+<pubDate>Thu, 29 Oct 2026 00:55:15 +0000</pubDate>
+</item>
+<item>
+<title>10月29日 (3/5) When All Rollouts Fail: Policy-Compatible Joint Decoding for Hard-Problem Reasoning</title>
+<link>https://arxiv.org/abs/2610.36849</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.36849</guid>
+<description><![CDATA[**作者**：Zehao Wang 等（中国科学技术大学、腾讯）
+
+**总结**：PICO 专治 RLVR 的学习悬崖：难题上一组 rollout 全错时 GRPO 优势归零。它只在全失败组上触发教师引导的分布约束联合解码，生成既正确又符合学生分布的轨迹，Qwen3-4B 上比 GRPO 平均高 4.1 分，agent 任务平均成功率 74.3%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月29日-35策略兼容联合解码-10-29)]]></description>
+<pubDate>Thu, 29 Oct 2026 00:55:15 +0000</pubDate>
+</item>
+<item>
+<title>10月29日 (4/5) PerceptRL: Making Visual Perception Rewardable in MLLMs from Answers to Interactions</title>
+<link>https://arxiv.org/abs/2610.37471</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.37471</guid>
+<description><![CDATA[**作者**：Tongkun Guan 等（上海交通大学、Qwen）
+
+**总结**：PerceptRL 把多模态模型自己的感知错误挖出来、验证后做成答案固定的 QA 对，让细粒度感知也能用规则奖励做 RL；再以多轮带工具交互与坐标修正攻克稠密场景。七项基准平均 71.6%，比同工具 base 模型高 15.7 分、反超最强前沿 VLM 5.2 分。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月29日-45视觉感知可奖励化-10-29)]]></description>
+<pubDate>Thu, 29 Oct 2026 00:55:15 +0000</pubDate>
+</item>
+<item>
+<title>10月29日 (5/5) SetGRPO: Calibrating Grader-Induced Policy Optimization</title>
+<link>https://arxiv.org/abs/2610.36807</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.36807</guid>
+<description><![CDATA[**作者**：Jiale Huang 等（山东大学、新加坡国立大学）
+
+**总结**：SetGRPO 盯住 rubric RL 的打分器噪声风险：评分抖动经 GRPO 组内归一化会污染整组训练系数、甚至推反更新方向。它用集合校准、几何安全恢复与风险门控筛掉危险更新，在十项开放式基准上取得最高宏平均，Qwen3.5-9B 达 63.51。
+
+**今日点评**：今日五篇有个共同主题：RL 训练的效率与可靠性正在从算法本身向「训练数据的组织方式」转移——调度环境、分配 rollout、抢救全失败组、把感知错误变数据、过滤噪声更新，都是在不增加总预算的前提下让每一份训练信号更值钱。单篇最值得先读 EnvSched 和 PICO。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月29日-55评分噪声校准-GRPO-10-29)]]></description>
+<pubDate>Thu, 29 Oct 2026 00:55:15 +0000</pubDate>
+</item>
 </channel>
 </rss>
