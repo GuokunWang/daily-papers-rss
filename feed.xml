@@ -1614,5 +1614,62 @@
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月29日-55评分噪声校准-GRPO-10-29)]]></description>
 <pubDate>Thu, 29 Oct 2026 00:55:15 +0000</pubDate>
 </item>
+<item>
+<title>10月30日 (1/5) FOCUS: Active Critic Learning for Long-Horizon Language Model Agents</title>
+<link>https://arxiv.org/abs/2610.35801</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.35801</guid>
+<description><![CDATA[**作者**：Zhengping Jiang 等（约翰霍普金斯大学）
+
+**总结**：约翰霍普金斯大学团队提出 FOCUS：用主动学习选择最能降低 Critic 估计误差的状态做分支采样，以压缩边界上的段级价值做 TD(λ) 信用分配。Qwen3.5-9B 上 BrowseComp-Plus 达 55.4%，比最强基线高 7.2 个点，DeonticBench 与 LocBench 同样领先。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月30日-15主动-Critic-长程提效-10-30)]]></description>
+<pubDate>Fri, 30 Oct 2026 01:18:01 GMT</pubDate>
+</item>
+<item>
+<title>10月30日 (2/5) InterQ-RL: Interaction-Aware Correction of Execution Mismatch in Quantized Agentic RL</title>
+<link>https://arxiv.org/abs/2610.35303</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.35303</guid>
+<description><![CDATA[**作者**：Yingbo Hao 等（华南理工大学、腾讯）
+
+**总结**：华南理工大学与腾讯团队针对多轮 Agent RL 的量化 rollout：8bit 执行器与学习器之间的执行失配会沿策略历史累积，InterQ-RL 用有界前缀修正予以纠正且不增加前向。在 4 档设置中均为最强量化端点，与 BF16 差距在 0.7 个点以内，两档反超 BF16。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月30日-25量化-Rollout-失配修正-10-30)]]></description>
+<pubDate>Fri, 30 Oct 2026 01:18:01 GMT</pubDate>
+</item>
+<item>
+<title>10月30日 (3/5) Improving Reasoning with Rollout Agreement for Group-Based Policy Optimization</title>
+<link>https://arxiv.org/abs/2610.34951</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.34951</guid>
+<description><![CDATA[**作者**：Sohyun Son 等（庆熙大学）
+
+**总结**：庆熙大学团队发现 GRPO 组内正确轨迹的低一致性者虚假推理更多（35% 对 22%），提出把推理一致性加进正确轨迹的奖励。无需额外采样与外部评估器，1.5B 模型 5 个数学基准平均 pass@1 达 55.5%，超 GRPO 6.0 个点，虚假推理率从 32% 降至 18%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月30日-35Rollout-一致性奖励-10-30)]]></description>
+<pubDate>Fri, 30 Oct 2026 01:18:01 GMT</pubDate>
+</item>
+<item>
+<title>10月30日 (4/5) Priority-Preserving Advantage Aggregation for Multi-Reward Policy Optimization</title>
+<link>https://arxiv.org/abs/2610.34862</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.34862</guid>
+<description><![CDATA[**作者**：Xiangchi Yuan 等（佐治亚理工学院、达特茅斯学院、圣母大学）
+
+**总结**：佐治亚理工、达特茅斯与圣母大学团队指出多目标 RL 的加性聚合会让辅助优势翻转主目标偏好，提出符号保持的非对称优势聚合 PAPO。数学推理上 PAPO-GRPO 平均准确率 59.9%，同时长度合规率升至 87.6%；工具使用与安全对齐上同样保持主目标最优。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月30日-45多奖励优先级聚合-10-30)]]></description>
+<pubDate>Fri, 30 Oct 2026 01:18:01 GMT</pubDate>
+</item>
+<item>
+<title>10月30日 (5/5) When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing</title>
+<link>https://arxiv.org/abs/2610.35497</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.35497</guid>
+<description><![CDATA[**作者**：Lei Zhao 等（宾夕法尼亚大学、Philo Labs）
+
+**总结**：宾夕法尼亚大学与 Philo Labs 团队以长程视频编辑为 testbed，系统比较细粒度信用分配：衰减过程奖励在 60 回合以上的 Fine Cut 上相对纯结果 GRPO 提升 45.4%，但在短任务上收益有限；固定权重过程奖励会越训越刷分，OPSD 则基本失效。
+
+**今日点评**：今天 5 篇有一个共同主题：RL 提效的瓶颈正在从采更多转向把信用分对地方——FOCUS 挑选分支位置、RoAR 筛掉虚假推理轨迹、PAPO 保住主目标、InterQ-RL 修正整段历史的执行失配、视频编辑研究给过程奖励设衰减。省预算的关键不是少采样，而是让每一份采样信号的指向更准。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月30日-55细粒度信用分配取舍-10-30)]]></description>
+<pubDate>Fri, 30 Oct 2026 01:18:01 GMT</pubDate>
+</item>
 </channel>
 </rss>
