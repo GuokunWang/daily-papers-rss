@@ -6,17 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月1日 (1/5) Where the Model Changes Its Mind: Hindsight-Divergence Localization for Efficient Reinforcement Learning with Verifiable Rewards</title>
-<link>https://arxiv.org/abs/2609.36864</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36864#dingtalk-md</guid>
-<description><![CDATA[**作者**：Fanchao Chen 等（NVIDIA、UC Berkeley、UW–Madison、ETH Zurich）
-
-**总结**：RLVR 的组相对方法从 rollout 结果差异中学习，但独立采样完整轨迹成本高，且不在关键决策点探索。HDL 用事后视角下 token 对数概率的变化定位分支点：先生成少量完整根轨迹，再从选定位置生成续写填满训练组；续写复用根前缀，只通过新后缀贡献策略更新。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-15HDL分支采样提效-10-01)]]></description>
-<pubDate>Thu, 01 Oct 2026 10:41:00 +0000</pubDate>
-</item>
-<item>
 <title>10月1日 (2/5) Prompts Live on an Arc: Gaussian Curricula in Fisher–Rao Coordinates for Rollout-Efficient GRPO</title>
 <link>https://arxiv.org/abs/2609.38018</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2609.38018#dingtalk-md</guid>
@@ -1670,6 +1659,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月30日-55细粒度信用分配取舍-10-30)]]></description>
 <pubDate>Fri, 30 Oct 2026 01:18:01 GMT</pubDate>
+</item>
+<item>
+<title>10月31日 (1/5) Sandman: Building and Operating Sandboxes for Agentic Reinforcement Learning on Shared Kubernetes</title>
+<link>https://arxiv.org/abs/2610.39711</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.39711</guid>
+<description><![CDATA[**作者**：Yiming Yan 等（Amazon）
+
+**总结**：Amazon 内部的 Sandman 把 Agent RL 的任务沙箱做成共享 Kubernetes 上的服务：任务镜像加一个小 daemon 即成为有状态沙箱，provider 与 pool 两层调度扛住突发创建。生产验证中 4 个 SWE 训练 campaign 创建了 313 万个沙箱，暖池把评分获取从 6.2 秒降到 0.12 秒，但空闲成本也随之翻倍，取舍必须算进成本里。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月31日-15共享集群沙箱服务-10-31)]]></description>
+<pubDate>Sat, 31 Oct 2026 00:55:36 GMT</pubDate>
+</item>
+<item>
+<title>10月31日 (2/5) SCOPE: Selective Critical-Step On-Policy Self-Distillation for Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.38391</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.38391</guid>
+<description><![CDATA[**作者**：Qirui Liu 等（浙江大学、蚂蚁集团）
+
+**总结**：SCOPE 指出长程 Agent RL 的结果奖励与步骤质量并不一致：成功轨迹里 29.8% 的步骤是错的，失败轨迹里 42.4% 的步骤是对的。它只在定位出的关键错误步上蒸馏 step-specific 的 hindsight skill，并用有界带符号系数防止辅助更新失稳。Qwen2.5-3B 在 ALFWorld 上达到 97.7%，未见任务上比 GRPO 高 23.2 个百分点且交互少 46.7%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月31日-25关键步选择性蒸馏-10-31)]]></description>
+<pubDate>Sat, 31 Oct 2026 00:55:36 GMT</pubDate>
+</item>
+<item>
+<title>10月31日 (3/5) Where to Learn and How Far to Roll Out: Efficient Adaptive Training for GUI Agents</title>
+<link>https://arxiv.org/abs/2610.39251</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.39251</guid>
+<description><![CDATA[**作者**：Yuxiang Chai 等（阿里巴巴、香港中文大学）
+
+**总结**：这篇把 GUI Agent 的 GRPO 训练从“每次从头滚完整轨迹”改成“从可恢复检查点出发、只练不确定的 pivot”：动作分歧选出策略真正犹豫的中间态，再按掌握程度在 Local、Suffix、Root 之间自适应推进。相比 Vanilla GRPO，环境交互减少 56–61%，MobileGym 与 CUA-Gym-Hub 的 held-out 表现反而更高。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月31日-35GUI-自适应训练提效-10-31)]]></description>
+<pubDate>Sat, 31 Oct 2026 00:55:36 GMT</pubDate>
+</item>
+<item>
+<title>10月31日 (4/5) Distributional Reward Calibration and Budget-Neutral Credit Assignment for Multimodal RLVR</title>
+<link>https://arxiv.org/abs/2610.40250</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.40250</guid>
+<description><![CDATA[**作者**：Lang Chen 等（通讯作者：深圳大学）
+
+**总结**：TACE 把 GRPO 优势估计拆成两步：样本级用一维最优传输把奖励秩映射到标准正态，替代会保留分布形状的线性标准化；token 级对证据对比做轨迹内秩校准并重归一化为均值 1，只重新分配 verifier 的信用、绝不放大总量。Qwen3-VL-8B 在 MMMU、MathVista、MathVision 上均领先 RLSD，但在 ZeroBench 与 WeMath 上回落，结果诚实地混合。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月31日-45两阶段优势信用分配-10-31)]]></description>
+<pubDate>Sat, 31 Oct 2026 00:55:36 GMT</pubDate>
+</item>
+<item>
+<title>10月31日 (5/5) Nemotron 3.5 Super and Lightning: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Models for Agentic AI</title>
+<link>https://arxiv.org/abs/2610.38095</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.38095</guid>
+<description><![CDATA[**作者**：NVIDIA 等（NVIDIA）
+
+**总结**：NVIDIA 的 Nemotron 3.5 家族把效率做进架构与训练全链路：Super 为 120B 总参数、12B 激活的多模态模型，Lightning 为 30B 总参数、3B 激活的文本模型，混合 Mamba-Transformer 的 MoE 结构配合 RLVR/RLHF 与多教师在策略蒸馏。Super 在 SWE-bench Pro 上达到 51.78%，NVFP4 量化相对 BF16 的中位精度恢复为 99.62%。
+
+**今日点评**：今日 5 篇有一个共同主线：效率正在从“换一个目标函数”转向“重新分配预算与供给”——TACE 重新分配 verifier 的信用，SCOPE 与 GUI 自适应训练重新分配学习信号该落在哪一步、该滚多远，Sandman 重新分配沙箱这种环境供给，而 Nemotron 3.5 则把效率做进模型本身。单篇看都是提效，合起来看是 Agent RL 从“能跑起来”走向“跑得起、跑得稳”的工程化转折。读的时候建议按“我的瓶颈在信用、步骤、环境还是模型”对号入座，而不是把所有提效方法叠加使用。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月31日-55高效-MoE-智能体模型-10-31)]]></description>
+<pubDate>Sat, 31 Oct 2026 00:55:36 GMT</pubDate>
 </item>
 </channel>
 </rss>
