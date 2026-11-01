@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月1日 (2/5) Prompts Live on an Arc: Gaussian Curricula in Fisher–Rao Coordinates for Rollout-Efficient GRPO</title>
-<link>https://arxiv.org/abs/2609.38018</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.38018#dingtalk-md</guid>
-<description><![CDATA[**作者**：Mei Okonkwo 等（UW–Madison、UWashington）
-
-**总结**：GRPO 只从有分歧的样本组学习，全对或全错的组奖励方差为零，不贡献梯度还消耗采样。本文发现 GRPO 自带自然坐标：Bernoulli Fisher-Rao 流形上的弧长。在弧长坐标下期望更新均匀，零方差组概率被高斯边界层约束，pass@k 目标的梯度是高斯且有闭式解。于是 GRPO 的 prompt 课程就是弧长上的高斯。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-25GRPO弧长课程-10-01-2)]]></description>
-<pubDate>Thu, 01 Oct 2026 10:42:00 +0000</pubDate>
-</item>
-<item>
-<title>10月1日 (3/5) Where Does Staleness Accumulate? Pool Aware Effective Staleness Control for Asynchronous RL in LLM Post-Training</title>
-<link>https://arxiv.org/abs/2609.36830</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36830#dingtalk-md</guid>
-<description><![CDATA[**作者**：Chenliang Li 等
-
-**总结**：全异步 RL 把采样生成和策略优化重叠，资源利用率高，但轨迹排队期间策略还在更新，引入策略滞后。本文把轨迹过期分解为生成期和等待期，提出 PACE：把超额池占用转成自适应拒绝预算，用结合两期的有效过期分数给已完成轨迹排序，避免仅因跨越多个策略版本就惩罚长轨迹。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-35异步RL过期控制-10-01-2)]]></description>
-<pubDate>Thu, 01 Oct 2026 10:43:00 +0000</pubDate>
-</item>
-<item>
-<title>10月1日 (4/5) Unlocking the Critic: Reward-Free Policy Optimization for LLM Post-Training</title>
-<link>https://arxiv.org/abs/2609.37119</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.37119#dingtalk-md</guid>
-<description><![CDATA[**作者**：Hongyang Li 等（U Luxembourg、Paris-Saclay）
-
-**总结**：近期 LLM 后训练 RL 纷纷去掉 critic；即使训了，训完也就扔掉。本文为 critic 翻案：长思维链下 critic 的不稳定多是优化假象，保持策略更新小而低方差即可稳定收敛。训好的 critic 能从轨迹后段估计最终成功的后验概率，提供结果派生的稠密每前缀学习信号，无需完整采样、逐步标注和外部奖励。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-45无奖励策略优化-10-01-2)]]></description>
-<pubDate>Thu, 01 Oct 2026 10:44:00 +0000</pubDate>
-</item>
-<item>
-<title>10月1日 (5/5) PR-OPD: Privileged Representation On-policy Self-Distillation for Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2609.36642</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36642#dingtalk-md</guid>
-<description><![CDATA[**作者**：Muyang Li 等（UFlorida）
-
-**总结**：特权自蒸馏让同一策略在带技能时通过词概率教不带技能的自己。但本文发现：加技能把 WebShop 成功率从 42.2% 提到 56.2%，却只改变不到四分之一词的概率；技能改变了八成以上词的隐状态。PR-OPD 于是对齐隐状态而非概率：GRPO 热启动后，策略为每条轨迹写 hindsight 技能，以其为 teacher 逐层对齐投影隐状态，无需外部技能库，推理零开销。
-
-**今日点评**：采样效率与异步过期是高频主题，critic 复兴信号出现——高效 RL 的重心正在从算法结构下沉到采样和训练动力学。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月1日-55对齐隐状态蒸馏-10-01-4)]]></description>
-<pubDate>Thu, 01 Oct 2026 10:45:00 +0000</pubDate>
-</item>
-<item>
-<title>10月2日 (1/5) PivotOPD: Learning to Recover from Pivotal Mistakes in Multi-Turn Agents</title>
-<link>https://arxiv.org/abs/2609.40285</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.40285</guid>
-<description><![CDATA[**作者**：Yinghui He 等（NVIDIA、普林斯顿大学、马里兰大学）
-
-**总结**：多轮智能体里一次关键失误会让整条轨迹报废。PivotOPD 定位“枢纽失误”轮次，用教师信号做反向蒸馏防再犯、前向蒸馏教恢复，在四个基准上全面最强，ALFWorld 提升 5.5%，恢复成功率达基座模型 9 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-15枢纽失误恢复蒸馏-10-02-2)]]></description>
-<pubDate>Fri, 02 Oct 2026 00:55:00 +0000</pubDate>
-</item>
-<item>
 <title>10月2日 (2/5) From Imitation to Reward Discovery: On-Policy Warmup for Agentic RL</title>
 <link>https://arxiv.org/abs/2609.39436</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2609.39436</guid>
@@ -1716,6 +1659,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月31日-55高效-MoE-智能体模型-10-31)]]></description>
 <pubDate>Sat, 31 Oct 2026 00:55:36 GMT</pubDate>
+</item>
+<item>
+<title>11月1日 (1/5) PIVOT: Progressive Intervention via Online Teacher Correction</title>
+<link>https://arxiv.org/abs/2610.40576</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.40576</guid>
+<description><![CDATA[**作者**：Zhihao Yang 等（中国科学院大学、清华大学、中国科学院软件研究所）
+
+**总结**：RLVR 难题组内全失败时奖励给不出信号，PIVOT 让老师在学生 rollout 中途插入修正段，并对修正段加 token 级 KL 监督，把轨迹可达性与可学性同时补上。逻辑游戏上 mean avg@8 从最强基线 19.5% 提到 35.6%，难题数学 split 从基座 5.04% 提到 23.05%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月1日-15教师在线纠错提效-11-01)]]></description>
+<pubDate>Sun, 01 Nov 2026 00:58:06 GMT</pubDate>
+</item>
+<item>
+<title>11月1日 (2/5) SCARL: Sequence Confidence-Aligned Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.40407</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.40407</guid>
+<description><![CDATA[**作者**：Zhenghong Ke 等（百度、南京大学）
+
+**总结**：RLVR 的优势对置信度是盲的，勉强蒙对与十拿九稳拿同样的更新。SCARL 按组内相对置信度与优势认证结果的对齐缺口重塑优势、永不改号，不增加前向、仅一个超参数。Qwen3-4B-Base 上平均 Pass@32 比 DAPO 高 2.4 点，16 组设置中 14 组提升。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月1日-25置信度对齐优势-11-01)]]></description>
+<pubDate>Sun, 01 Nov 2026 00:58:06 GMT</pubDate>
+</item>
+<item>
+<title>11月1日 (3/5) There Is No Free Lunch in RLVR: Every pass@1 Gain Has a pass@k Price</title>
+<link>https://arxiv.org/abs/2610.39295</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.39295</guid>
+<description><![CDATA[**作者**：Yinuo Liu（机构未注明）
+
+**总结**：一篇单作者理论工作，把 RLVR 建模为基座策略上的指数倾斜，证明任何提升 pass@1 的更新必然在某个 prompt 上付出代价，彻底消除交叉的代价是全部 pass@1 收益。重读 Qwen2.5-7B 的 GRPO 日志正好验证：相对基座的优势在 k=1 到 256 间从 +0.149 衰减到 −0.008，恰好一次交叉。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月1日-35RLVR无免费午餐-11-01)]]></description>
+<pubDate>Sun, 01 Nov 2026 00:58:06 GMT</pubDate>
+</item>
+<item>
+<title>11月1日 (4/5) Heterogeneous Co-Evolution Learning for Tool-Efficient Search Agents with Zero Labels</title>
+<link>https://arxiv.org/abs/2610.39682</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.39682</guid>
+<description><![CDATA[**作者**：Qin-Wen Luo 等（南京航空航天大学、滴滴）
+
+**总结**：ZEST-Search 不靠任何标注搜索数据练搜索智能体：异构提议者围绕求解者能力边界在线出题，工具感知奖励压掉冗余检索。Qwen2.5-7B-Base 的 7 基准平均 EM 从 21.8 提到 35.6，平均搜索次数从 1.59 降到 1.17；小提议者也可媲美大提议者。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月1日-45零标签搜索智能体提效-11-01)]]></description>
+<pubDate>Sun, 01 Nov 2026 00:58:06 GMT</pubDate>
+</item>
+<item>
+<title>11月1日 (5/5) Online Dense Reinforcement Learning with Planning-Grounding Agent for UI Navigation on Live IOS Apps</title>
+<link>https://arxiv.org/abs/2610.39264</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.39264</guid>
+<description><![CDATA[**作者**：Peitong Duan 等（Apple）
+
+**总结**：Apple 团队直接在真机 iOS 应用上在线训 UI 智能体：规划与定位解耦、LLM 法官给步级密集奖励、GiGPPO 用邻居轨迹稳住 critic，基础设施支撑数百台并发虚拟设备。UINavBench 成功率 32.4% 追平 Gemini-3.1-Pro，Android 异分布上比 SFT 基线高近 7 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月1日-55真机在线密集RL-11-01)
+
+**今日点评**：今天 5 篇的共同线索是“让 RL 的信号更准、更省、更贴合能力边界”：PIVOT 与 SCARL 修的都是优势与监督的分配方式，一个补轨迹可达性、一个补置信度对齐；无免费午餐定理则给所有这类改进标了价——pass@1 的每一点收益都要在 pass@k 上记账；ZEST 与真机 UI 在线 RL 则把同样的思路推向智能体：任务难度跟着能力边界走、奖励给到每一步、工具调用按成本记账。高效 RL 的下一个红利不在堆 rollout，而在信号的精度与定价。]]></description>
+<pubDate>Sun, 01 Nov 2026 00:58:06 GMT</pubDate>
 </item>
 </channel>
 </rss>
