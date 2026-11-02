@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月2日 (2/5) From Imitation to Reward Discovery: On-Policy Warmup for Agentic RL</title>
-<link>https://arxiv.org/abs/2609.39436</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.39436</guid>
-<description><![CDATA[**作者**：Yitong Qiao 等（浙江大学、蚂蚁集团）
-
-**总结**：稀疏奖励下智能体 RL 前期全是无效探索。On-Policy Warmup 让教师在学生自己的轨迹上做蒸馏预热，先发现奖励再进 GRPO：前 20 步提升 41.8 个百分点，达 80% 成功率仅用 19.6 GPU 小时。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-25在策预热加速训练-10-02)]]></description>
-<pubDate>Fri, 02 Oct 2026 00:56:00 +0000</pubDate>
-</item>
-<item>
-<title>10月2日 (3/5) RLTL;DR: Self-improvement by Internalizing Self-generated Feedback</title>
-<link>https://arxiv.org/abs/2609.37633</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.37633</guid>
-<description><![CDATA[**作者**：Michael Kirchhof 等（Apple）
-
-**总结**：GRPO 在完全解不出的任务上奖励全零、采样全浪费。RLTL;DR 让模型每次失败后自己写一句反思、带着反思再试并内化进参数，在 Pass@128 为零的任务上做到评估无反思仍有 12-13% 通过率。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-35自我反思内化训练-10-02-2)]]></description>
-<pubDate>Fri, 02 Oct 2026 00:57:00 +0000</pubDate>
-</item>
-<item>
-<title>10月2日 (4/5) Learn from the Gap: Differential-Aware Advantage Pruning with Adaptive Rollout Sampling for GRPO</title>
-<link>https://arxiv.org/abs/2609.36932</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36932</guid>
-<description><![CDATA[**作者**：Jiahua Yang 等（OPPO AI Center、暨南大学）
-
-**总结**：GRPO 采样中大量轨迹梯度贡献很低。FastRL 按梯度贡献做差异化优势剪枝、保留高优势且多样的轨迹，并随训练阶段自适应收缩采样量，在视觉推理模型上平均提速 2.07 倍、精度反涨 1.64%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-45优势剪枝提速GRPO-10-02)]]></description>
-<pubDate>Fri, 02 Oct 2026 00:58:00 +0000</pubDate>
-</item>
-<item>
-<title>10月2日 (5/5) Cool the Sampler, Not the Learner: Sampling Temperature Moves the Staleness Cliff of Importance-Corrected GRPO</title>
-<link>https://arxiv.org/abs/2609.36953</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.36953</guid>
-<description><![CDATA[**作者**：Taiheng Pan（墨尔本大学）
-
-**总结**：生产级 RL 采样器滞后太久会突然崩。降温采样把采样温度降到 0.8、学习器侧保持 1.0，崩溃临界点推后一倍，刷新间隔从 96 步放宽到 192 步而 GSM8K 精度同为 0.857。
-
-**今日点评**：今日五篇主题高度统一：RL 训练的算力都烧在“无效采样”上——OPW 把无效探索变监督信号，PivotOPD 把蒸馏预算集中到枢纽轮次，FastRL 剪掉低梯度轨迹，降温采样让刷新减半，RLTL;DR 让零奖励 rollout 也产出反思。大厂与高校在同一天押注同一方向：不是堆更多 rollout，而是让每条 rollout 更值钱。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月2日-55降温采样省算力-10-02)]]></description>
-<pubDate>Fri, 02 Oct 2026 00:59:00 +0000</pubDate>
-</item>
-<item>
-<title>10月3日 (1/5) Asynchronous LLM Post-Training: Group-Mass Capping and Convergence Analysis</title>
-<link>https://arxiv.org/abs/2610.01896</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.01896</guid>
-<description><![CDATA[**作者**：Qijia He 等（俄亥俄州立大学、亚利桑那州立大学）
-
-**总结**：异步训练中 rollout 数据过期会拖慢 GRPO 类算法。GMC-GRPO 用组级质量上限代替逐条裁剪，给出显式延迟收敛界；延迟 128 的极端测试下 MATH500 达 59.03%，远超原生 GRPO 的 35.33%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-15异步GRPO抗延迟-10-03)]]></description>
-<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
-</item>
-<item>
 <title>10月3日 (2/5) From Gradients to Capabilities: Understanding Multi-Teacher On-Policy Distillation</title>
 <link>https://arxiv.org/abs/2610.02179</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.02179</guid>
@@ -1716,6 +1659,63 @@
 
 **今日点评**：今天 5 篇的共同线索是“让 RL 的信号更准、更省、更贴合能力边界”：PIVOT 与 SCARL 修的都是优势与监督的分配方式，一个补轨迹可达性、一个补置信度对齐；无免费午餐定理则给所有这类改进标了价——pass@1 的每一点收益都要在 pass@k 上记账；ZEST 与真机 UI 在线 RL 则把同样的思路推向智能体：任务难度跟着能力边界走、奖励给到每一步、工具调用按成本记账。高效 RL 的下一个红利不在堆 rollout，而在信号的精度与定价。]]></description>
 <pubDate>Sun, 01 Nov 2026 00:58:06 GMT</pubDate>
+</item>
+<item>
+<title>11月2日 (1/5) Training Foundation Models with a Single Algorithm</title>
+<link>https://arxiv.org/abs/2610.40564</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.40564</guid>
+<description><![CDATA[**作者**：Yuda Song 等（卡内基梅隆大学、约翰斯·霍普金斯大学、Aurora Innovation）
+
+**总结**：该文把预训练、中训、SFT 与 RL 统一写成对成功分布的极大似然拟合，四个阶段共享一个加权似然损失，训练全程只改变数据混合比例。受控实验中统一训练在精度、覆盖与泛化上优于分阶段训练，且更好地保留了预训练通用能力。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月2日-15单算法统一训练-11-02)]]></description>
+<pubDate>Mon, 02 Nov 2026 00:58:48 +0000</pubDate>
+</item>
+<item>
+<title>11月2日 (2/5) When Does Closed-Loop Curriculum Adaptation Help GRPO? An Analysis on Countdown</title>
+<link>https://arxiv.org/abs/2610.39056</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.39056</guid>
+<description><![CDATA[**作者**：Yuv Raj Pant 等（德克萨斯基督教大学、德克萨斯农工大学金斯维尔分校）
+
+**总结**：ClosedLoopGaussian 每 100 步用探针估计各难度桶通过率，反馈调节高斯课程的推进速度与复习宽度，不改奖励、模型与 GRPO 优化器。Countdown 四种子平均精确匹配 42.4%，高于固定课程的 35.0% 与原生 GRPO 的 26.4%，且避免了原生 GRPO 在两个种子上塌到 7.7% 的情况。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月2日-25闭环课程-GRPO-11-02)]]></description>
+<pubDate>Mon, 02 Nov 2026 00:58:48 +0000</pubDate>
+</item>
+<item>
+<title>11月2日 (3/5) Reward-Adaptive Co-Evolution of Policy and Rubric</title>
+<link>https://arxiv.org/abs/2610.40096</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.40096</guid>
+<description><![CDATA[**作者**：Yizhu Chen 等（北京大学、百度、中科院自动化所）
+
+**总结**：RACE 按每组 rollout 的奖励信息量决定训策略、缓存给 rubric 训练还是屏蔽，并只在奖励持续饱和时切换进 rubric 阶段。Qwen3-8B 在八个下游任务上平均 73.0 分，全面超过固定交替基线 EvoLM，RewardBench2 也从 46.0 升至 49.2。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月2日-35奖励自适应共演化-11-02)]]></description>
+<pubDate>Mon, 02 Nov 2026 00:58:48 +0000</pubDate>
+</item>
+<item>
+<title>11月2日 (4/5) Learning to Reason from Reference Samples Alone: Reinforced Adversarial Learning for Modern LLM Post-Training</title>
+<link>https://arxiv.org/abs/2610.38851</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.38851</guid>
+<description><![CDATA[**作者**：Albert Bou 等（Edison Scientific Inc.）
+
+**总结**：RAL 只用参考答案、不给验证器与推理过程，让并行训练的 LLM 评委把“像参考答案的概率”作为生成器唯一的 RL 奖励。四位数乘法上 4B 评委达到 94.9% 精度、超过可验证奖励基线，NIH 基金摘要上人类评委误判率达到 55%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月2日-45参考答案对抗训练-11-02)]]></description>
+<pubDate>Mon, 02 Nov 2026 00:58:48 +0000</pubDate>
+</item>
+<item>
+<title>11月2日 (5/5) On-Policy Self-Distillation with Teacher Evolution</title>
+<link>https://arxiv.org/abs/2610.38637</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.38637</guid>
+<description><![CDATA[**作者**：Shufan Shen 等（中科院计算所、中国科学院大学、美团）
+
+**总结**：TESD 发现自蒸馏停滞的根源是教师本身不会教，于是用环境奖励直接训练教师、并按教师可靠性给学生损失加权。Qwen3-8B 上 SciKnowEval 与工具任务平均 75.61%，超过 GRPO 的 74.94% 与 SDPO 的 70.21%，且留出任务平均分更高、遗忘更轻。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月2日-55教师进化自蒸馏-11-02)
+
+**今日点评**：今日五篇的共同线索，是把训练信号的质量问题摆到台面上：统一训练质疑阶段划分本身，闭环课程与 RACE 分别在采样分布与奖励更新时机上按信号状态做决策，RAL 在没有验证器时从参考答案里学出奖励，TESD 则直接去修自蒸馏里最弱的一环——教师自己。五篇结论大多来自中小模型或受控任务，迁移到大模型长程任务时仍需验证；但“先保证信号可信，再谈规模”这个排序，是高效 RL 训练值得跟进的共识。]]></description>
+<pubDate>Mon, 02 Nov 2026 00:58:48 +0000</pubDate>
 </item>
 </channel>
 </rss>
