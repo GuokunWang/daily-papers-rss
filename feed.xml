@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月3日 (2/5) From Gradients to Capabilities: Understanding Multi-Teacher On-Policy Distillation</title>
-<link>https://arxiv.org/abs/2610.02179</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.02179</guid>
-<description><![CDATA[**作者**：Siqi Zhu 等（普林斯顿大学、伊利诺伊大学香槟分校、西湖大学）
-
-**总结**：多教师在线蒸馏中，损失平均、Adam 一阶矩和 BF16 精度都在悄悄改写教师信号。研究发现梯度近似得更好不保证任务提升更大，并给出 top-64 交集 KL 等实用结论。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-25多教师蒸馏机理-10-03)]]></description>
-<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
-</item>
-<item>
-<title>10月3日 (3/5) Range-GRPO: Policy Optimization via Pairwise Relations among Reward Intervals</title>
-<link>https://arxiv.org/abs/2610.01548</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.01548</guid>
-<description><![CDATA[**作者**：Ryunyi Lee 等（延世大学）
-
-**总结**：用符合校准把 LLM 裁判的伪奖励表示为区间，通过区间两两比较构造 GRPO 优势。推理基准上分布内、外准确率比最强基线分别高 5.2% 和 7.0%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-35奖励区间GRPO-10-03)]]></description>
-<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
-</item>
-<item>
-<title>10月3日 (4/5) SHARPO: Segment-Level Credit Assignment for Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.00838</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.00838</guid>
-<description><![CDATA[**作者**：Xinchen Du 等（佐治亚理工学院、领英）
-
-**总结**：针对智能体任务终点奖励稀疏、难以归因，用同组成功轨迹做自蒸馏，在交互片段级给 GRPO 优势加有界权重。ALFWorld 成功率 84.90%，比 GRPO 高 14.32 个百分点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-45SHARPO分段信用分配-10-03)]]></description>
-<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
-</item>
-<item>
-<title>10月3日 (5/5) Do Your Own Research: Learning to Forecast by Learning to Search</title>
-<link>https://arxiv.org/abs/2610.01955</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.01955</guid>
-<description><![CDATA[**作者**：Yusuf Afifi 等（Future Principle）
-
-**总结**：把多轮搜索放进 RL 训练循环，在 2100 多道 Polymarket 预测题上单轮 GRPO 训练预测智能体。校准误差降三成，以约 5% 推理成本超越 Claude Opus 4.5。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月3日-55自主搜索学预测-10-03)
-
-**今日点评**：今天的五篇有一个共同主题——让 RL 训练更“聪明地”用数据：GMC-GRPO 驯服过期 rollout，多教师蒸馏拆解监督信号的扭曲，Range-GRPO 把裁判的不确定性变成学习信号，SHARPO 在片段级做信用分配，预测智能体则把搜索本身变成可训练的技能。高效 RL 的前沿，正从“堆更多 rollout”转向“让每条数据的价值被精确计量”。]]></description>
-<pubDate>Sat, 03 Oct 2026 00:58:25 GMT</pubDate>
-</item>
-<item>
-<title>10月4日 (1/5) Sharpening Tax in Post-Training</title>
-<link>https://arxiv.org/abs/2610.01509</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.01509</guid>
-<description><![CDATA[**作者**：Changdae Oh 等（Meta Superintelligence Labs（Meta 超级智能实验室）、Stanford University（斯坦福大学）、University of Wisconsin–Madison（威斯康星大学麦迪逊分校））
-
-**总结**：Meta 超级智能实验室团队系统测量了 RL 后训练的隐性代价：单次采样准确率提升的同时，多次采样的解题覆盖率下降，并把这种代价量化为锐化税指标。在十四对基座与后训练模型、四大家族、三个智能体基准的四十二个组合上，该现象普遍存在；作者提出的即插即用采样器 PTGS 能同时改善准确率和覆盖率。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-15RL后训练的锐化税-10-04)]]></description>
-<pubDate>Sun, 04 Oct 2026 01:00:26 +0000</pubDate>
-</item>
-<item>
 <title>10月4日 (2/5) CARM: Cancellation-Aware Response Masking for LLM Reinforcement Learning</title>
 <link>https://arxiv.org/abs/2610.02039</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.02039</guid>
@@ -1716,6 +1659,63 @@
 
 **今日点评**：今日五篇的共同线索，是把训练信号的质量问题摆到台面上：统一训练质疑阶段划分本身，闭环课程与 RACE 分别在采样分布与奖励更新时机上按信号状态做决策，RAL 在没有验证器时从参考答案里学出奖励，TESD 则直接去修自蒸馏里最弱的一环——教师自己。五篇结论大多来自中小模型或受控任务，迁移到大模型长程任务时仍需验证；但“先保证信号可信，再谈规模”这个排序，是高效 RL 训练值得跟进的共识。]]></description>
 <pubDate>Mon, 02 Nov 2026 00:58:48 +0000</pubDate>
+</item>
+<item>
+<title>11月3日 (1/5) bf16 Rounding Silently Discards Most RL Policy Updates: A Hidden Training-Inference Mismatch and an Unbiased One-Line Fix</title>
+<link>https://arxiv.org/abs/2610.41073</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.41073</guid>
+<description><![CDATA[**作者**：Andrew Gao 等（斯坦福大学）
+
+**总结**：RL 后训练中，fp32 主权重到 bf16 推理副本的最近舍入会丢掉绝大多数单步更新，使采样策略落后优化器 50-150 步。Fair Cast 改用无偏舍入并在 served 副本上算损失，导出处改一行、无超参数，25 组配对实验平均提升 6.1 分。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月3日-15bf16-舍入修复-11-03)]]></description>
+<pubDate>Tue, 03 Nov 2026 00:55:35 GMT</pubDate>
+</item>
+<item>
+<title>11月3日 (2/5) Li²SAO: Lifting Light Single-Rollout Asynchronous RL Optimization via Group-Relative Actor-Critic Bootstrapping</title>
+<link>https://arxiv.org/abs/2610.40726</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.40726</guid>
+<description><![CDATA[**作者**：Zichen Bai 等（京东）
+
+**总结**：异步 RL 的单样本优化卡在冷 critic 不准上，早期全面落后 GRPO。Li²SAO 先用组相对优势把 actor 与 critic 一起暖起来，待 critic 就绪再一次性切到单样本 GAE，早期与后期在推理和 agentic 任务上同时占优，且不需要闭源价值预训练模型。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月3日-25单样本异步-RL-提速-11-03)]]></description>
+<pubDate>Tue, 03 Nov 2026 00:55:35 GMT</pubDate>
+</item>
+<item>
+<title>11月3日 (3/5) Search When Needed, Proceed When Reliable: Metacognitive Reliability Supervision for Efficient Agentic Search</title>
+<link>https://arxiv.org/abs/2610.41738</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.41738</guid>
+<description><![CDATA[**作者**：Minhao Sun 等（北京理工大学）
+
+**总结**：Agentic 搜索不该只看最终答案对不对，而要看当前信息够不够可靠。这篇工作用局部结论的可靠性分数给 GRPO 加过程奖励，让模型该搜时搜、不该搜时直接答，7 个问答基准平均 CEM 达 69.3，且总搜索次数反而减少 6.8%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月3日-35按需搜索更省检索-11-03)]]></description>
+<pubDate>Tue, 03 Nov 2026 00:55:35 GMT</pubDate>
+</item>
+<item>
+<title>11月3日 (4/5) CRoS: Causality Reward on Scrambled CoTs Improves Accuracy and Reasoning Faithfulness</title>
+<link>https://arxiv.org/abs/2610.42054</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.42054</guid>
+<description><![CDATA[**作者**：Xiao Yu 等（北卡罗来纳大学教堂山分校）
+
+**总结**：RLVR 只奖励最终答案，管不住模型先定答案再编理由。CRoS 把推理步骤打乱顺序但不改内容，用答案概率的下降量衡量推理是否真的起作用，作辅助奖励后域外准确率达 46.8%，CoT 质量与忠实度也同步提升。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月3日-45打乱-CoT-测因果-11-03)]]></description>
+<pubDate>Tue, 03 Nov 2026 00:55:35 GMT</pubDate>
+</item>
+<item>
+<title>11月3日 (5/5) On the Origin and Evolution of Training-Inference Mismatch in LLM Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2610.40945</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2610.40945</guid>
+<description><![CDATA[**作者**：Yu Li 等（乔治华盛顿大学、杜克大学）
+
+**总结**：推理引擎与训练器分家后，RL 训练数据天然离策略，但已有纠正在不同失配源上表现不一。这篇工作把失配精确拆成恒定的引擎数值差与自我放大的策略滞后，并给出 DLC 纠正：中心化、裁剪滞后比、有效样本量跌破 0.5 时重同步采样器。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月3日-55训推失配溯源纠正-11-03)
+
+**今日点评**：今日 5 篇有一条共同主线：RL 训练里的隐性失配与效率税。bf16 舍入偷走小更新、训推权重陈旧自我放大、冷 critic 拖慢异步起步、搜索该省不省该花不花、CoT 因果被结果奖励掩盖——都是“看起来在训、实际信号被稀释”的问题。最值得立刻落地的是 Fair Cast 的一行无偏导出与 DLC 的有效样本量重同步判据；单样本异步路线则要先解决 critic 冷启动；CRoS 与可靠性搜索奖励适合作为下一轮奖励设计的候选，先在自家任务上测分数分布再定权重。]]></description>
+<pubDate>Tue, 03 Nov 2026 00:55:35 GMT</pubDate>
 </item>
 </channel>
 </rss>
