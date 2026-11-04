@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月4日 (2/5) CARM: Cancellation-Aware Response Masking for LLM Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.02039</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.02039</guid>
-<description><![CDATA[**作者**：Yafei Zhang 等（Moore Threads AI（摩尔线程））
-
-**总结**：摩尔线程 AI 发现 LLM 强化学习中几何平均序列掩码的抵消漏洞：正负方向的概率漂移会互相抵消，让严重偏离的回答看起来正常。CARM 方法先对每个词元的对数比值取绝对值再平均，堵住漏洞并给出理论保证。AIME 系列数学基准十六次采样平均指标提升三点一三个百分点，四个代码基准平均一次通过率提升二点八八个点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-25序列掩码防抵消-10-04)]]></description>
-<pubDate>Sun, 04 Oct 2026 01:00:27 +0000</pubDate>
-</item>
-<item>
-<title>10月4日 (3/5) On Language Drift during RLVR Post-Training</title>
-<link>https://arxiv.org/abs/2610.02015</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.02015</guid>
-<description><![CDATA[**作者**：Michael Sullivan 等（Saarland University（萨尔大学））
-
-**总结**：萨尔大学从理论上证明：RLVR 只约束最终答案，对思维链没有任何优化压力，因此语言漂移可以无限大，而有监督微调不会；想限制漂移就必然限制期望奖励。实验表明新任务上 RLVR 的漂移远大于微调，且不同随机种子的漂移方向各不相同，CoT 可监控性与性能在数学上不可兼得。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-35RLVR语言漂移-10-04)]]></description>
-<pubDate>Sun, 04 Oct 2026 01:00:28 +0000</pubDate>
-</item>
-<item>
-<title>10月4日 (4/5) Same Reward, Different Skills: When Multimodal RL Learns to Look</title>
-<link>https://arxiv.org/abs/2610.01908</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.01908</guid>
-<description><![CDATA[**作者**：Haocun Ye 等（中国科学院计算技术研究所）
-
-**总结**：中科院计算所用犀利对照揭示：把多模态 RLVR 的训练图片全换成灰色画布，视觉基准提升仍保留一半以上，说明很多提升是走捷径而非真看图。他们提出视觉可解性设计原则，用标准 GRPO 验证：反事实坐标场景发现目标准确率从零点四二五涨到零点八七五，而灰色画布对照组几乎学不到东西。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-45多模态RL真看图-10-04-2)]]></description>
-<pubDate>Sun, 04 Oct 2026 01:00:29 +0000</pubDate>
-</item>
-<item>
-<title>10月4日 (5/5) FERPO: Forward Entropy-Regularized Policy Optimization</title>
-<link>https://arxiv.org/abs/2610.02198</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.02198</guid>
-<description><![CDATA[**作者**：Sebastian Sanokowski 等（Technical University of Munich（慕尼黑工业大学））
-
-**总结**：慕尼黑工业大学提出 FERPO：不再对价值函数求动作梯度，而是先用价值函数加熵与 KL 正则构造最优目标动作分布，再用前向 KL 拟合。二十二个 DeepMind 控制套件任务 IQM 回报达八百九十七点七，超过 REPPO 和两种 PPO；A100 上更新耗时比 REPPO 快百分之二十二点二，代价是峰值显存增加约四分之一。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月4日-55FERPO前向熵正则-10-04-2)
-
-**今日点评**：今日五篇主线是 RL 训练的代价与效率：锐化税讲覆盖率的代价，语言漂移讲可监控性的代价，CARM 是训练管线里的实用补丁，多模态 RLVR 研究警示奖励设计决定学到什么，FERPO 则从算法层面重构 on-policy 更新。建议按 1→3→2→4→5 的顺序阅读。]]></description>
-<pubDate>Sun, 04 Oct 2026 01:00:30 +0000</pubDate>
-</item>
-<item>
-<title>10月5日 (1/5) Free Everywhere, Exact on Trees: PPO&#x27;s Dropped Correction Buys Sample Efficiency Under Aggressive Reuse</title>
-<link>https://arxiv.org/abs/2609.39634</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.39634</guid>
-<description><![CDATA[**作者**：Nima H. Siboni（Juna.ai）
-
-**总结**：Juna.ai 的单作者工作指出 PPO、GRPO 等方法都丢弃了状态访问分布的修正项，导致旧样本不敢复用。作者证明在自回归生成这类历史单射场景下，该修正可从已有的对数概率精确恢复，并给出偏差—方差可调的单参数族；短修正 warmup 配合激进早期复用，在困难信用分配调度任务上学习曲线 AUC 提升零点零二到零点零九。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月5日-15PPO复用修正-10-05)]]></description>
-<pubDate>Mon, 05 Oct 2026 00:57:02 +0000</pubDate>
-</item>
-<item>
 <title>10月5日 (2/5) Learning Beyond What You Sample: Off-Policy-Aware Cross-Model Trajectory Exchange for RLVR</title>
 <link>https://arxiv.org/abs/2609.37868</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2609.37868</guid>
@@ -1716,6 +1659,63 @@
 
 **今日点评**：今日 5 篇有一条共同主线：RL 训练里的隐性失配与效率税。bf16 舍入偷走小更新、训推权重陈旧自我放大、冷 critic 拖慢异步起步、搜索该省不省该花不花、CoT 因果被结果奖励掩盖——都是“看起来在训、实际信号被稀释”的问题。最值得立刻落地的是 Fair Cast 的一行无偏导出与 DLC 的有效样本量重同步判据；单样本异步路线则要先解决 critic 冷启动；CRoS 与可靠性搜索奖励适合作为下一轮奖励设计的候选，先在自家任务上测分数分布再定权重。]]></description>
 <pubDate>Tue, 03 Nov 2026 00:55:35 GMT</pubDate>
+</item>
+<item>
+<title>11月4日 (1/5) FADE: Factored Ability--Difficulty Filtering for Online RLVR Scheduling</title>
+<link>https://arxiv.org/abs/2611.03625</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.03625</guid>
+<description><![CDATA[**作者**：Tomas Duncun 等（密歇根大学、爱丁堡大学）
+
+**总结**：密歇根大学与爱丁堡大学把 RLVR 在线调度里速度不同的两个量拆开跟踪：策略能力快变、题目难度慢变，只把生成预算花在最可能产生有分歧样本组的题目上。平均准确率比无过滤高 3.07 个百分点、比 SPO 高 1.94 个百分点，而每步附加开销不到 0.6 毫秒。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月4日-15RLVR在线调度提效-11-04)]]></description>
+<pubDate>Wed, 04 Nov 2026 00:55:19 GMT</pubDate>
+</item>
+<item>
+<title>11月4日 (2/5) Controlling Sharpening in LLM Post-Training</title>
+<link>https://arxiv.org/abs/2611.03146</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.03146</guid>
+<description><![CDATA[**作者**：Simon Matrenok 等（EPFL、苏黎世联邦理工学院）
+
+**总结**：EPFL 与苏黎世联邦理工学院证明：pass@k / max@k 目标缓解锐化的本质是按难度重分配学习压力，而 @1 目标经题目自适应正则或奖励变换就能达到同样的最优策略。由此提出的 KAPPO 经一次参考校准即可适配任意 @1 方法，单次完成训练在匹配评估预算下与多完成优化器相差不到 0.5 个百分点，却省掉 k 倍 rollout。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月4日-25KAPPO控锐化提效-11-04)]]></description>
+<pubDate>Wed, 04 Nov 2026 00:55:19 GMT</pubDate>
+</item>
+<item>
+<title>11月4日 (3/5) SpecOPD: Branch-Parallel On-Policy Distillation for Speculative Decoding</title>
+<link>https://arxiv.org/abs/2611.02846</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.02846</guid>
+<description><![CDATA[**作者**：Tianyu Liu 等（阿里巴巴 Qwen、浙江大学、中国科学技术大学）
+
+**总结**：阿里巴巴 Qwen 等机构把投机解码的 on-policy 蒸馏从串行起草—验证改成分支并行：草稿块的监督只需参考前缀与草稿历史，分支打包成提议树共享目标前缀计算。平均接受长度最高提升 41.45%，监督 token 吞吐量达顺序方案的 16.09 倍，生成加速最高 3.56 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月4日-35分支并行OPD加速-11-04)]]></description>
+<pubDate>Wed, 04 Nov 2026 00:55:19 GMT</pubDate>
+</item>
+<item>
+<title>11月4日 (4/5) What Drives the Zero-to-One Jump? Diagnosing and Steering Hard-Prompt Learning in RLVR</title>
+<link>https://arxiv.org/abs/2611.02747</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.02747</guid>
+<description><![CDATA[**作者**：Rui Zhu 等（上海交通大学）
+
+**总结**：上海交通大学发现 RLVR 难题“零到一”跳变的可诊断先兆：跳变前失败样本的早期生成熵更高，据此提出的 NAPO 给未解出组的负样本排序并赋分级优势。在固定 rollout 预算下，AIME24 的 Pass@256 提升 10.0 个百分点，AIME2025 提升 6.6 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月4日-45难题零到一跃迁-11-04-2)]]></description>
+<pubDate>Wed, 04 Nov 2026 00:55:19 GMT</pubDate>
+</item>
+<item>
+<title>11月4日 (5/5) Forecasting How RLHF Responds to Reward-Model Edits Before Training</title>
+<link>https://arxiv.org/abs/2611.03244</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.03244</guid>
+<description><![CDATA[**作者**：Zixiao Wang 等（穆罕默德·本·扎耶德人工智能大学）
+
+**总结**：穆罕默德·本·扎耶德人工智能大学把奖励模型读成一组价格：每个特征的变化正比于它与奖励改变量在同一提示内的协方差，从而在跑 RL 之前预测奖励模型编辑的效果。协方差预测器预测了全部 20 个稳定供应变化的方向，解释 82% 的标准化变化，远超反事实价格对照的 50%。
+
+**今日点评**：今日五篇的主线，是把 RL 训练里最贵的“试错”往前挪：FADE 在采样前就把预算花在有分歧的题目上，KAPPO 用单次采样复现 @k 的压力，SpecOPD 把蒸馏采集从串行改成并行，NAPO 从失败样本里榨出梯度，而 RLHF 预测则在烧掉一次 RL 之前先算出改奖励模型会带来什么。共同的共识是：瓶颈不在算力总量，而在每一次采样、每一次更新、每一次奖励改动之前，有没有先算清楚这一份算力值不值。建议按 1→2→4→3→5 的顺序阅读。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月4日-55RLHF奖励编辑预测-11-04)]]></description>
+<pubDate>Wed, 04 Nov 2026 00:55:19 GMT</pubDate>
 </item>
 </channel>
 </rss>
