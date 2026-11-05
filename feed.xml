@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月5日 (2/5) Learning Beyond What You Sample: Off-Policy-Aware Cross-Model Trajectory Exchange for RLVR</title>
-<link>https://arxiv.org/abs/2609.37868</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.37868</guid>
-<description><![CDATA[**作者**：Doohyuk Jang 等（韩国科学技术院）
-
-**总结**：KAIST 提出 GRAFT，解决 GRPO 训练中整组 rollout 全错、无梯度信号的浪费：用异构对端模型的轨迹门控替换全错组，以序列级兼容性加权和 token 级重要性比裁剪控制跨模型失配。三个异构模型对、五个数学推理基准上平均提升二点一分，最高四点五分；用存储的对端轨迹仍平均超 GRPO 一点八分。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月5日-25跨模型轨迹交换-10-05)]]></description>
-<pubDate>Mon, 05 Oct 2026 00:57:02 +0000</pubDate>
-</item>
-<item>
-<title>10月5日 (3/5) Dependency-Aware Reward Shaping for Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.01207</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.01207</guid>
-<description><![CDATA[**作者**：Ziyi Chen 等（伊利诺伊大学香槟分校、新加坡国立大学、浙江大学）
-
-**总结**：UIUC、新加坡国立大学与浙江大学合作提出依赖感知奖励塑形 DARS：把任务进度建模为带前置依赖的谓词图，按图距离分配每一步信用，独立工作不受未修正错误牵连；通用接口可接入 GiGPO、ARPO/AEPO 等方法。在 ALFWorld 上同等预算与 harness 下比 GiGPO 成功率最高高出十个点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月5日-35依赖感知奖励塑形-10-05)]]></description>
-<pubDate>Mon, 05 Oct 2026 00:57:02 +0000</pubDate>
-</item>
-<item>
-<title>10月5日 (4/5) Advancing Entropy-Level Credit Assignment in RLVR via Proximal Entropy Policy Optimization</title>
-<link>https://arxiv.org/abs/2609.39402</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.39402</guid>
-<description><![CDATA[**作者**：Yun Kim 等（首尔国立大学）
-
-**总结**：首尔国立大学提出近端熵策略优化 PEPO：用 token 熵做重要性代理时全局计算会混淆 prompt 难度与位置趋势，近端熵只相对邻域 token 度量重要性，并被证明对两种混淆因素不变。用它加权每 token advantage，在 Qwen3-1.7B/4B 与 Llama-3.2-3B-Instruct 数学推理上超过 GRPO；已被 NeurIPS 2026 接收。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月5日-45近端熵信用分配-10-05)]]></description>
-<pubDate>Mon, 05 Oct 2026 00:57:02 +0000</pubDate>
-</item>
-<item>
-<title>10月5日 (5/5) Guide, Then Let Go: Gap-Adaptive Teacher Scheduling for Sparse-Reward Agentic RL</title>
-<link>https://arxiv.org/abs/2609.37898</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2609.37898</guid>
-<description><![CDATA[**作者**：Youling Huang 等（快手、大连理工大学、清华大学）
-
-**总结**：快手等机构提出间隙自适应教师调度 GATS：稀疏奖励下智能体冷启动严重，在线策略蒸馏能给 token 级指导，但学生追上教师后继续蒸馏反而有害。GATS 让蒸馏权重随师生性能差距自适应衰减、达标后撤回，教师可小于学生；在 ALFWorld、WebShop、ScienceWorld 三组 Qwen2.5 配置下均取得最高平均成功率，比纯奖励 GRPO 提升百分之四点三七到百分之十一点八七。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月5日-55间隙自适应教师调度-10-05)
-
-**今日点评**：今日五篇共同指向一件事：让每份 rollout 更值钱。精确修正让旧样本敢复用，借对端轨迹补上全错组，按依赖图分配步骤信用，按局部熵加权 token，按师生差距调度教师指导。高效 RL 训练的共识正在形成——瓶颈不在算力，而在信用分配的精度。]]></description>
-<pubDate>Mon, 05 Oct 2026 00:57:02 +0000</pubDate>
-</item>
-<item>
-<title>10月6日 (1/5) Pivot-SD: Efficient Self-Distillation for Masked Diffusion Language Models</title>
-<link>https://arxiv.org/abs/2610.03665</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.03665</guid>
-<description><![CDATA[**作者**：Seo Hyun Kim 等（KAIST、多伦多大学、Vector Institute）
-
-**总结**：扩散语言模型去噪时只有少数关键决策真正影响答案。以往方法对整个序列一视同仁训练，浪费算力。Pivot-SD 用信息增益筛选高影响力的枢纽 token 只监督它们：成功轨迹用交叉熵、失败轨迹用针对性负似然。仅用 200 道题、每题 4 次采样，就让 LLaDA-8B-Instruct 在数学和代码基准上超过全序列微调和同预算扩散 RL 基线。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-15Pivot-扩散模型自蒸馏-10-06)]]></description>
-<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
-</item>
-<item>
 <title>10月6日 (2/5) VenusRL: A Fully Disaggregated Agentic RL System with Priority Scheduling and Scalable Interaction</title>
 <link>https://arxiv.org/abs/2610.03286</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.03286</guid>
@@ -1716,6 +1659,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月4日-55RLHF奖励编辑预测-11-04)]]></description>
 <pubDate>Wed, 04 Nov 2026 00:55:19 GMT</pubDate>
+</item>
+<item>
+<title>11月5日 (1/5) Stabilizing On-Policy Targeted Guidance in Agentic Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2611.05266</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.05266</guid>
+<description><![CDATA[**作者**：Kevin Frans 等（Cursor Research、加州大学伯克利分校）
+
+**总结**：Cursor 与伯克利团队提出定向引导：把评判模型的逐条文本反馈只贴在出错的 agent 回合前，用同权重反馈条件专家做自蒸馏，让策略学会基模型覆盖范围外的新工具格式与风格标准，同时编码通过率保持 0.33 不回退。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月5日-15定向引导稳-Agent-训练-11-05)]]></description>
+<pubDate>Thu, 05 Nov 2026 00:51:43 GMT</pubDate>
+</item>
+<item>
+<title>11月5日 (2/5) FourSight: Stable FP4 RL Post-Training via Sequence Filtering and Sparse Channel Compensation</title>
+<link>https://arxiv.org/abs/2611.04887</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.04887</guid>
+<description><![CDATA[**作者**：Yining Wei 等（香港科技大学、香港科技大学（广州）、阿里巴巴）
+
+**总结**：针对 NVFP4 RL 训练中途崩溃，作者发现失配集中在少数离群序列与高方差激活通道，提出整条漂移轨迹过滤加 top-64 通道 BF16 稀疏补偿，Qwen3-8B 达到 20% AIME24 的步数比最强基线少 1.76–2.60 倍，且步时间保持在 FP4 的 2.3% 以内。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月5日-25FP4-训练稳如-BF16-11-05)]]></description>
+<pubDate>Thu, 05 Nov 2026 00:51:43 GMT</pubDate>
+</item>
+<item>
+<title>11月5日 (3/5) ReSI-Math: Exploring Recoverable Capability Frontiers for Efficient Reasoning Improvement</title>
+<link>https://arxiv.org/abs/2611.04787</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.04787</guid>
+<description><![CDATA[**作者**：Yao Cui 等（首都师范大学、清华大学、北京航空航天大学）
+
+**总结**：做错题不等于不会：作者用 Self-Judge 引导的进化交叉把模型自己的失败轨迹修成验证正确的解，定义“可恢复能力前沿”并据此挑选 RLVR 训练题，三阶段单题序贯训练把 Qwen3-VL-8B 的 MATH500 与 We-Math 均分从 78.71 提升到 80.16。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月5日-35可恢复能力前沿探-11-05)]]></description>
+<pubDate>Thu, 05 Nov 2026 00:51:43 GMT</pubDate>
+</item>
+<item>
+<title>11月5日 (4/5) Hindsight Credit Assignment over Trees for Agentic RL</title>
+<link>https://arxiv.org/abs/2611.02706</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.02706</guid>
+<description><![CDATA[**作者**：Penghong Zhao 等（阿里云、复旦大学）
+
+**总结**：阿里云与复旦团队提出 TriGRPO：rollout 树中在匹配决策状态上用成功动作开兄弟分支，并以根组、节点组、跨组三层优势算账，ALFWorld 三档规模成功率 88.3%/93.8%/93.8%，比最强基线高 1.6–6.2 个百分点，rollout token 最多省 39.4%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月5日-45事后信用树上分配-11-05)]]></description>
+<pubDate>Thu, 05 Nov 2026 00:51:43 GMT</pubDate>
+</item>
+<item>
+<title>11月5日 (5/5) Harness-S: Learning from Sibling Harnesses for Generalizable Agent Training</title>
+<link>https://arxiv.org/abs/2611.04277</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.04277</guid>
+<description><![CDATA[**作者**：Kangning Zhang 等（上海交通大学、小红书、卡内基梅隆大学）
+
+**总结**：支架也是能力的一部分：Harness-S 沿不同修复方向进化出一池兄弟支架，只在基支架全败的任务上救场并把成功训进同一策略，AppWorld 上 Qwen3.5-4B 验证集从 GRPO 的 48.00% 提升到 63.33%，且回到原始支架后依然更强。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月5日-55兄弟支架救场训策略-11-05)
+
+**今日点评**：今日 5 篇有一个共同转向：智能体 RL 的瓶颈正在从“采样更多”变成“让失败的组重新产生信号”——定向引导用评判反馈给失败回合指方向，TriGRPO 用成功动作感染失败轨迹，Harness-S 用兄弟支架救活全败任务，三者都是把“废掉的组”变回有效训练信号；与此同时，FourSight 让 FP4 这种省钱的训练路线真正稳下来，ReSI-Math 则提醒我们：训哪道题，比训多少道题更重要。]]></description>
+<pubDate>Thu, 05 Nov 2026 00:51:43 GMT</pubDate>
 </item>
 </channel>
 </rss>
