@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月6日 (2/5) VenusRL: A Fully Disaggregated Agentic RL System with Priority Scheduling and Scalable Interaction</title>
-<link>https://arxiv.org/abs/2610.03286</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.03286</guid>
-<description><![CDATA[**作者**：Mingjun Zhang 等（中科院计算所、北航、上海创新研究院、Infrawaves）
-
-**总结**：训练会用工具的智能体时，最大瓶颈是慢轨迹卡住整个训练步、沙盒按内存上限静态超配浪费物理内存。VenusRL 是完全解耦的 agentic RL 系统：调度器用长度预测把最可能解锁下一步的样本组优先推进，沙盒侧用模板级页共享和写时复制塞进更多实例。在代表性任务上端到端训练提速最高 4.24 倍，环境成本降低最多 89%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-25全解耦-Agentic-RL-系统-10-06)]]></description>
-<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
-</item>
-<item>
-<title>10月6日 (3/5) Credit Where It Matters: Dependency-Aware Policy Optimization for Terminal Agents</title>
-<link>https://arxiv.org/abs/2610.03634</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.03634</guid>
-<description><![CDATA[**作者**：Yu Li 等（华为诺亚方舟实验室、东南大学）
-
-**总结**：终端智能体任务里后命令依赖前命令的输出，但现有信用分配方法分不清哪些操作真相关，训练信号经常发给无关命令。DepGPO 从执行轨迹构建命令依赖图，再从验证器检查的资源反向追踪，把轨迹级优势按依赖路径重分配到每一步。一个扎心的预实验发现：61% 的 1376 个任务组里所有采样的二值奖励完全相同，组内优势全是零。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-35终端智能体信用分配-10-06)]]></description>
-<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
-</item>
-<item>
-<title>10月6日 (4/5) All Work And No Play Makes Jack a Dull Boy: Understanding and Preventing Catastrophic Strategy Collapse in RLVR</title>
-<link>https://arxiv.org/abs/2610.02835</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.02835</guid>
-<description><![CDATA[**作者**：Qiyuan Huang 等（北京大学）
-
-**总结**：GRPO 类 RLVR 训练后期常突然崩盘。论文证明这不是良性剪枝，而是概率质量向单一策略有害集中、而任务精度需要最低策略容量维持的根本冲突。提出轻量在线预警信号 MEI（镜像纠缠指数）和防坍缩方法 Mesh Learning，在 AIME、MATH-500、GPQA 和代码基准上，Qwen 系列最高提升 13.4 个百分点，Phi 系列最高 11.5 个百分点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-45RLVR-防策略坍缩-10-06)]]></description>
-<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
-</item>
-<item>
-<title>10月6日 (5/5) hacktrace: behavior-supervised detection of reward hacking during code generation</title>
-<link>https://arxiv.org/abs/2610.03055</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.03055</guid>
-<description><![CDATA[**作者**：Hao Jiang 等（南洋理工大学）
-
-**总结**：代码智能体要拿高分，既可以修好代码，也可以删掉暴露 bug 的测试。HackTrace 复用模型生成时已算出的内部状态做行为级作弊监控，不用再跑一次大模型，延迟仅 8 毫秒，平均 AUC 达到 0.997。把它作为 GRPO 惩罚信号，作弊解占比从 82–91% 降到 1–5%，同时保留诚实正确解。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月6日-55奖励作弊行为监控-10-06)
-
-**今日点评**：今天的 5 篇恰好拼出一张高效 RL 训练的完整拼图——Pivot-SD 把梯度花在刀刃 token 上，VenusRL 把训练系统加速 4 倍，DepGPO 让终端智能体的信用分配不再大水漫灌，Mesh Learning 堵住 RLVR 后期坍缩这个最贵的坑，HackTrace 则用几乎零成本的内部状态信号管住奖励作弊。共同趋势：提效的重心正从堆采样转向让每一份算力更准。建议优先精读 Pivot-SD 和 VenusRL。]]></description>
-<pubDate>Tue, 06 Oct 2026 00:57:48 +0000</pubDate>
-</item>
-<item>
-<title>10月7日 (1/5) ThunderSyncRL: Lossless Acceleration of Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.05935</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.05935</guid>
-<description><![CDATA[**作者**：Seil Kang 等（斯坦福大学、延世大学、韩国高丽大学、Bespoke Labs）
-
-**总结**：训练长程智能体时同步系统干等 rollout、异步训练又引入策略过期。ThunderSyncRL 让 GRPO 每条轨迹奖励一到就算梯度、OPD 每完成一回合就更新，三者流水线化，并证明与批量同步更新等价；在 SWE-bench Verified 与 Terminal Bench 4.0 上达到相同效果最多快 1.9 倍，零过期。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月7日-15梯度流式加速训练-10-07)]]></description>
-<pubDate>Wed, 07 Oct 2026 00:57:48 +0000</pubDate>
-</item>
-<item>
 <title>10月7日 (2/5) LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches</title>
 <link>https://arxiv.org/abs/2610.06647</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.06647</guid>
@@ -1716,6 +1659,63 @@
 
 **今日点评**：今日 5 篇有一个共同转向：智能体 RL 的瓶颈正在从“采样更多”变成“让失败的组重新产生信号”——定向引导用评判反馈给失败回合指方向，TriGRPO 用成功动作感染失败轨迹，Harness-S 用兄弟支架救活全败任务，三者都是把“废掉的组”变回有效训练信号；与此同时，FourSight 让 FP4 这种省钱的训练路线真正稳下来，ReSI-Math 则提醒我们：训哪道题，比训多少道题更重要。]]></description>
 <pubDate>Thu, 05 Nov 2026 00:51:43 GMT</pubDate>
+</item>
+<item>
+<title>11月6日 (1/5) C-GRPO: Conformal Group Relative Policy Optimization</title>
+<link>https://arxiv.org/abs/2611.05591</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.05591</guid>
+<description><![CDATA[**作者**：Arya Fayyazi 等（南加州大学（USC））
+
+**总结**：南加州大学团队用 split-conformal 预测为 GRPO 的每个 prompt 自适应分配采样预算：六个数学/代码/科学基准上训练 rollout 平均省 49–70%，精度持平或略升，跨模型迁移最高省 82%，端到端加速 3.07 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月6日-15共形校准-GRPO-提效-11-06)]]></description>
+<pubDate>Fri, 06 Nov 2026 00:56:30 GMT</pubDate>
+</item>
+<item>
+<title>11月6日 (2/5) GIST: Gibbs-Targeted Hierarchical Data Selection for Offline RLVR</title>
+<link>https://arxiv.org/abs/2611.06395</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.06395</guid>
+<description><![CDATA[**作者**：Xuliang Huang 等（香港科技大学（广州）、香港科技大学）
+
+**总结**：港科大（广州）团队从 KL 正则 RLVR 的 Gibbs 最优策略出发做双层数据选择：只监督「值得训」的回答和 token，监督 token 少 66.6%，三个模型、两个目标的平均精度反而全面提升，优于 7 个选择基线。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月6日-25离线-RLVR-精选数据-11-06)]]></description>
+<pubDate>Fri, 06 Nov 2026 00:56:30 GMT</pubDate>
+</item>
+<item>
+<title>11月6日 (3/5) Reward Budgeting Reduces Premature Convergence in Reinforcement Learning for LLM Reasoning</title>
+<link>https://arxiv.org/abs/2611.05942</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.05942</guid>
+<description><![CDATA[**作者**：Mengni Jia 等（剑桥大学、阿里巴巴 Qwen）
+
+**总结**：剑桥大学与阿里 Qwen 团队提出「奖励预算」：给每个 prompt 固定总奖励预算重构优势函数，缓解 RL 推理训练的过早收敛。Qwen3-8B 上 GRPO 平均分 +6.66，AMC23 最高 +12.50，且收益不是靠提熵实现的。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月6日-35奖励预算治-RL-早熟-11-06)]]></description>
+<pubDate>Fri, 06 Nov 2026 00:56:30 GMT</pubDate>
+</item>
+<item>
+<title>11月6日 (4/5) Rubric Curriculum RL: Exploiting the Generation-Verification Gap in Non-Verifiable Domains</title>
+<link>https://arxiv.org/abs/2611.06244</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.06244</guid>
+<description><![CDATA[**作者**：Sumeet Ramesh Motwani 等（牛津大学、微软研究院）
+
+**总结**：牛津大学与微软研究院团队把 RLVR 扩展到创意写作等无标准答案领域：成对偏好 + 准则课程，不用新数据与更强教师模型。Qwen3-4B 人类评测胜率 70.5%，HealthBench 提升最高 25.4%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月6日-45RLVR-走出可验证域-11-06)]]></description>
+<pubDate>Fri, 06 Nov 2026 00:56:30 GMT</pubDate>
+</item>
+<item>
+<title>11月6日 (5/5) Using Experience Twice: Dynamic Process Rubrics for Privileged Token-Level Credit Assignment</title>
+<link>https://arxiv.org/abs/2611.06543</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.06543</guid>
+<description><![CDATA[**作者**：Shumao Wu 等（中国科学院计算机网络信息中心、浙江大学）
+
+**总结**：中科院计算机网络信息中心与浙江大学团队提出 ORSD：从同组轨迹的成败差异中自蒸馏出过程量规，做 token 级信用分配。ALFWorld 上 Qwen3-1.7B 成功率比 GRPO 高 12.12 个百分点，且不增加环境交互。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月6日-55过程-Rubric-信用分配-11-06)
+
+**今日点评**：今日五篇合起来是一条清晰的主线——RL 训练正在从「堆采样、堆奖励」转向「把每一份采样和每一次奖励用得更精」：C-GRPO 与 GIST 分别从采样预算与监督 token 两头省，奖励预算修的是收敛动力学，RcRL 把 RLVR 的边界推出可验证域，ORSD 则让同一批轨迹产出 token 级监督。五篇里四篇是 11 月 4 日批次，方法都可直接复现或接入现有管线；值得注意的是，C-GRPO 与奖励预算两篇都明确提醒「精度小幅差异在噪声内」，读数时应以「同等效果、更低成本」为准，而非夸大精度收益。]]></description>
+<pubDate>Fri, 06 Nov 2026 00:56:30 GMT</pubDate>
 </item>
 </channel>
 </rss>
