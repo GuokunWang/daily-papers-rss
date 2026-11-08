@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月8日 (2/5) NeMo-DCR: Bit-Exact Delta-Compressed Refit for Scalable Agentic RL at Trillion-Parameter Scale</title>
-<link>https://arxiv.org/abs/2610.08430</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.08430</guid>
-<description><![CDATA[**作者**：Songlin Jiang 等（NVIDIA、阿尔托大学）
-
-**总结**：Agentic RL 把训练和 rollout 分离，每次更新都要把全量权重同步到 rollout 集群，万亿参数模型跨区传输要 87.5 分钟。NeMo-DCR 只传变化的权重：固定仿射映射把变化投影到 checkpoint 坐标，保证比特精确。用中继树传输，一次万亿参数同步只需 150 秒，比全量传输快 12–40 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-25万亿参数RL权重同步-10-08)]]></description>
-<pubDate>Thu, 08 Oct 2026 01:21:00 +0000</pubDate>
-</item>
-<item>
-<title>10月8日 (3/5) TRACE: Rollout-Guided Quantization-Aware Training for FP4 Reinforcement Learning of MoE Language Models</title>
-<link>https://arxiv.org/abs/2610.07767</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.07767</guid>
-<description><![CDATA[**作者**：Xin Wang 等（阿里巴巴 Token Hub、俄亥俄州立大学）
-
-**总结**：RL 训练大模型的 rollout 开销巨大，低精度 rollout 是提效关键，但现有 FP4 方法没缩小训练与 rollout 两条量化路径的差异。TRACE 用 rollout 端的量化结果指导训练端的舍入决策。在四个 MoE 模型上，联合 FP4 rollout 的 RL 效果与 BF16 相当，解码吞吐最高提升 5.4 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-35FP4量化RL训练MoE-10-08)]]></description>
-<pubDate>Thu, 08 Oct 2026 01:22:00 +0000</pubDate>
-</item>
-<item>
-<title>10月8日 (4/5) Structuring MoE Expert Selection for Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.07332</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.07332</guid>
-<description><![CDATA[**作者**：Bolian Li 等（Apple、普渡大学）
-
-**总结**：长程智能体常用稀疏 MoE 模型，但标准 RL 训练放任专家路由失控，限制性能与效率。这篇工作提出层级路由控制：turn 级对齐语义操作，token 级保持局部一致，并用熵门控稳定训练。在多个基准上成功率提升超 10 个百分点，rollout 吞吐提升 41.1%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-45MoE专家路由RL控制-10-08-3)]]></description>
-<pubDate>Thu, 08 Oct 2026 01:23:00 +0000</pubDate>
-</item>
-<item>
-<title>10月8日 (5/5) RELACE: retrospective likelihood-based action credit estimation for long-horizon language agents</title>
-<link>https://arxiv.org/abs/2610.07349</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.07349</guid>
-<description><![CDATA[**作者**：Sayak Chakrabarti 等（哥伦比亚大学、Zoom）
-
-**总结**：GRPO 的轨迹级监督给多轮智能体做信用分配太粗：terminal 奖励定位不到错误，还会误伤有用动作。RELACE 用“结局增强”上下文下的回溯似然比给每个动作定价，无需 critic。在 ALFWorld 上，1.5B 模型成功率达 96.35%，超过 GiGPO 5.47 个百分点。
-
-**今日点评**：今天的五篇有一个共同主题：让 RL 训练的每一分算力都花在刀刃上——FC-SWE 把失败变成训练信号，NeMo-DCR 把权重同步变成稀疏问题，TRACE 让 FP4 rollout 与训练对齐，MoE 路由控制把架构容量管起来，RELACE 把信用分配做细。Agentic RL 正在从“大力出奇迹”走向“精打细算”，infra 与算法的协同优化是下一阶段的主线。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月8日-55回溯似然信用分配-10-08)]]></description>
-<pubDate>Thu, 08 Oct 2026 01:24:00 +0000</pubDate>
-</item>
-<item>
-<title>10月9日 (2/5) BoT-GRPO: Efficient Process-Reward RL for Reasoning via Bag-of-Token Aggregation</title>
-<link>https://arxiv.org/abs/2610.09804</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.09804</guid>
-<description><![CDATA[**作者**：Yingxiang Yang 等（Amazon AGI）
-
-**总结**：GRPO 给整条轨迹同一个优势值，浪费了 token 级信号。BoT-GRPO 把 token 级过程奖励按序列长度倒数加权聚合，为每个 token 计算相对优势，无需价值网络。代码生成提速近两倍达到 80% 编译率，AIME 上以一半步数提升 8.1 个百分点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月9日-25过程奖励GRPO提效-10-09)]]></description>
-<pubDate>Fri, 09 Oct 2026 00:46:00 +0000</pubDate>
-</item>
-<item>
 <title>10月9日 (3/5) Before They Can Solve: Predicting Post-Training Coding-Agent Performance from Base Models</title>
 <link>https://arxiv.org/abs/2610.10478</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.10478</guid>
@@ -1716,6 +1659,63 @@
 
 **今日点评**：今日五篇凑成了一条清晰的主线：RL 训练的效率账要分开算——OPD 的账关键在教师、FlexFloor 的账在 rollout 调度、AttnSR 与 Agent-R² 的账在奖励信号与数据、Octopus 的账在 KV 复用。共同点是：省算力的办法不在堆参数，而在把训练管线里被浪费的那部分找出来。]]></description>
 <pubDate>Sat, 07 Nov 2026 00:55:52 +0000</pubDate>
+</item>
+<item>
+<title>11月8日 (1/5) Measuring the Marginal Value of Verifier-Based RL Beyond Supervised Fine-Tuning</title>
+<link>https://arxiv.org/abs/2611.07639</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.07639</guid>
+<description><![CDATA[**作者**：Amit Sagtani、Saloni Garg
+
+**总结**：作者在自建的 GPU 训练故障诊断基准上做预注册对照实验，度量验证式 RL 在 SFT 之上的边际贡献。1,200 条金标演示的 SFT 在 hard split 上达 0.785，60 步 GRPO 分布内仅 +0.22 个百分点（95% CI 跨过零），分布外 +0.33 个百分点。结论：演示吃掉了大部分收益，RL 的增量主要体现在分布外泛化。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月8日-15验证式RL边际价值-11-08)]]></description>
+<pubDate>Sun, 08 Nov 2026 00:52:25 GMT</pubDate>
+</item>
+<item>
+<title>11月8日 (2/5) Enhancing Repository-Level Code Completion with Reinforcement Learning in Real-World Scenarios</title>
+<link>https://arxiv.org/abs/2611.07510</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.07510</guid>
+<description><![CDATA[**作者**：Zhenlong Dai 等（浙江大学）
+
+**总结**：浙大团队提出 IntentCoder，用标识符驱动意图识别、奖励驱动补全学习与选择性探索做仓库级代码补全 RL。7B 的 Qwen2.5-Coder 在 RepoBench 上代码精确匹配达 Java 42.47%、Python 35.93%，超过 32B 模型 6 个百分点以上；跨文件导致的失败从 130 例降至 41 例。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月8日-25仓库级代码补全RL-11-08)]]></description>
+<pubDate>Sun, 08 Nov 2026 00:52:25 GMT</pubDate>
+</item>
+<item>
+<title>11月8日 (3/5) What Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents?</title>
+<link>https://arxiv.org/abs/2611.06483</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.06483</guid>
+<description><![CDATA[**作者**：Kejian Zhu 等（中国科学院自动化研究所、清华大学）
+
+**总结**：团队用 Pass@(K,T) 框架拆解多轮 agent RL 的收益来源：它并不能稳定提升单步决策质量，真正的优势在错误恢复与长程韧性，从错误状态出发的成功率 51.3% vs 38.6%。新提出的 BudgetMix RL 在 25% 交互预算下比标准 RL 平均高 7.5 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月8日-35多轮RL到底提升了什么-11-08)]]></description>
+<pubDate>Sun, 08 Nov 2026 00:52:25 GMT</pubDate>
+</item>
+<item>
+<title>11月8日 (4/5) Energy-Efficient Reinforcement Learning for Large Language Models</title>
+<link>https://arxiv.org/abs/2611.05748</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.05748</guid>
+<description><![CDATA[**作者**：Rahul Sharma 等（NVIDIA）
+
+**总结**：NVIDIA 的 EE-RL 在线控制器为 RL 训练的生成与训练阶段分别调 GPU 频率：固定频率扫描最多省 28.2% 的单位有效 token 能耗，在线版在分离式同步部署上省 16.9%、吞吐仅降 1.4%，异步排空执行锁定后约省 20%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月8日-45RL训练节能169-11-08)]]></description>
+<pubDate>Sun, 08 Nov 2026 00:52:25 GMT</pubDate>
+</item>
+<item>
+<title>11月8日 (5/5) Aligning Training and Rollout Policies for End-to-End FP4 RL on Mixture-of-Experts LLMs</title>
+<link>https://arxiv.org/abs/2611.04376</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.04376</guid>
+<description><![CDATA[**作者**：Hei Yi Mak 等（华为）
+
+**总结**：华为团队发现稠密模型的 FP4 恢复配方搬到 MoE 上失效，根因是非对称残差修正被路由器放大成路由分歧；新配方 MoeResQ 要求训练与推理两侧对称修正，在 Qwen3-30B-A3B 上把与 BF16 的差距从 AIME24 的 24.27% 收窄到 3.75%，仅量化专家层时进一步收到 1.25%。
+
+**今日点评**：今日五篇有个共同主题：RL 训练的“效率”正在从堆算力转向抠细节——验证式 RL 的边际收益要先算账再投入，多轮 RL 的收益要看预算与纠错能力，能耗与低精度则靠执行层与对齐原则抠出两位数收益。最值得细读的是第一篇的“反共识”结论与第三篇的机制拆解：它们提醒我们，RL 后训练的很多默认假设（RL 总比 SFT 强、每步都在变好）经不起对照实验的检验；而第四、五篇则给出可直接落地的工程解法。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月8日-55MoE-FP4对称恢复-11-08)]]></description>
+<pubDate>Sun, 08 Nov 2026 00:52:25 GMT</pubDate>
 </item>
 </channel>
 </rss>
