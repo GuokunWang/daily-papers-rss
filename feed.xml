@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月10日 (3/5) Fed-GRPO: Reward-Signal-Driven Federated Group Relative Policy Optimization</title>
-<link>https://arxiv.org/abs/2610.11502</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.11502</guid>
-<description><![CDATA[**作者**：Pengxin Guo 等（香港大学、中山大学）
-
-**总结**：把 GRPO 天然产生的 reward 统计量当作零成本信号，驱动联邦聚合、优化校准与自适应稀疏通信；Qwen2.5-3B 上数学推理平均 39.06%（FedAvg 37.10%，中心化 40.21%），无损压缩 32×，极限带宽下 621× 压缩。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-35联邦GRPO提效-10-10)]]></description>
-<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
-</item>
-<item>
-<title>10月10日 (4/5) ViSkill: Reinforcing VLM Agents with Evolving Visual-Native Skills</title>
-<link>https://arxiv.org/abs/2610.12403</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.12403</guid>
-<description><![CDATA[**作者**：Hongxing Li 等（浙江大学）
-
-**总结**：把 VLM 智能体的成功经验编码为复合视觉技能卡，检索技能同时指导推理与 reward shaping，成功轨迹再蒸馏回库；三环境整体成功率 0.89（+cold-start 0.91），超越所有闭源/开源基线，收敛快于 PPO。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-45视觉技能卡提效-10-10-2)]]></description>
-<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
-</item>
-<item>
-<title>10月10日 (5/5) OnTrack: Real-Time Monitoring and Intervention in LLM Agent Trajectories via Streaming Structure-Aware Optimal Transport</title>
-<link>https://arxiv.org/abs/2610.12375</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.12375</guid>
-<description><![CDATA[**作者**：Babak Barazandeh 等（Cribl AI Research Lab）
-
-**总结**：流式最优传输对齐智能体轨迹与成功参考，每步约 1ms 即可告警或拦截；SWE-bench 上前 8 步判别失败轨迹比内容相似度基线高 +0.057 AUROC，abort 策略省下约 18% 失败运行算力。
-
-**今日点评**：今天的 5 篇凑成了一套“RL 提效全家桶”：小米 MiMo-V2.6 把 RL 当 scaling 维度做基建（吞吐/环境/grading 三维拉满）；GRPODropout 与 Fed-GRPO 分别从“用好每个 rollout”和“联邦场景零成本协调”两个角度给 GRPO 提效；ViSkill 用视觉技能卡让 VLM 智能体学得更快；OnTrack 则从监控侧帮你省下注定失败的算力。共同的信号是：RL 的红利正在从“算法 trick”转向“工程与数据效率”——基建、信号复用、早停，一个都不能少。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月10日-55智能体轨迹监控-10-10-3)]]></description>
-<pubDate>Sat, 10 Oct 2026 01:06:15 -0000</pubDate>
-</item>
-<item>
-<title>10月11日 (1/5) RollVerify: Bridging Efficiency and Accuracy in Long-Tail Rollout Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.09914</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.09914</guid>
-<description><![CDATA[**作者**：Yongqiang Yao 等（商汤科技、上海交通大学、香港中文大学、北京航空航天大学、中南大学）
-
-**总结**：RollVerify 在 partial rollout 框架上增加轻量验证阶段：用 off-policy shift（OPS）指标度量部分生成轨迹的偏离程度，对偏离过大的样本做序列级和 token 级验证并截断无效后缀，只保留近 on-policy 的前缀继续 rollout。在 Qwen3-8B 与 Qwen3-30B-A3B（MoE）上均达到与 on-policy 训练相当的精度，同时把训练成本从 98.1/112 GPU days 分别降到 57.5/65.1，实现 1.7× 加速。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-15长尾轨迹验证提速-10-11)]]></description>
-<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
-</item>
-<item>
-<title>10月11日 (2/5) When Should Agents Think? Adaptive Reasoning via Cross-Turn Estimation</title>
-<link>https://arxiv.org/abs/2610.12061</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.12061</guid>
-<description><![CDATA[**作者**：Yiruo Cheng 等（阿里巴巴 Token Hub、中国人民大学）
-
-**总结**：RACE 解决智能体每一轮是否都需要显式思考的问题：删除某轮推理后、若后续参考动作的似然下降很小，则该轮推理可安全省略。基于此提出 LoGiC 渐进式推理覆盖检测，把删除信号同时用于 SFT 数据合成和 agentic RL，让策略学会何时思考、何时直接行动。在 ScienceWorld、WebShop、AppWorld、DeepSearch 上推理 token 最多减少 80.3%，成功率持平或超越更大专有模型智能体。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-25智能体何时思考-10-11)]]></description>
-<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
-</item>
-<item>
 <title>10月11日 (3/5) Residual Advantage: Student-Relative Teacher Guidance for RL with Verifiable Rewards</title>
 <link>https://arxiv.org/abs/2610.11519</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.11519</guid>
@@ -1716,6 +1659,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月9日-55高保真-RL-做交互网页-11-09)]]></description>
 <pubDate>Mon, 09 Nov 2026 01:05:20 GMT</pubDate>
+</item>
+<item>
+<title>11月10日 (1/5) RPEG: Training Reasoning Language Models Scalably and Cost-Effectively</title>
+<link>https://arxiv.org/abs/2611.09207</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.09207</guid>
+<description><![CDATA[**作者**：Maciej Besta 等（ETH Zurich）
+
+**总结**：ETH Zurich 团队提出 RPEG，用数据为中心的图中间表示把推理模型 RL 训练的流水线结构与执行计划联合优化。在最多 256 张 GH200 上，相对 ReaL 提速最高 2 倍、相对 verl 单步延迟最多降低 2.48 倍，硬件利用率最高提升 30%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月10日-15推理模型RL训练图优化-11-10)]]></description>
+<pubDate>Tue, 10 Nov 2026 01:12:12 +0000</pubDate>
+</item>
+<item>
+<title>11月10日 (2/5) RuACT: Recovering Inactive Rubrics as Adaptive Critics and Teachers</title>
+<link>https://arxiv.org/abs/2611.09597</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.09597</guid>
+<description><![CDATA[**作者**：Yijun Li 等（浙江大学、华为）
+
+**总结**：浙大与华为团队发现 rubric-based GRPO 中 60.88% 的 query-rubric 观测因全过或全不过而失去学习信号，提出 RuACT 按失效类型分派教师或评论家角色回收监督。Qwen3-4B 平均分从 56.52% 提升至 59.12%，域外 HealthBench 与 ResearchQA 均有明显提升。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月10日-25失效评分规则再利用-11-10)]]></description>
+<pubDate>Tue, 10 Nov 2026 01:12:12 +0000</pubDate>
+</item>
+<item>
+<title>11月10日 (3/5) Meet Students Where They Are: Student-Prefix Teacher Adaptation for On-Policy Distillation</title>
+<link>https://arxiv.org/abs/2611.03133</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.03133</guid>
+<description><![CDATA[**作者**：Xue Zhang 等（北京交通大学、腾讯 Weixin AI）
+
+**总结**：北交大与腾讯 Weixin AI 指出 OPD 的教师在学生前缀上监督不可靠，提出 SPTA：先用 RLVR 让教师学会从学生前缀续写，再做标准蒸馏。Qwen3-4B→Qwen3-4B-Base 平均分从 31.52 提升至 35.30，在原本蒸馏近乎无效的配对上也恢复了 3 个百分点以上的增益。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月10日-35教师适配学生前缀-11-10)]]></description>
+<pubDate>Tue, 10 Nov 2026 01:12:12 +0000</pubDate>
+</item>
+<item>
+<title>11月10日 (4/5) Steerable Multi-Objective Group-Relative Preference Optimization with Jointly Trained Low-Rank Adapters</title>
+<link>https://arxiv.org/abs/2611.09634</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.09634</guid>
+<description><![CDATA[**作者**：Constantinos Karouzos 等（谢菲尔德大学）
+
+**总结**：谢菲尔德大学提出 LambdaMix，每个对齐目标训练一个 LoRA adapter，一次 GRPO 训练得到可按偏好向量切换的策略族。在 Qwen3-4B/9B/27B 与 Olmo 3 7B 上，其超体积全面超过条件策略与策略合并基线，且比一组 GRPO 专家策略更省训练量与存储。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月10日-45多目标GRPO一次训练-11-10)]]></description>
+<pubDate>Tue, 10 Nov 2026 01:12:12 +0000</pubDate>
+</item>
+<item>
+<title>11月10日 (5/5) MDSKILL: Learning to Internalize Skill Memory through Multi-View Distillation for Efficient Dynamic Agent Self-Evolution</title>
+<link>https://arxiv.org/abs/2611.05313</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.05313</guid>
+<description><![CDATA[**作者**：Dian Jin 等（浙江大学、快手）
+
+**总结**：浙大与快手提出 MDSKILL，把技能记忆拆成状态 grounding、动作规划、执行控制三个视角做多视角蒸馏，内化进共享策略。ALFWorld 上最高超过最强基线 7.1 个百分点，WebShop 最高 8.1 个百分点，且不增加计算开销。
+
+**今日点评**：今日五篇覆盖 RL 训练的效能三角：RPEG 优化训练系统本身的速度与成本，RuACT 与 SPTA 分别回收被浪费的奖励信号、修好蒸馏教师的监督，LambdaMix 让一次对齐产出可调偏好的策略族，MDSKILL 把 agent 的经验内化进策略。共同点是都在不堆更多算力的前提下找效率——系统层、信号层、教师层各有抓手；其中 RPEG 的 2 倍级加速与 RuACT 的失活 rubric 量化（60.88%）最值得优先细读。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月10日-55技能记忆多视角蒸馏-11-10)]]></description>
+<pubDate>Tue, 10 Nov 2026 01:12:12 +0000</pubDate>
 </item>
 </channel>
 </rss>
