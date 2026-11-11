@@ -6,65 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月11日 (3/5) Residual Advantage: Student-Relative Teacher Guidance for RL with Verifiable Rewards</title>
-<link>https://arxiv.org/abs/2610.11519</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.11519</guid>
-<description><![CDATA[**作者**：Xiaobing Chen 等（腾讯、哈尔滨工程大学、哈尔滨工业大学）
-
-**总结**：RA（Residual Advantage）把教师减学生的概率残差作为有界单步奖励，减去学生策略下的状态价值并做 response 内中心化后叠加到 verifier advantage 上，让教师只在步内重分配 credit、不污染 outcome 标签。CoRA 进一步在同一批学生样本上用 verifier advantage 更新教师 LoRA，使引导自适应学生尝试。在 24 组对比中全部正向，macro Avg@8 提升 1.74–3.58 个百分点，且优于纯教师 OPD。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-35学生相对教师引导-10-11)]]></description>
-<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
-</item>
-<item>
-<title>10月11日 (4/5) SAPD: Step-Aligned Privileged Distillation</title>
-<link>https://arxiv.org/abs/2610.09665</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.09665</guid>
-<description><![CDATA[**作者**：Tianle Wang 等（香港城市大学、深圳大学）
-
-**总结**：SAPD 是一种免 rollout 的自蒸馏方法：把固定参考解答按推理步骤切分，用冻结的特权教师为每个推理转移提供与当前步骤对齐的分布化监督，学生只做离线蒸馏。在 AIME24/25、HMMT25 上平均 47.87% 超过 GRPO 与 OPSD 等 on-policy 基线，训练循环耗时仅为其约一半（9.88 分钟 vs 19.20/22.02，约 2× 加速），输出反而最短。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-45免Rollout自蒸馏-10-11)]]></description>
-<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
-</item>
-<item>
-<title>10月11日 (5/5) PIVOT: Perplexity-Informed KD-to-RL Transition Scheduling for Vertical-Domain Few-Shot Distillation</title>
-<link>https://arxiv.org/abs/2610.11167</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.11167</guid>
-<description><![CDATA[**作者**：Heng Li 等（平安科技（深圳）、中国科学技术大学）
-
-**总结**：PIVOT 解决 KD→RL 流水线中何时从蒸馏切换到强化学习的问题：用教师评估的序列困惑度逐样本动态路由，低困惑度样本提前转入 GRPO 做奖励驱动精炼，高困惑度样本继续 OPD 蒸馏学领域知识，切换比例按 cosine 调度渐进提升。在 Banking77（80.26%）与 HWU64（85.04%）上均超固定切换基线约 2 个百分点，甚至超过教师零样本，训练动态也更平滑。
-
-**今日点评**：今日 5 篇全部围绕“用更少算力做出同样甚至更好的 RL 后训练”：RollVerify 与 SAPD 分别从“修复 partial rollout 的过时样本”和“免 rollout 的离线蒸馏”砍训练成本（1.7× 与约 2×），RACE 让智能体学会省思考 token（最多降 80%），RA/CoRA 与 PIVOT 则在“蒸馏 + RL 如何结合”上做精细化。趋势很清晰：RL 训练的优化重心正从“加数据加算力”转向“样本质量与计算分配的精细管理”，OPD（on-policy distillation）正在成为后训练流水线的标配组件。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月11日-55困惑度调度KD转RL-10-11)]]></description>
-<pubDate>Sun, 11 Oct 2026 00:58:27 GMT</pubDate>
-</item>
-<item>
-<title>10月12日 (4/5) GraphOPD: Graph-Augmented On-Policy Distillation for LLM Agents</title>
-<link>https://arxiv.org/abs/2610.08959</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.08959</guid>
-<description><![CDATA[**作者**：Bohan Lin 等（小红书、中国科学技术大学、香港科技大学（广州））
-
-**总结**：首次把图结构增强引入智能体的 on-policy 蒸馏：从环境状态变化记录构建步骤依赖图，用随机游走稳态分布给关键步骤打分。在 3 模型规模 × 3 基准上对 11 个基线全面领先，7B 上 ALFWorld 达 91.9%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-45图增强OPD蒸馏-10-12)]]></description>
-<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
-</item>
-<item>
-<title>10月12日 (5/5) Balancing Reference Guidance and Free Generation in Trajectory Rollouts for Reasoning RL</title>
-<link>https://arxiv.org/abs/2610.11128</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.11128</guid>
-<description><![CDATA[**作者**：Hanyu Wang 等（Honda Research Institute USA、宾州州立大学、Honda Research Institute Japan）
-
-**总结**：提出 Adaptive Reference Guidance（ARG）：用参考答案前缀续写在 GRPO 全失败组中生成正确轨迹，并在线学习跨问题的统一前缀选择器。Qwen3-4B/8B 上 5 个数学推理基准聚合 pass@12 最高（67.33%/70.00%）。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月12日-55参考引导与自由生成-10-12)
-
-**今日点评**：今日 5 篇全部围绕“高效 RL 训练”：NeMo-DCR 解决 agentic RL 的权重同步瓶颈（87.5 分钟→150 秒），ThunderSyncRL 用梯度流式化把训练成本压到 1/1.9 且零策略过期，BoT-GRPO 让过程奖励在 GRPO 里真正跑起来（提速 1.9 倍），GraphOPD 和 ARG 则分别从“步骤重要性”和“参考引导”两个角度提高 rollout 样本的利用效率。一个清晰的趋势是：效率优化正从批量级下沉到 token/步骤级——更细的粒度、更准的信用分配，正在成为 RL 提效的主战场。]]></description>
-<pubDate>Mon, 12 Oct 2026 00:53:18 +0000</pubDate>
-</item>
-<item>
 <title>10月13日 (1/5) Rollout-Time Intervention: Unlocking Agentic Reinforcement Learning Beyond Policy Limits</title>
 <link>https://arxiv.org/abs/2610.13438</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.13438</guid>
@@ -1716,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月10日-55技能记忆多视角蒸馏-11-10)]]></description>
 <pubDate>Tue, 10 Nov 2026 01:12:12 +0000</pubDate>
+</item>
+<item>
+<title>11月11日 (1/5) Agentic-OPD: Recovering Forgotten Agent Capabilities via On-Policy Distillation for Agentic Tasks</title>
+<link>https://arxiv.org/abs/2611.12799</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.12799</guid>
+<description><![CDATA[**作者**：Tingcheng Bian 等（百度、北京交通大学）
+
+**总结**：GRPO 训练智能体时只留最优检查点会丢掉已学会的能力。Agentic-OPD 把同一轮 RL 的全部历史检查点当作免费教师池，按学生能力缺口动态选教师、只在教师局部占优处蒸馏，Qwen3-4B 深搜平均准确率达 50.4%，超过 GPT-5.6（25.4%）与 DeepSeek-V4.1（42.7%）。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月11日-15检查点蒸馏找回遗忘能力-11-11)]]></description>
+<pubDate>Wed, 11 Nov 2026 00:55:48 GMT</pubDate>
+</item>
+<item>
+<title>11月11日 (2/5) Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning</title>
+<link>https://arxiv.org/abs/2611.12886</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.12886</guid>
+<description><![CDATA[**作者**：Haozhi Yuan 等（南京大学、中国科学院自动化研究所）
+
+**总结**：视觉智能体常忽略工具返回的观测。Reframe 用 GD-GRPO（证据奖励加随机丢弃原始视觉输入）训练空间/时间专家，再用 OG-MOPD 在 rollout 中途修复失效的工具动作，14 个图/视频基准全部领先，工具增益 5.23 分，87% 的总增益来自工具使用。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月11日-25观测对齐多教师蒸馏-11-11)]]></description>
+<pubDate>Wed, 11 Nov 2026 00:55:48 GMT</pubDate>
+</item>
+<item>
+<title>11月11日 (3/5) AgentOPSD: Turn-Level Credit Assignment via Recursive Belief Revision</title>
+<link>https://arxiv.org/abs/2611.12587</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.12587</guid>
+<description><![CDATA[**作者**：Yizhuo Li（北京理工大学）
+
+**总结**：GRPO 把单一优势广播到整条轨迹，难以定位长程任务中的关键决策。AgentOPSD 把教师-学生差异按轮次汇总并做递归贝叶斯信念修正，把优势重分配到关键轮次，Qwen2.5-7B 在 ALFWorld 上达 89.1% 成功率，且轮次越长优势越大。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月11日-35逐轮信用分配-11-11)]]></description>
+<pubDate>Wed, 11 Nov 2026 00:55:48 GMT</pubDate>
+</item>
+<item>
+<title>11月11日 (4/5) CARE-PO: Controllable Tool-Call Efficiency for LLM Agents</title>
+<link>https://arxiv.org/abs/2611.12125</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.12125</guid>
+<description><![CDATA[**作者**：Xiaoyang Ye 等（深圳大学、香港中文大学（深圳））
+
+**总结**：GAIA 轨迹中 82.8% 含有可删工具调用。CARE-PO 以任务难度锚定参考预算为调用定价，一次训练给出效率/能力两个可切换的操作点，GAIA 上成功率提升 3.4–6.1 分、调用减少 8.1%–51.2%，且全程未出现调用数坍缩。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月11日-45工具调用可控节流-11-11)]]></description>
+<pubDate>Wed, 11 Nov 2026 00:55:48 GMT</pubDate>
+</item>
+<item>
+<title>11月11日 (5/5) Watching Itself Watch: Self-Auditing Visual Reliance for Video Reasoning</title>
+<link>https://arxiv.org/abs/2611.11949</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.11949</guid>
+<description><![CDATA[**作者**：Rohan Dugad 等（德克萨斯大学奥斯汀分校）
+
+**总结**：视频推理的关键证据只藏在少数视觉决定性 token 里。VIOS 让模型自查视觉依赖，定位被忽视的视觉证据做密集蒸馏，12 个基准平均提升 3.6–4.6 分，训练步数减少 9 倍以上、FLOPs 减少 60 倍、生成 token 减少 111 倍。
+
+**今日点评**：今天的 5 篇有一个共同主题：RL 后训练正在从“多采样、多奖励”转向“更聪明的信用与监督”——Agentic-OPD 回收被丢弃的检查点、AgentOPSD 把信用分到轮次、Reframe 与 VIOS 把监督对准观测与视觉证据、CARE-PO 给工具调用定价；五篇都不靠堆算力，而是靠让已有的训练信号用得更准。在策略蒸馏（OPD）一日出现三篇，正在成为智能体后训练的标配组件。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月11日-55自查视觉依赖高效推理-11-11)]]></description>
+<pubDate>Wed, 11 Nov 2026 00:55:48 GMT</pubDate>
 </item>
 </channel>
 </rss>
