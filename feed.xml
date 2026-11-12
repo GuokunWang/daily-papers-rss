@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月13日 (1/5) Rollout-Time Intervention: Unlocking Agentic Reinforcement Learning Beyond Policy Limits</title>
-<link>https://arxiv.org/abs/2610.13438</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.13438</guid>
-<description><![CDATA[**作者**：Chen Xi 等（阿里巴巴、香港科技大学（广州））
-
-**总结**：阿里 Token Hub 与港科大（广州）合作，提出 Rollout-Time Intervention（RTI）：当整组 rollout 全部失败时，用奖励侧证据在 rollout 过程中把失败轨迹修正成成功轨迹，再用困惑度门控过滤分布偏移过大的样本，让智能体 RL 学到自身能力边界之外的成功经验。Qwen3-8B 上 Claw-Eval-Hard20 达 50.00%（GRPO 22.50%，+27.5pp），5 个基准全面领先；且自干预已足够，无需更强教师。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-15Rollout干预扩探索-10-13)]]></description>
-<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
-</item>
-<item>
-<title>10月13日 (2/5) Branching On-Policy Distillation</title>
-<link>https://arxiv.org/abs/2610.13481</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.13481</guid>
-<description><![CDATA[**作者**：Dongyang Chen 等（商汤科技、清华大学、北京大学）
-
-**总结**：分支式 on-policy 蒸馏（BranchOPD）：按“学生不确定性＋师生分歧”在学生轨迹上挑选信息量最大的决策点，从共享前缀重采样分支 continuation，教师逐 token 监督主轨迹与分支。相对 7 条独立轨迹，ALFWorld/WebShop 学生生成 token 成本降低约 19%/31%，数学 avg@16 相对 Vanilla OPD 提升 18.55 个百分点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-25分支采样OPD提效-10-13)]]></description>
-<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
-</item>
-<item>
-<title>10月13日 (3/5) Matched-Context Group Policy Optimization for LLM Agent Training</title>
-<link>https://arxiv.org/abs/2610.13755</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.13755</guid>
-<description><![CDATA[**作者**：Chenxu Zhang 等（美团、帝国理工学院、清华大学、中国科学技术大学）
-
-**总结**：提出 Matched-Context GPO（MCGPO），解决智能体组内相对 RL 的比较错位问题：用“动作前状态摘要＋已观察 rubric 进度”定义比较上下文，只在双动作都有证据支持时构造加权动作偏好，复用已采集轨迹、保持无 critic。WebShop 上 Qwen3-4B/8B 分别提升 3.96/5.16 个百分点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-35上下文匹配GRPO-10-13)]]></description>
-<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
-</item>
-<item>
-<title>10月13日 (4/5) S3R: Fast and Faithful RL Rollouts via Self-Sparse Speculative Decoding</title>
-<link>https://arxiv.org/abs/2610.13202</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.13202</guid>
-<description><![CDATA[**作者**：Yuhang He 等（香港科技大学（广州））
-
-**总结**：长上下文 RLVR 的 rollout 加速方案 S³R：稀疏注意力只做“自草稿”，全注意力精确验证（speculative sampling），draft 与验证共享同一策略参数、无需额外训练 drafter。证明了 response-wise 精确修正一般恢复不了 dense 策略更新。Qwen3-1.7B/8B 端到端训练吞吐分别达 1.39/1.35 倍，性能相当。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-45稀疏Rollout加速-10-13)]]></description>
-<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
-</item>
-<item>
-<title>10月13日 (5/5) MENTOR: Learning from Failure with On-Policy Pedagogical Intervention</title>
-<link>https://arxiv.org/abs/2610.13594</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.13594</guid>
-<description><![CDATA[**作者**：Guanlan Yue 等（西安交通大学）
-
-**总结**：针对 RLVR 的“零奖励崩溃”（整批轨迹零奖励、梯度信号消失），提出 MENTOR：在训练循环里嵌入多智能体“实时导师”，诊断失败根因并动态生成针对性教学 prompt，把系统性失败变成教学机会，即插即用接入 GRPO。Llama-3.2-3B-Instruct 上相对 base 平均相对提升最高达 78.3%。
-
-**今日点评**：今日五篇的共同主题是 RL 提效从“多采样”转向“把每条轨迹用足”——RTI 修失败 rollout、BranchOPD 复用分支压榨采样预算、MCGPO 让比较更可信、S³R 让 rollout 更快更稳、MENTOR 把崩溃变成教学。效率优化正下沉到 token 级和决策级：更细的信用分配、更准的失败利用，是下一阶段 RL 提效的主线。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月13日-55实时导师防崩溃-10-13)]]></description>
-<pubDate>Tue, 13 Oct 2026 00:55:26 GMT</pubDate>
-</item>
-<item>
 <title>10月14日 (1/5) Generalized Proximal Policy Optimization: Unifying LLM RL Algorithms from the Perspective of Divergence</title>
 <link>https://arxiv.org/abs/2610.13015</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.13015</guid>
@@ -1714,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月11日-55自查视觉依赖高效推理-11-11)]]></description>
 <pubDate>Wed, 11 Nov 2026 00:55:48 GMT</pubDate>
+</item>
+<item>
+<title>11月12日 (1/5) Closing the BF16-FP16 Convergence Speed Gap in RL Post-Training with Stochastic Rounding</title>
+<link>https://arxiv.org/abs/2611.13545</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.13545</guid>
+<description><![CDATA[**作者**：Mahdi Nazemi 等（NVIDIA）
+
+**总结**：NVIDIA 发现 RLVR 低学习率下 BF16 混精训练比 FP16 收敛慢，根源是 FP32 影子权重经 round-to-nearest 量化到 BF16 时小更新常常“粘住不动”。把量化改成随机舍入后，BF16 在不同模型与数据集上收敛速度与 FP16 相当，同时 KL 漂移小于调大 BF16 学习率的方案，且保留 BF16 的宽动态范围、无需 loss scaling。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月12日-15随机舍入弥合精度差距-11-12)]]></description>
+<pubDate>Thu, 12 Nov 2026 00:55:07 GMT</pubDate>
+</item>
+<item>
+<title>11月12日 (2/5) Are Dense Rewards Worth Their Tokens in GRPO?</title>
+<link>https://arxiv.org/abs/2611.13560</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.13560</guid>
+<description><![CDATA[**作者**：Vikash Singh 等（Case Western Reserve University）
+
+**总结**：用 1,668 次运行、六个模型做“等算力”对照：在 Qwen2.5-1.5B 上 Monte-Carlo 密集奖励按每次更新领先，等 token 时却低 14.3 个百分点、等训练时间低 7.8 个点，四种密集奖励变体无一超过标准 GRPO。而挑“预测成功率接近 1/2”的 prompt 训练在等算力下稳定提升 0.8-1.7 点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月12日-25GRPO密集奖励值不值-11-12)]]></description>
+<pubDate>Thu, 12 Nov 2026 00:55:07 GMT</pubDate>
+</item>
+<item>
+<title>11月12日 (3/5) AutoScaffold: AI-Guided Scaffolding for Reinforcement Learning of Language Models</title>
+<link>https://arxiv.org/abs/2611.14515</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.14515</guid>
+<description><![CDATA[**作者**：Zijian Zhang 等（JPMorgan AI Research、明尼苏达大学）
+
+**总结**：冻结的教师模型定期审视学生的 RL 训练轨迹、诊断瓶颈，自动生成脚手架（跨任务策略 + 单题提示），训练时给提示、评测时撤掉。同一框架在 ALFWorld（+7.2 点）、搜索问答（+4.0 点）、GPU 核函数生成（正确且快于 PyTorch 参考的任务占比 +5.0 点）与数学推理（约 1/3 训练步数超 QuestA）上全面超越 RL 基线。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月12日-35脚手架引导RLVR训练-11-12)]]></description>
+<pubDate>Thu, 12 Nov 2026 00:55:07 GMT</pubDate>
+</item>
+<item>
+<title>11月12日 (4/5) Margin-Guided Token Credit for Reinforcement Learning with Verifiable Rewards</title>
+<link>https://arxiv.org/abs/2611.14015</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.14015</guid>
+<description><![CDATA[**作者**：Chi Liu 等（PayPal.AI）
+
+**总结**：MCPO 按模型“犹豫程度”（top-2 概率边际）分配信用，犹豫处多给奖励、少给惩罚，边际直接读训练器本来就要做的前向，零额外成本。在六个竞赛数学基准上 macro avg@32 平均提升 6.55 点（95% CI [4.1, 9.0]），pass@32 达 +13.8 点；但模型答案也变长 2-3 倍，收益与变长效应尚未分离。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月12日-45MCPO按犹豫分配信用-11-12)]]></description>
+<pubDate>Thu, 12 Nov 2026 00:55:07 GMT</pubDate>
+</item>
+<item>
+<title>11月12日 (5/5) A Theory of Policy Optimization in Post-Training: Coverage Collapse and Reference Resets</title>
+<link>https://arxiv.org/abs/2611.14467</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.14467</guid>
+<description><![CDATA[**作者**：Audrey Huang 等（哈佛大学、UIUC）
+
+**总结**：理论工作指出 REINFORCE（PPO/GRPO 的底子）即使在精确梯度与 KL 正则下，也会把最优回答的概率压向零（覆盖坍缩），收敛可需指数级步数；反复把 KL 参考重置为最新策略可缓解这一问题。作者形式化 APMD 元算法，首次证明风格化 PPO/GRPO 变体与 Kimi 风格平方损失算法是“覆盖保持”的，并给出全局收敛保证。
+
+**今日点评**：今日五篇都围绕同一个主题收敛：RL 训练的提效正在从“堆更多采样”转向“把算力花在刀刃上”——NVIDIA 用随机舍入修掉 BF16 的隐性浪费，Case Western 用等算力对照戳破密集奖励的性价比神话，AutoScaffold 与 MCPO 分别在 prompt 与 token 两个粒度上把信用分配做精，哈佛与 UIUC 的理论则给参考重置补上收敛保证。最值得马上试的是 BF16+SR 与 MCPO：改动小、成本低；最值得记在心里的是第二篇的方法论提醒——评估任何训练干预之前，先把算力对齐。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月12日-55后训练策略优化理论-11-12)]]></description>
+<pubDate>Thu, 12 Nov 2026 00:55:07 GMT</pubDate>
 </item>
 </channel>
 </rss>
