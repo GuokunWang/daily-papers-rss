@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月15日 (1/5) Double-Rollout Reinforcement Learning with Sampling-based Reward Estimation</title>
-<link>https://arxiv.org/abs/2610.16593</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.16593</guid>
-<description><![CDATA[**作者**：Haifeng Qian 等（NVIDIA）
-
-**总结**：NVIDIA 提出双采样 RL：截断每条推理轨迹、从截断点多路续写取平均奖励，替代噪声大的 0/1 结果奖励。Nemotron-3-Nano-30B-A3B 上 AIME 2026 达 95.4%（GRPO 基线 91.5%），仅用 30 个 RL step，精度堪比 10 倍参数模型。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-15NVIDIA-双采样提效-10-15)]]></description>
-<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
-</item>
-<item>
-<title>10月15日 (2/5) ProAS: A Progress-Aware Advantage Shaping Framework for Multi-Turn Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.18683</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.18683</guid>
-<description><![CDATA[**作者**：Bowen Ding 等（华为诺亚方舟实验室、浙江大学、西湖大学）
-
-**总结**：用动态演化的智能体参考图（ARG）做细粒度信用分配：MUI 屏蔽不合理动作的激励，APR 非对称重分配惩罚，无需 critic。Qwen2.5-7B 上 ALFWorld 成功率 94.3%、WebShop 70.8%，收敛最高加速 2.44 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-25华为进度感知优势整形-10-15)]]></description>
-<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
-</item>
-<item>
-<title>10月15日 (3/5) Two Clocks: Why Larger Rollout Batches Learn Slower but Fail on Schedule in Reinforcement Learning with Verifiable Rewards</title>
-<link>https://arxiv.org/abs/2610.18853</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.18853</guid>
-<description><![CDATA[**作者**：Yuante Li 等（卡内基梅隆大学、多伦多大学）
-
-**总结**：双时钟框架解释多步 GRPO 批量扩展：平方根学习率规则保住的是每样本一阶漂移而非进展，存在随学习率变化的临界批量（1e-6→1e-5 时从约 9k 降到约 2k responses）。导出实用调度：小批量起步、失败前切换大批量。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-35RLVR-双时钟批量定律-10-15)]]></description>
-<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
-</item>
-<item>
-<title>10月15日 (4/5) Enabling Token-wise Importance Sampling in Off-Policy RLVR with Proximal KL Regularization</title>
-<link>https://arxiv.org/abs/2610.18738</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.18738</guid>
-<description><![CDATA[**作者**：Hao Bai 等（伊利诺伊大学厄巴纳-香槟分校）
-
-**总结**：证明在覆盖性与局部表达力下，“完整未来 KL 信用”使精确近端优化器成为 token 级重要性采样的唯一驻点策略，无需整 response 权重或 critic。Proximal KL 在 Qwen3-1.7B/4B 的 7 组离策略对比中全面超 GRPO，8 个数学基准微平均最高 +2.58%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-45离策略-RLVR-近端-KL-10-15)]]></description>
-<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
-</item>
-<item>
-<title>10月15日 (5/5) Variance-Optimal State Resampling for Reinforcement Learning with Verifiable Rewards</title>
-<link>https://arxiv.org/abs/2610.15888</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.15888</guid>
-<description><![CDATA[**作者**：Yibo Wang 等（西北大学）
-
-**总结**：把固定 rollout 预算下的状态采样形式化为方差最小化，得到闭式 Neyman 分配；VSR 用前缀回放 buffer + 零成本方差代理即插即用。Qwen2.5-1.5B 上 150 更新仅 39.27M tokens（GiGPO 81.30M），BabyAI 平均成功率 47.6% 对 30.4%，并自然涌现反向课程。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月15日-55方差最优状态重采样-10-15)
-
-**今日点评**：今日 5 篇有一个共同主题：RL 训练正在从“堆更多采样”转向“把每条样本用得更准”——无论是降噪奖励估计（NVIDIA 双采样）、细化信用分配（华为 ProAS、西北 VSR）、复用离策略数据（UIUC Proximal KL），还是算清批量账（CMU 双时钟），核心都是提升每单位算力的学习信号质量。大厂（NVIDIA、华为诺亚）与高校（CMU、UIUC、西北大学）同场攻坚，说明高效 RLVR 已是产学研共同的前线。下一个值得看的点：这些提效手段能否叠加——比如 VSR 的采样 + Proximal KL 的离策略复用 + 双采样的奖励降噪，拼在一起会不会有乘法效应。]]></description>
-<pubDate>Thu, 15 Oct 2026 01:05:24 GMT</pubDate>
-</item>
-<item>
 <title>10月16日 (1/5) VASPO: Self-Distillation with Privileged Value Estimation</title>
 <link>https://arxiv.org/abs/2610.20516</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.20516</guid>
@@ -1714,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月13日-55批次不变RL推理-11-13)]]></description>
 <pubDate>Fri, 13 Nov 2026 01:04:57 GMT</pubDate>
+</item>
+<item>
+<title>11月14日 (1/5) Negative-Only Policy Optimization for One-Sided Verifiable Rewards</title>
+<link>https://arxiv.org/abs/2611.17287</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.17287</guid>
+<description><![CDATA[**作者**：Jiacheng Xu 等（南洋理工大学、Skywork AI）
+
+**总结**：针对验证器只能证伪、不能证实的单侧可验证场景，NOPO 只用可信负样本训练，避开假阳性奖励污染。在 Qwen3-4B/8B 上平均 pass@16 达 52.86/52.13，全面超过 GRPO，且优势在推理时扩展与跨基准迁移中保持。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月14日-15只用负样本做-RLVR-11-14)]]></description>
+<pubDate>Sat, 14 Nov 2026 00:54:00 +0000</pubDate>
+</item>
+<item>
+<title>11月14日 (2/5) Is the Importance Ratio Necessary for Stable Reinforcement Learning in LLMs?</title>
+<link>https://arxiv.org/abs/2611.15404</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.15404</guid>
+<description><![CDATA[**作者**：Shuibai Zhang 等（威斯康星大学麦迪逊分校、KRAFTON）
+
+**总结**：LGPO 证明 GRPO 的重要性比率并非必需，真正起稳定作用的是裁剪实现的信任域；用当前策略似然门控替代比率计算，训练时间省约 18%，且在 GRPO 崩溃的全 on-policy 设定下依然稳定。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月14日-25重要性比率可有可无-11-14)]]></description>
+<pubDate>Sat, 14 Nov 2026 00:54:00 +0000</pubDate>
+</item>
+<item>
+<title>11月14日 (3/5) Actor, Judge, or Teacher? Understanding Decision Models in Long-Horizon Agents</title>
+<link>https://arxiv.org/abs/2611.17167</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.17167</guid>
+<description><![CDATA[**作者**：Haochen Liu 等（浙江大学、百度）
+
+**总结**：决策模型当 actor 时都会被“先易后难”的子目标带偏，但看完整轨迹当 judge 时能准确评估每步；用 JEV 当老师教 Qwen2.5-1.5B 做 GRPO，ALFWorld 成功率从 72.8% 提升到 82.9%，WebShop 从 56.8% 提升到 71.4%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月14日-35差演员也能当好老师-11-14)]]></description>
+<pubDate>Sat, 14 Nov 2026 00:54:00 +0000</pubDate>
+</item>
+<item>
+<title>11月14日 (4/5) Experience-Handoff Reinforcement Learning for Recursive Self-Improvement</title>
+<link>https://arxiv.org/abs/2611.16409</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.16409</guid>
+<description><![CDATA[**作者**：Doyoung Kim 等（纽约大学、KAIST AI）
+
+**总结**：ACE-RL 把“经验交接”本身纳入学习：同一模型分饰 actor、reflector、curator 三角，按 playbook 对未来 rollout 的下游效果给奖励；在等训练算力下，四个 agentic 基准的 held-out 成绩全面超过只训 actor 的 GRPO。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月14日-45经验交接式自改进-11-14)]]></description>
+<pubDate>Sat, 14 Nov 2026 00:54:00 +0000</pubDate>
+</item>
+<item>
+<title>11月14日 (5/5) Outcome-Mass Alignment: Controlling Length-Dependent Trajectory Influence in Multi-Turn LLM Agent Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2611.16816</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.16816</guid>
+<description><![CDATA[**作者**：Dawei Zhang 等（中国科学院大学、中科院软件所、联想研究院）
+
+**总结**：多轮 agent RL 把轨迹展成多行样本时会算错“账”，失败轨迹展得更长、隐式权重被带偏；OMA 把 outcome 统计与目标质量对齐回唯一源轨迹，ALFWorld 端点成功率提升 7.0–9.4 个百分点，WebShop-SOL 成功 nAUC 从 0.399 提升到 0.511。
+
+**今日点评**：今日五篇都指向同一个方向：RL 训练的提效正在从“堆算力”转向“修机制”——NOPO 只用负样本、LGPO 砍掉重要性比率、OMA 修好多轮记账，都是在不加算力的前提下把训练做得更干净、更便宜；而两篇 agent 论文（决策模型当老师、经验交接）则提醒我们，奖励信号与经验本身同样值得优化。最值得马上试的是 LGPO 与 OMA：一个省一次前向，一个修一次记账，都是改动小、收益明确的工程改进。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月14日-55多轮轨迹权重对齐-11-14)]]></description>
+<pubDate>Sat, 14 Nov 2026 00:54:00 +0000</pubDate>
 </item>
 </channel>
 </rss>
