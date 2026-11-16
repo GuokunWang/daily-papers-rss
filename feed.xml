@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月17日 (1/5) ReFlow: Replay-Driven Decoupling for Efficient RL Post-Training</title>
-<link>https://arxiv.org/abs/2610.21640</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.21640</guid>
-<description><![CDATA[**作者**：Yukun Tian 等（香港大学、中国科学技术大学、阿里巴巴）
-
-**总结**：针对 LLM RL 后训练中 rollout 生成占约 80% 训练时间的瓶颈，提出回放驱动解耦：用近期轨迹的经验回放摊薄生成成本，配合解耦架构、弹性资源池与自适应调度。在 VeRL 之上实现、最高 128 GPU 验证，训练吞吐最高提升 2.06 倍，模型性能相当或更好。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月17日-15回放解耦加速-RL-10-17)]]></description>
-<pubDate>Sat, 17 Oct 2026 00:52:25 +0000</pubDate>
-</item>
-<item>
-<title>10月17日 (2/5) Gibbs-Gap Policy Optimization for Off-Policy RL with Verifiable Rewards</title>
-<link>https://arxiv.org/abs/2610.20814</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.20814</guid>
-<description><![CDATA[**作者**：Xuanchang Zhang、Tong Zhang（伊利诺伊大学香槟分校）
-
-**总结**：针对 RLVR 中陈旧 behavior policy 导致重要性权重方差爆炸的问题，提出 Gibbs-Gap 策略优化：最小化同组响应间 KL 调整奖励的 log-mean-exp 对比，彻底去掉重要性权重。在策略陈旧度从 N=8 拉到 N=128 时保持稳定、优于 GRPO 与 AGRO；参考模型刷新节奏是关键变量（固定参考 32.96 vs 默认刷新 46.58）。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月17日-25Gibbs-间隙策略优化-10-17)]]></description>
-<pubDate>Sat, 17 Oct 2026 00:52:25 +0000</pubDate>
-</item>
-<item>
-<title>10月17日 (3/5) EliteReplay: Preserving Diverse Solutions in RL Post-Training via Quality-Diversity Search</title>
-<link>https://arxiv.org/abs/2610.22290</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.22290</guid>
-<description><![CDATA[**作者**：Hanane Nour Moussa 等（俄亥俄州立大学）
-
-**总结**：针对 RL 后训练的“行为锐化”（越训只会一种解法），先用冻结基模型做 MAP-Elites quality-diversity 搜索建精英档案，再把 GRPO 与档案回放损失联合训练。Spider 上 pass@128 达 93.2%，不同正确策略数比最强基线多出至多 77%，精度与多样性兼得。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月17日-35精英回放保多样性-10-17)]]></description>
-<pubDate>Sat, 17 Oct 2026 00:52:25 +0000</pubDate>
-</item>
-<item>
-<title>10月17日 (4/5) When Does Momentum Help in Reinforcement Learning with Verifiable Rewards?</title>
-<link>https://arxiv.org/abs/2610.20413</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.20413</guid>
-<description><![CDATA[**作者**：Kaifei Wang 等（北京大学、上海交通大学、斯坦福大学）
-
-**总结**：用 bandit 建模回答“RLVR 里一阶动量到底有没有用”：精确梯度下增大 β 严格加速；采样梯度下关键是把 η/(1-β) 保持在安全区间。Qwen2.5-32B 上仅调大 AdamW 的 β1，平均验证精度提升近 2 个百分点——零成本的免费午餐。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月17日-45动量加速-RLVR-训练-10-17)]]></description>
-<pubDate>Sat, 17 Oct 2026 00:52:25 +0000</pubDate>
-</item>
-<item>
-<title>10月17日 (5/5) MAI-Gym: An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments</title>
-<link>https://arxiv.org/abs/2610.20939</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.20939</guid>
-<description><![CDATA[**作者**：Panrong Tong 等（阿里巴巴）
-
-**总结**：阿里开源的 GUI 智能体 RL 一体化平台：统一评测、数据采集与在线 RL 训练，横跨手机、电脑、Web，支撑 20,000 并行环境实例。用它训出的 9B 智能体在 MobileWorld（78.4%）和 OSWorld-Verified（76.2%）拿下同尺寸开源 SOTA；mock 应用上做的 RL 可迁移到真机（28.8%→48.1%）。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月17日-55GUI-智能体-RL-平台-10-17)
-
-**今日点评**：今日 5 篇一半以上直指“RL 提效”本身：ReFlow 从系统侧把训练吞吐做到 2.06 倍，动量论文从优化器侧给出“调大 β1”的免费午餐，GGPO 从算法侧扔掉重要性权重、对抗策略陈旧；EliteReplay 与 MAI-Gym 则分别回答了“保住解法多样性”和“搭好训练基建”。一个趋势越来越明显：RLVR 的 infra 与优化细节，正在成为比新算法更稀缺的竞争力。]]></description>
-<pubDate>Sat, 17 Oct 2026 00:52:25 +0000</pubDate>
-</item>
-<item>
 <title>10月18日 (1/5) KnowGPO: Knowledge-Grouped Policy Optimization for Search Agents</title>
 <link>https://arxiv.org/abs/2610.22331</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.22331</guid>
@@ -1714,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月15日-55熵稀疏治过度思考-11-15)]]></description>
 <pubDate>Sun, 15 Nov 2026 01:00:41 +0000</pubDate>
+</item>
+<item>
+<title>11月16日 (1/5) LoCoJAX: Host-Local Coordination for Small-Model RL on TPUs</title>
+<link>https://arxiv.org/abs/2611.16301</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.16301</guid>
+<description><![CDATA[**作者**：Loki Chen 等（Meta）
+
+**总结**：Meta 针对 TPU 上小模型 RL 训练的协调开销问题提出 LoCoJAX，把 rollout 与奖励计算本地化到每个 host、只做全局同步训练。Qwen3-0.6B 上每步比调优后的 Pathways 基线快 1.3–3.6 倍，GSM8K 上用 8 卡就跑赢了基线用 64 卡的单步耗时。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月16日-15小模型-RL-提速-36-倍-11-16)]]></description>
+<pubDate>Mon, 16 Nov 2026 01:05:08 GMT</pubDate>
+</item>
+<item>
+<title>11月16日 (2/5) The Value of Thinking: Learning When to Reason in Hybrid Decision Models</title>
+<link>https://arxiv.org/abs/2611.16961</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.16961</guid>
+<description><![CDATA[**作者**：Zhengxu Yu 等（华为诺亚方舟实验室、利物浦大学、伦敦大学学院）
+
+**总结**：华为诺亚方舟实验室等提出混合决策模型 HDM，同一个冻结 backbone 要么一次前向直接作答（零 token），要么在“思考价值”超过定价时才展开完整推理。JevBench 上 HDM-4B 以 0.857 分超过 Jev 的 0.851，中位延迟从 0.652 秒降到 0.179 秒。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月16日-25学会何时值得思考-11-16)]]></description>
+<pubDate>Mon, 16 Nov 2026 01:05:08 GMT</pubDate>
+</item>
+<item>
+<title>11月16日 (3/5) From Delegation to Coordination: Learning Efficient Multi-Agent Deep Research</title>
+<link>https://arxiv.org/abs/2611.17041</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.17041</guid>
+<description><![CDATA[**作者**：Yuyang Wu 等（蚂蚁集团、电子科技大学、浙江大学、东南大学）
+
+**总结**：蚂蚁集团等提出 LEAD-RL，主、子智能体共享同一策略联合训练，用评审 rubric 给每份子智能体报告打贡献分、门控团队优势的分配。BrowseComp 上比共享团队信用的联合训练准确率提高 2.49 个百分点、关键路径成本降低 24.5%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月16日-35多智能体委派提效-11-16)]]></description>
+<pubDate>Mon, 16 Nov 2026 01:05:08 GMT</pubDate>
+</item>
+<item>
+<title>11月16日 (4/5) Safety as a Budget: Calibrating the Control Channel of Constrained GRPO for Vision-Language Models</title>
+<link>https://arxiv.org/abs/2611.16628</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.16628</guid>
+<description><![CDATA[**作者**：Bo Han（兰州大学）
+
+**总结**：兰州大学把 VLM 安全表述为两个预算，用拉格朗日乘子在约束 GRPO 内执行，并修复了评分器均值偏差与组内标准化抵消乘子这两处失效。Qwen3-VL-2B 上 held-out 有害率从标准 GRPO 的 8.9% 降到 4.8%，过度拒答至多 2%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月16日-45约束-GRPO-安全预算-11-16)]]></description>
+<pubDate>Mon, 16 Nov 2026 01:05:08 GMT</pubDate>
+</item>
+<item>
+<title>11月16日 (5/5) StateAlign: Internalizing State-Aware Decision-Making for Reliable Multi-Turn Tool Agents via Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2611.16304</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.16304</guid>
+<description><![CDATA[**作者**：Zhexi Lu 等（伦萨勒理工学院、IBM Research）
+
+**总结**：伦萨勒理工学院与 IBM Research 提出 StateAlign，把任务状态显式建出来，用状态对比 RL 让智能体按当前状态做不同的事。Qwen3-8B 上 BFCL v4 多轮准确率从 45.5% 提升到 55.2%，无工具幻觉率从 62.2% 降到 56.1%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月16日-55工具智能体状态对齐-11-16)
+
+**今日点评**：今天五篇的共同点：RL 训练正在从“堆奖励、拼规模”转向“把训练过程本身算清楚”——Meta 在 TPU 上抠协调开销、华为诺亚让模型自己决定值不值得想、蚂蚁给多智能体信用记账、兰大把安全写成预算、IBM 与 RPI 让智能体先看清状态再动手。效率与可靠性正在成为 RL 的主线，而不是事后补丁。]]></description>
+<pubDate>Mon, 16 Nov 2026 01:05:08 GMT</pubDate>
 </item>
 </channel>
 </rss>
