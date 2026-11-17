@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月18日 (1/5) KnowGPO: Knowledge-Grouped Policy Optimization for Search Agents</title>
-<link>https://arxiv.org/abs/2610.22331</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.22331</guid>
-<description><![CDATA[**作者**：Siqi Chen 等（浙江大学、腾讯）
-
-**总结**：浙大与腾讯提出 KnowGPO，用“原子知识条件”表示轨迹的知识获取状态，同知识状态的轨迹组内比较、知识增量做过程奖励。在 Xbench、BrowseComp-ZH、GAIA 上比 GRPO 高 2.0%–5.9%，8B 模型打平/超越 32B 级开源深搜智能体。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-15知识分组策略优化-10-18)]]></description>
-<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
-</item>
-<item>
-<title>10月18日 (2/5) Learning Lean Feedback for Efficient Proof-Candidate Evaluation on GPUs</title>
-<link>https://arxiv.org/abs/2610.21881</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.21881</guid>
-<description><![CDATA[**作者**：Lazar Milikic 等（EPFL）
-
-**总结**：EPFL 用 484 万标注程序训练 Lean 4 判定预测器，两阶段筛选达 87.8% 准确率，单卡 H100 吞吐是 64-worker Lean 基线的 4.2 倍。混合奖励让 GRPO 训练步缩短约 31%，miniF2F pass@1 几乎无损（62.2% vs 62.4%）。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-25精益反馈加速验证-10-18)]]></description>
-<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
-</item>
-<item>
-<title>10月18日 (3/5) Where to Start, How to Move: Analyzing Curricula under GRPO for Long-Horizon LLM Agents</title>
-<link>https://arxiv.org/abs/2610.19349</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.19349</guid>
-<description><![CDATA[**作者**：Minchan Kim 等（首尔国立大学、建国大学）
-
-**总结**：SNU 系统研究长程智能体 GRPO 课程学习：用成功参考前缀引导、从接近完成处开始（End 初始化），在 BFCL 三个模型尺寸上全面超过 GRPO 且省约 8% GPU 时间，AppWorld 上省约 21%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-35GRPO-课程学习分析-10-18)]]></description>
-<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
-</item>
-<item>
-<title>10月18日 (4/5) Many Right Answers, One Training Example: Removing Responder Noise from GRPO for LLM Recommenders</title>
-<link>https://arxiv.org/abs/2610.17771</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.17771</guid>
-<description><![CDATA[**作者**：Xin Li 等（南洋理工大学）
-
-**总结**：NTU 发现 Rank-GRPO 的 advantage 方差 85% 来自“抽到哪条回复”而非生成质量。ReMaRk 对请求全部回复标题取并集一次打分，7 backbone×3 数据集上达到同等验证 recall 只需 25%–53% 步数。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-45GRPO-响应噪声消除-10-18)]]></description>
-<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
-</item>
-<item>
-<title>10月18日 (5/5) MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering</title>
-<link>https://arxiv.org/abs/2610.22344</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.22344</guid>
-<description><![CDATA[**作者**：Shangheng Du 等（华东师范大学、上海人工智能实验室）
-
-**总结**：华东师大与上海 AI Lab 训出 35B MoE 智能体 MLExpert：Kaggle-MLE Factory 把历史 Kaggle 竞赛转成可执行任务，WIRL 以实验结果为边界划分执行窗口共享奖励，MLE-Bench Lite 夺牌率从 37.9% 提到 72.7%，对标 Kimi-K3、GLM-5.3。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月18日-55窗口式智能体-RL-10-18)
-
-**今日点评**：今天的 5 篇有一个共同主题——让 RL 训练更“划算”：KnowGPO 用知识状态分组给更准的过程奖励、Lean 反馈评估器把 verifier 调用加速 4.2 倍、课程学习从接近终点处开始练、ReMaRk 消除回复抽样噪声、MLExpert 用执行窗口给长程 MLE 任务稠密奖励。GRPO 家族仍是主角，但大家都在解决同一个痛点：稀疏奖励下的样本效率。]]></description>
-<pubDate>Sun, 18 Oct 2026 00:50:00 -0000</pubDate>
-</item>
-<item>
 <title>10月19日 (1/5) Does On-Policy Distillation Need to Complete Every Rollout?</title>
 <link>https://arxiv.org/abs/2610.21337</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.21337</guid>
@@ -1714,6 +1657,63 @@
 
 **今日点评**：今天五篇的共同点：RL 训练正在从“堆奖励、拼规模”转向“把训练过程本身算清楚”——Meta 在 TPU 上抠协调开销、华为诺亚让模型自己决定值不值得想、蚂蚁给多智能体信用记账、兰大把安全写成预算、IBM 与 RPI 让智能体先看清状态再动手。效率与可靠性正在成为 RL 的主线，而不是事后补丁。]]></description>
 <pubDate>Mon, 16 Nov 2026 01:05:08 GMT</pubDate>
+</item>
+<item>
+<title>11月17日 (1/5) TIDE: Reclaiming Lost Performance In On-Policy Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2611.17924</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.17924</guid>
+<description><![CDATA[**作者**：Mathew Jacob 等（华盛顿大学、布朗大学、加州大学伯克利分校、纽约大学）
+
+**总结**：同址同步 RL 后训练中，长尾 rollout 让 GPU 空闲最高占总运行时间的 30%、整体利用率仅 56.6%。TIDE 在保持 on-policy 语义的前提下动态转用 rollout GPU 做训练并迁移长尾 rollout，端到端提速最高 1.36 倍，达到最优吞吐的 97%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月17日-15同址-RL-长尾提速-11-17-3)]]></description>
+<pubDate>Tue, 17 Nov 2026 00:58:19 GMT</pubDate>
+</item>
+<item>
+<title>11月17日 (2/5) AutoRL: A Multi-Agent System towards Autonomous Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2611.17790</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.17790</guid>
+<description><![CDATA[**作者**：Simon Tang 等（美团、香港中文大学、上海科技大学、复旦大学）
+
+**总结**：多智能体系统 AutoRL 让 Perceptors、Proposers 与 Orchestrator 分工值守 RL 训练，可在线热更新或检查点恢复修正配方。Qwen3-4B 上 9 个基准全部超过静态 GRPO，AIME 2024 从 46.67% 提到 66.67%，并支撑了 14.7 天无人值守的编码智能体长跑。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月17日-25RL-训练自动驾驶员-11-17)]]></description>
+<pubDate>Tue, 17 Nov 2026 00:58:19 GMT</pubDate>
+</item>
+<item>
+<title>11月17日 (3/5) ModHarness-RL: Recasting Harnesses as Learnable and Evolving Programs for Agentic RL</title>
+<link>https://arxiv.org/abs/2611.18533</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.18533</guid>
+<description><![CDATA[**作者**：Zelin He 等（宾夕法尼亚州立大学、LinkedIn、加州大学圣塔芭芭拉分校）
+
+**总结**：该工作把智能体 RL 的 harness 改成可从数据学习、随训练演化的程序，含 Compression 与 Steering 两个组件。CodeSearch 上相对固定支架基线提升 14–24%，在 1.5B–8B 模型上均有效。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月17日-35智能体支架可演化-11-17)]]></description>
+<pubDate>Tue, 17 Nov 2026 00:58:19 GMT</pubDate>
+</item>
+<item>
+<title>11月17日 (4/5) ARCHER: From Rationale Imitation to Executable Reasoning in Small Language Models</title>
+<link>https://arxiv.org/abs/2611.18494</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.18494</guid>
+<description><![CDATA[**作者**：Dhruv Dixit 等（史蒂文斯理工学院）
+
+**总结**：ARCHER 让小模型把数学推理写成可执行的动作轨迹，TRACE 编译 CoT 做 SFT，HiGRA 再以分层门控奖励做 RL 优化。5 个 sub-10B 骨干宏平均比最强工具基线高 5.51 个百分点，MATH-500 提升 8.95 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月17日-45小模型可执行推理-11-17-2)]]></description>
+<pubDate>Tue, 17 Nov 2026 00:58:19 GMT</pubDate>
+</item>
+<item>
+<title>11月17日 (5/5) PaperCritic: Training AI Reviewers to Assess the Soundness of Papers</title>
+<link>https://arxiv.org/abs/2611.17834</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.17834</guid>
+<description><![CDATA[**作者**：Hyun Ryu 等（KAIST AI、卡内基梅隆大学、LG AI Research）
+
+**总结**：PaperCritic 只评论文严谨性，以精确率与召回率的 F1 作 RL 奖励训练 4B 审稿模型。域内 macro F1 45.1，超过 Claude Opus 5 与 DeepSeek-V4-Flash，且能迁移到 Nature 系列论文与代码、法律、故事写作评审。
+
+**今日点评**：今日五篇覆盖了 RL 训练效率的三个层面：TIDE 回收 GPU 小时，AutoRL 与 ModHarness-RL 把训练监督与支架本身自动化、可学习化，ARCHER 与 PaperCritic 则展示了奖励设计的新空间（可执行轨迹、评审 F1）。共同点是把原来靠人手调的东西变成可学习、可度量的对象。值得跟进的是 TIDE 的开源落地与 AutoRL 的长跑记录能否复现。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月17日-55RL-训练-AI-审稿人-11-17-2)]]></description>
+<pubDate>Tue, 17 Nov 2026 00:58:19 GMT</pubDate>
 </item>
 </channel>
 </rss>
