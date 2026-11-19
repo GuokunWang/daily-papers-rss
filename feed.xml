@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月20日 (1/5) Batched Contextual Reinforcement II: Does RLVR Need Long Rollout Windows?</title>
-<link>https://arxiv.org/abs/2610.22887</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.22887</guid>
-<description><![CDATA[**作者**：Bangji Yang 等（UIUC、Tsinghua University、Rutgers University）
-
-**总结**：提出 Concurrent Constraint Reinforcement（CCR），把 3 道可独立验证的数学题塞进同一个 8000-token capped completion，用共享 token 预算与固定分母平均正确率奖励保留短 rollout 窗口下的可学习信号。Qwen3-4B / Qwen3-8B 上每训练步 token 分别减少 82.1% / 79.1%（约为基线 1/5），9 基准准确率不降反升（4B 75.3%→77.7%，8B 68.8%→69.7%）。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-15CCR短窗口训练提效-10-20)]]></description>
-<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
-</item>
-<item>
-<title>10月20日 (2/5) Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.23181</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.23181</guid>
-<description><![CDATA[**作者**：Heming Zou 等（未核实）
-
-**总结**：提出 TreeOPSD：把每个交互 turn 看作树节点，从共享前缀分支备选延续，用终端奖励递归备份出 turn-level 信用，再映射成封闭形式的有界 teacher 分布做 Forward-KL 后验自蒸馏。无 critic、无过程标注、无外部教师；Deep Research 设置下 Qwen3-30B-A3B-Thinking-2507 平均准确率比 GRPO 高 4.97 个百分点。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-25树感知后验蒸馏-10-20)]]></description>
-<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
-</item>
-<item>
-<title>10月20日 (3/5) Grounded Credit Assignment in Reinforcement Learning for Multi-Turn Search Agents</title>
-<link>https://arxiv.org/abs/2610.23148</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.23148</guid>
-<description><![CDATA[**作者**：Qirui Liu 等（Tencent、华南理工大学、香港科技大学、香港城市大学）
-
-**总结**：针对搜索智能体 GRPO“全 rollout 同一 advantage”导致的 credit conflation，提出 Grounded Credit Assignment（GCA）：按首命中把 rollout 分为有效搜索/冗余搜索/回答三段，用可验证子结果做有界的符号保持残差修正。Qwen2.5-3B / Qwen3-30B-A3B 上 EM 相对 Search-R1 分别 +5.70 / +6.30，证据支撑份额 76.9%→93.4%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-35搜索智能体接地归因-10-20)]]></description>
-<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
-</item>
-<item>
-<title>10月20日 (4/5) MGE-PO: Entropy-Aware Credit Assignment for Mathematical Reasoning</title>
-<link>https://arxiv.org/abs/2610.23245</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.23245</guid>
-<description><![CDATA[**作者**：Jihao Huang 等（未核实）
-
-**总结**：提出四象限（4Q）优势整形：用验证正确性定修正符号、用 rollout 生成熵定修正幅度（低熵成功更大奖励、高熵失败更大惩罚），外加在线熵问题课程 DynZPD 与熵加权参考 KL。Qwen3-8B-Base 训练 8 epoch 后，加到 GRPO 上 6 基准 macro avg@32 提升 +3.69%、macro pass@32 提升 +11.06%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-45熵感知信用分配-10-20)]]></description>
-<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
-</item>
-<item>
-<title>10月20日 (5/5) Distill Until Divergence: Error-Truncated Hindsight Distillation for Agentic RL</title>
-<link>https://arxiv.org/abs/2610.23048</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.23048</guid>
-<description><![CDATA[**作者**：Yibin Huang 等（哈尔滨工业大学）
-
-**总结**：提出 ETRO：按轨迹结果与错误边界路由正负两种技能做 OPD——成功轨迹全程与失败轨迹误前用 Positive 技能，失败关键错误处用 Negative 技能，误后后缀只用 GRPO。Qwen2.5-7B 下 WebShop 85.8%、ALFWorld 97.0%、Search QA 宏平均 51.8%，均为所列方法最优。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月20日-55错误截断后验蒸馏-10-20)
-
-**今日点评**：今天的 5 篇几乎都在回答同一个问题：RL 训练里“信用”到底该怎么给。BCR II 用并发约束让短窗口可学（成本压到 1/5），TreeOPSD 用树分支备份 turn 级信用，GCA 把搜索智能体的“找证据/用证据”信用分开算，MGE-PO 用生成熵给 GRPO 优势整形，ETRO 把后验蒸馏的信用截断在错误边界——credit assignment 正在成为 RLVR 提效的主战场，方法也从“加结构”转向“加约束、减浪费”。]]></description>
-<pubDate>Tue, 20 Oct 2026 00:57:51 +0000</pubDate>
-</item>
-<item>
 <title>10月21日 (1/5) OPDArena: Understanding Learning and Forgetting in On-Policy Distillation</title>
 <link>https://arxiv.org/abs/2610.25651</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.25651</guid>
@@ -1714,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月18日-55单步VLA加速GRPO-11-18)]]></description>
 <pubDate>Wed, 18 Nov 2026 01:02:55 +0000</pubDate>
+</item>
+<item>
+<title>11月19日 (1/5) What RL on Expert-Built Tasks Teaches Nemotron 3.5 Super</title>
+<link>https://arxiv.org/abs/2611.22161</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.22161</guid>
+<description><![CDATA[**作者**：Sushant Mehta 等（Surge AI）
+
+**总结**：Surge AI 只用五类专家手工任务、不做 SFT，对 NVIDIA Nemotron 3.5 Super 做纯 RL 后训练（rank-32 LoRA + CISPO），12 个 headline 基准全线提升：SWE-bench Pro V2 从 86.9% 升至 92.1%，GDP.pdf 从 10.4% 升至 24.2%，AutomationBench 从 14.8% 升至 27.5%。实验还揭示基座模型的失败集中在少数可复现的模式上，而每个适配器恰好补上了对应行为。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月19日-15Nemotron专家RL-11-19)]]></description>
+<pubDate>Thu, 19 Nov 2026 00:59:18 +0000</pubDate>
+</item>
+<item>
+<title>11月19日 (2/5) From Relevance to Utility: Rubric Alignment in Yuanbao Search</title>
+<link>https://arxiv.org/abs/2611.22503</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.22503</guid>
+<description><![CDATA[**作者**：Yu Lu 等（腾讯、武汉大学）
+
+**总结**：腾讯元宝搜索把相关性排序换成 rubric 对齐：为每个查询生成评分标准，统一监督检索、排序与双分支 RL 选择器（GRPO + best-rollout 蒸馏），在线 A/B 约 280 万次查询，端到端答案质量比生产基线提升 8.52%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月19日-25元宝搜索RL对齐-11-19)]]></description>
+<pubDate>Thu, 19 Nov 2026 00:59:18 +0000</pubDate>
+</item>
+<item>
+<title>11月19日 (3/5) TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks</title>
+<link>https://arxiv.org/abs/2611.22115</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.22115</guid>
+<description><![CDATA[**作者**：Xingchen AGI Lab（中国电信）
+
+**总结**：中国电信星辰 AGI Lab 发布 Xing 4 系列报告：285B 参数模型在 8,192 张昇腾 910C 上预训练，并开源 29B MoE 成员（每 token 激活 4B 参数、原生 256K 上下文）；TeleGym 智能体执行平台支撑异步 RL 训练，推测解码带来 2.67–3.77 倍解码吞吐提升。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月19日-35Xing4昇腾训推-11-19)]]></description>
+<pubDate>Thu, 19 Nov 2026 00:59:18 +0000</pubDate>
+</item>
+<item>
+<title>11月19日 (4/5) TAILROLL: Tail-Aware Rollout Acceleration for RL-Based LLM Post-Training</title>
+<link>https://arxiv.org/abs/2611.22206</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.22206</guid>
+<description><![CDATA[**作者**：Niloofar Gholipour 等（华为加拿大、墨尔本大学、蒙特利尔高等技术学院、RBC Borealis）
+
+**总结**：蒙特利尔高等技术学院等提出 TAILROLL：在线迁移 + GRPO 组内充分即停，十组配置上 rollout 气泡比下降 21%–74%，端到端 rollout 时间减少 24%–34%，整步时间缩短 21%–22%，生成吞吐最高提升 33%，最终奖励持平或更高。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月19日-45TAILROLL提速-11-19)]]></description>
+<pubDate>Thu, 19 Nov 2026 00:59:18 +0000</pubDate>
+</item>
+<item>
+<title>11月19日 (5/5) Get Hint-Augmented GRPO Done Right Through Activation Steering</title>
+<link>https://arxiv.org/abs/2611.23124</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.23124</guid>
+<description><![CDATA[**作者**：Khiem Le 等（圣母大学）
+
+**总结**：圣母大学提出 ASH：把 hint 理解为行为转向而非降难度，训练一个转向向量在推理时注入激活、复现 hint 条件下的行为，消除提示增强 GRPO 的训练-推理不一致；Qwen3-1.7B/4B-Base 平均 pass@8 分别提升 2.60% 与 2.21%。
+
+**今日点评**：今日五篇的共同主线：RL 提效正在从“堆算力”转向“修信号 + 修系统”。Nemotron 证明专家任务 + 极简 LoRA RL 能把前沿模型再推 5–14 分；元宝搜索把 rubric 变成全链路的统一监督面并跑进生产；星 4 在国产芯上跑通了智能体 RL 的执行层；TAILROLL 直接砍掉 rollout 的长尾气泡；ASH 则修掉了提示增强 GRPO 的训练-推理不一致。值得注意的是，奖励与信用分配（rubric、best-rollout 蒸馏、组内充分性、转向向量）正在成为 RL 提效的主战场，而 infra（TeleGym、TAILROLL、MindSpore）决定了这些想法能不能以可接受的成本跑起来。下个值得盯的点：ASH 这类转向方法在更大模型与非数学任务上的泛化，以及 TAILROLL 在 NVIDIA 集群上的复现效果。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月19日-55激活转向GRPO-11-19)]]></description>
+<pubDate>Thu, 19 Nov 2026 00:59:18 +0000</pubDate>
 </item>
 </channel>
 </rss>
