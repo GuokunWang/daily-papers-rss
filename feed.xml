@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月22日 (1/5) Projected Distillation: On Learning to Solve Hard Problems from Close, Correct Targets</title>
-<link>https://arxiv.org/abs/2610.27467</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.27467</guid>
-<description><![CDATA[**作者**：Shripad V. Deshmukh 等（AWS AI Labs、马萨诸塞大学）
-
-**总结**：把学生失败尝试做最小编辑修正成正确目标的投影蒸馏，把 on-policyness 看成连续统。Qwen3-8B、OLMo-2-7B 在数学/代码/科学/工具使用五个领域 specialization-retention 前沿下面积最高，9 个 cell 中 8 个胜过 GRPO 和 OPD；最小修正换成 gold 解时 retention 从 0.916 掉到 0.744。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月22日-15投影蒸馏攻克难题-10-22)]]></description>
-<pubDate>Thu, 22 Oct 2026 00:55:29 +0000</pubDate>
-</item>
-<item>
-<title>10月22日 (2/5) Training the Whole Agent, Not Just the Model</title>
-<link>https://arxiv.org/abs/2610.28069</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.28069</guid>
-<description><![CDATA[**作者**：Lingxiao Tang 等（浙江大学、LIGHTSPEED）
-
-**总结**：HarnessAdapt-RL 在 RL 过程中同时训练策略并适应 harness：frozen teacher 生成机制级技能、另一 teacher 演化工具和钩子。9B 基座在 SWE-bench Verified/Multilingual/Pro 上 pass@1 比 GRPO 高 9.8/12.6/6.4 个百分点，超过 OpenHands harness 的 GRPO。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月22日-25智能体训练连壳一起练-10-22)]]></description>
-<pubDate>Thu, 22 Oct 2026 00:55:29 +0000</pubDate>
-</item>
-<item>
-<title>10月22日 (3/5) Where RL Breaks: Localizing and Repairing Failures via Targeted Continued Pretraining</title>
-<link>https://arxiv.org/abs/2610.25836</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.25836</guid>
-<description><![CDATA[**作者**：Xinyi Wang、Danqi Chen（普林斯顿大学）
-
-**总结**：RL 失败是可定位的：rollout 成败可被少量特征 n-gram 强烈预测。用 failure n-gram 从预训练语料检索文本、RL 前继续预训练，仅 35M token（比典型 mid-training 小 3–4 个数量级），11 个设置中 10 个超过同量随机语料；GSM8K +2.0，跨模型迁移到 Qwen3-4B +1.9。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月22日-35RL-失败定位与修复-10-22)]]></description>
-<pubDate>Thu, 22 Oct 2026 00:55:29 +0000</pubDate>
-</item>
-<item>
-<title>10月22日 (4/5) SAPD: Learning from Agent Experience without Environment Interaction</title>
-<link>https://arxiv.org/abs/2610.27847</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.27847</guid>
-<description><![CDATA[**作者**：Juncheng Diao 等（美团 LongCat 团队、中国科学院大学）
-
-**总结**：只用离线轨迹训 agent：把多轮轨迹拆成单步决策上下文做 on-policy 蒸馏，引入相对步优势信号稳定训练，全程零环境交互。ALFWorld、WebShop、Search-based QA 多种 teacher 配置都涨点，相对 SFT 缓解灾难性遗忘，每步训练速度至少是 online OPD 的 4.7 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月22日-45离线智能体蒸馏加速-10-22)]]></description>
-<pubDate>Thu, 22 Oct 2026 00:55:29 +0000</pubDate>
-</item>
-<item>
-<title>10月22日 (5/5) Anatomy of Off-Policy Policy Gradient: Importance Sampling, KL Regularization, and Baselines</title>
-<link>https://arxiv.org/abs/2610.25725</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.25725</guid>
-<description><![CDATA[**作者**：Haoqun Cao 等（威斯康星大学麦迪逊分校）
-
-**总结**：统一理论视角：off-policy PG 要保持一致性，要么 trajectory-level importance weighting，要么 KL 正则 + baseline 取最优 soft value（grouped mean 实例化）——后者正是 GRPG，等价于 trajectory-level Bellman 残差最小化；baseline 常数偏移实现悲观（pessimism）。给出了 GRPO 为何有效的理论注脚。
-
-**今日点评**：今天 5 篇正好拼出一张"让 RL 更好训"的路线图：蒸馏侧（投影蒸馏、SAPD）解决"难题学不动、环境太贵"；训练流程侧（连 harness 一起训、用失败 n-gram 定向补预训练）解决"学不全"；理论侧（离策略策略梯度解剖）解释"为什么 GRPO 有效"。共同信号：RL 的红利正在从换 objective 转向更准的监督信号和更聪明的训练流程。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月22日-55离策略策略梯度解剖-10-22)]]></description>
-<pubDate>Thu, 22 Oct 2026 00:55:29 +0000</pubDate>
-</item>
-<item>
 <title>10月23日 (1/5) FlashNext-RL: A System Optimization Study for Long-Horizon Agentic RL of Qwen3.8-Flash-Next</title>
 <link>https://arxiv.org/abs/2610.28998</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.28998</guid>
@@ -1714,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月20日-55分层GRPO治AI味代码-11-20)]]></description>
 <pubDate>Fri, 20 Nov 2026 00:55:00 GMT</pubDate>
+</item>
+<item>
+<title>11月21日 (1/5) Beam Model Technical Report</title>
+<link>https://arxiv.org/abs/2611.26358</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.26358</guid>
+<description><![CDATA[**作者**：Reflection Team 等（Reflection）
+
+**总结**：Reflection 发布 501.3B 总参数、23.4B 激活参数的稀疏 MoE 大模型 Beam，专为代码、推理与 agentic 任务优化。后训练动用 1.05 万块 GB300 GPU、四周跑出 1 亿多次 rollouts，是迄今公开实验室最大规模的 RL 训练之一；SWE-bench Verified 81.6、AIME 2026 97.7，能力随 RL 算力增加仍未见平台期。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月21日-15Beam万卡RL大模型-11-21)]]></description>
+<pubDate>Sat, 21 Nov 2026 00:56:12 +0000</pubDate>
+</item>
+<item>
+<title>11月21日 (2/5) RL Post-Training in Diffusion Transformers Is Activation Steering</title>
+<link>https://arxiv.org/abs/2611.26627</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.26627</guid>
+<description><![CDATA[**作者**：Tuna Han Salih Meral 等（Virginia Tech、Georgia Tech、fal、IBM Research）
+
+**总结**：扩散模型 RL 后训练的大部分收益并不需要学到新的输入依赖变换。一组固定的激活平移向量（在 SD3.5-M 上仅 0.29M 参数，为 RL LoRA 的 1/65）就能恢复 90.0–96.3% 的奖励增益；只用转向向量做在线 RL，甚至能在 OCR 与 PickScore 上超过权重 RL 的增益。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月21日-25扩散RL收益激活平移-11-21)]]></description>
+<pubDate>Sat, 21 Nov 2026 00:56:12 +0000</pubDate>
+</item>
+<item>
+<title>11月21日 (3/5) Budget Internalization: Fixed-Budget RLVR Trades Test-Time Scaling for In-Budget Accuracy</title>
+<link>https://arxiv.org/abs/2611.26172</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.26172</guid>
+<description><![CDATA[**作者**：Ilia Zavidnyi 等（JetBrains Research、布拉格捷克技术大学）
+
+**总结**：RLVR 训练时固定的 rollout 长度上限会被模型“内化”成行为约束：4K 预算训练的 Qwen3.5-4B 在 4K 时比基座高 34.8 个百分点，到 64K 时反而低 30.2 个百分点。rollout 上限不是免费的成本旋钮，训练预算的选择会直接塑造模型的推理长度习惯。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月21日-35RLVR预算内化损扩展-11-21)]]></description>
+<pubDate>Sat, 21 Nov 2026 00:56:12 +0000</pubDate>
+</item>
+<item>
+<title>11月21日 (4/5) ROAM-GRPO: Enforcing Reasoning Diversity in GRPO via Routed Off-mode Approach Mining</title>
+<link>https://arxiv.org/abs/2611.25926</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.25926</guid>
+<description><![CDATA[**作者**：Jeff Duan 等（Caltech、Living Intelligence）
+
+**总结**：针对 RLVR 的模式坍缩，ROAM-GRPO 把已解题目路由到“离模”轨道，挖出不同解法再自蒸馏回策略。Qwen3.5-2b 在 MATH lvl5 子集上训练后，困难评估集的 pass@16 峰值提升 4.7%，正确解的嵌入余弦距离扩大约 1.5–2 倍。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月21日-45GRPO推理多样性-11-21)]]></description>
+<pubDate>Sat, 21 Nov 2026 00:56:12 +0000</pubDate>
+</item>
+<item>
+<title>11月21日 (5/5) Calibrated Decision Rewards: Training Language Models with a Judge That Knows How Sure It Is</title>
+<link>https://arxiv.org/abs/2611.25135</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.25135</guid>
+<description><![CDATA[**作者**：Rudransh Agnihotri 等（FuturixAI Research）
+
+**总结**：RLCDR 把 LLM 变成“会算自己有多确定”的决策模型来做奖励：Qwen3-1.7B 用 GRPO 在 MATH 上训练 100 步后，MATH500 从 72.2% 升到 76.8%（+4.65），追平用标准答案做奖励的 76.9%，且全程无需参考答案；找第一个错误步骤还优于专用的 7B 过程奖励模型。
+
+**今日点评**：今日五篇都指向同一个问题：RL 后训练的收益与代价到底来自哪里。Beam 用万卡规模证明 RL 算力仍在兑现；激活平移与预算内化则从机制上提醒我们，收益可能比想象中更“浅”、代价可能藏在训练设定里；ROAM-GRPO 与校准奖励分别从多样性与奖励可信度两个方向给出可落地的改进。值得继续盯：Beam 的 RL 配方细节与开源权重发布，以及预算内化在大模型与开放式任务上是否同样成立。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月21日-55校准奖励训语言模型-11-21)]]></description>
+<pubDate>Sat, 21 Nov 2026 00:56:12 +0000</pubDate>
 </item>
 </channel>
 </rss>
