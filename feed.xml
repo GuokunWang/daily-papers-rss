@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月23日 (1/5) FlashNext-RL: A System Optimization Study for Long-Horizon Agentic RL of Qwen3.8-Flash-Next</title>
-<link>https://arxiv.org/abs/2610.28998</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.28998</guid>
-<description><![CDATA[**作者**：Zhewei Yao 等（Snowflake AI Research）
-
-**总结**：Snowflake AI Research 针对 Qwen3.8-Flash-Next 的 48 层混合注意力架构，做模型专用的长程智能体 RL 系统优化。BF16 全模型在单台 8×B200 上把训练吞吐从约 395 提升到 4438 tokens/s/GPU（约 11.2 倍），支撑起 batch 1024 条 rollout、131K 上下文的真实 SWE RL 运行。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-15Qwen智能体RL提速-10-23)]]></description>
-<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
-</item>
-<item>
-<title>10月23日 (2/5) ReAPO: Retry-Aware Policy Optimization for Efficient Exploration in LLM Reasoning</title>
-<link>https://arxiv.org/abs/2610.28770</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.28770</guid>
-<description><![CDATA[**作者**：Nghi Dao 等（Columbia University、Yale University、UT Austin）
-
-**总结**：把“重试”建模成随机最短路问题，得到 GRPO 的一个简单修改：失败轨迹分配额外生成，成功的重试被强化、前置的失败不被奖励。在 8 个数学/科学推理基准上首答性能全面超过 GRPO；达到 GRPO（2 倍组大小/2 倍训练步数）峰值精度分别少用 39%/31% 的生成 token。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-25重试感知探索提效-10-23)]]></description>
-<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
-</item>
-<item>
-<title>10月23日 (3/5) Flat-RLVR: Sharpness-Aware Reinforcement Learning with Verifiable Rewards for Reasoning Capacity in LLMs</title>
-<link>https://arxiv.org/abs/2610.29281</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.29281</guid>
-<description><![CDATA[**作者**：Yeonbum Kim 等（UNIST（蔚山国立科学技术院））
-
-**总结**：发现 RLVR/GRPO 会导致“分布锐化”——策略分布过度尖峰、稀有但正确的轨迹被压制。用锐度感知最小化（SAM）寻找平坦奖励最优点：Qwen2.5-Math-1.5B 上 Pass@256 从 64.8% 提到 67.3% 而 Pass@1 基本保持，遗忘率从 6.3% 降到 2.8%。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-35平坦最优防分布锐化-10-23)]]></description>
-<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
-</item>
-<item>
-<title>10月23日 (4/5) LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data</title>
-<link>https://arxiv.org/abs/2610.30132</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.30132</guid>
-<description><![CDATA[**作者**：Zhennan Wan 等（清华大学）
-
-**总结**：清华提出的零数据长上下文 RL：模型先以紧凑结构化形式合成问题+答案+支持证据，再扩展成多文档长上下文；只保留“有时答对、有时答错”的不稳定题目做 GRPO。Qwen3-4B-Thinking 在 5 个长上下文基准平均从 54.68% 提到 57.42%，超过基于外部语料合成数据的 RL 基线。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-45零数据长上下文推理-10-23)]]></description>
-<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
-</item>
-<item>
-<title>10月23日 (5/5) Self-Credit: Credit Assignment for Long-Horizon Agentic RL via Intra-group Rescaling</title>
-<link>https://arxiv.org/abs/2610.28388</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.28388</guid>
-<description><![CDATA[**作者**：Fangcong Yin 等（Meta、Duke University、NYU）
-
-**总结**：Meta 的端到端智能体 RL：rollout 时策略模型自写带引用的关键回合摘要作为自生成 credit，再用组内重标定对比同 prompt 成功/失败 rollout 去伪存真、加权更新 advantage。BrowseComp-Plus 上 Qwen3-8B/32B 相对 base +37.0/+36.2 分，超过最强基线 8.5/5.6 分。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月23日-55组内重标信用分配-10-23)
-
-**今日点评**：今天的 5 篇有个共同主题：让失败与稀疏信号产生信息量。ReAPO 用随机最短路给“重试”定价，Self-Credit 从失败 rollout 里提炼 credit，Flat-RLVR 保住稀有正确轨迹不被分布锐化压死——三篇都是“别浪费失败”的不同解法。系统侧 FlashNext-RL 则证明：智能体 RL 的下一个 10 倍，可能来自为模型架构定制 infra，而不是换 objective；数据侧 LongZero 把 zero-data 推进到长上下文。RL 的红利继续从“换目标函数”转向“更准的监督信号、更聪明的训练流程、更贴身的系统”。]]></description>
-<pubDate>Fri, 23 Oct 2026 00:57:36 +0000</pubDate>
-</item>
-<item>
 <title>10月24日 (1/5) Same Luck, Different Choice: Twin-World Credit Assignment for Agentic Reinforcement Learning</title>
 <link>https://arxiv.org/abs/2610.31544</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.31544</guid>
@@ -1714,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月21日-55校准奖励训语言模型-11-21)]]></description>
 <pubDate>Sat, 21 Nov 2026 00:56:12 +0000</pubDate>
+</item>
+<item>
+<title>11月22日 (1/5) RL Can Only Reinforce What It Sees Succeed</title>
+<link>https://arxiv.org/abs/2611.26084</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.26084</guid>
+<description><![CDATA[**作者**：Ruben Sanchez-Corcuera 等（University of Deusto）
+
+**总结**：用先验与正确答案都精确已知的拼图世界做控制实验，证明 outcome-reward RL 只能强化采样中见过成功的动作。正确动作罕见时能否学会由“期望获胜组数”决定，约 35 组对应五五开的学会概率；该规律跨组大小 4–256、GRPO 变体与 1.3M–85M 模型规模均成立。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月22日-15RL只能强化见过的成功-11-22)]]></description>
+<pubDate>Sun, 22 Nov 2026 00:55:32 GMT</pubDate>
+</item>
+<item>
+<title>11月22日 (2/5) Cross-Question Reliable Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2611.25292</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.25292</guid>
+<description><![CDATA[**作者**：Hector G. Rodriguez 等（TU Darmstadt、hessian.AI）
+
+**总结**：指出逐题打分的置信度 RL 会把置信度推向 0 或 1、丢失问题间的排序信息。提出的 CARE 奖励对一组问答联合计分、按组内相对位置强化置信度，数学任务 5% 风险下覆盖率从 0.8% 提升至 42.4%，HotpotQA 训练后分布外 C@5 从 12.3% 提升至 23.6%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月22日-25跨问题可靠RL-11-22)]]></description>
+<pubDate>Sun, 22 Nov 2026 00:55:32 GMT</pubDate>
+</item>
+<item>
+<title>11月22日 (3/5) Decision-Focused Reinforcement Learning for LLM Post-Training</title>
+<link>https://arxiv.org/abs/2611.25597</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.25597</guid>
+<description><![CDATA[**作者**：Haotian Zhai 等（University of Texas at Austin）
+
+**总结**：针对“预测准不等于决策好”，提出以负决策遗憾为奖励的决策导向 RL 后训练 DFRL，让 LLM 直接为下游优化问题的决策成本而学。H&M 真实库存规划上相对 SFT 降低遗憾 31.4%，相对最强传统预测基线降低 12.4%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月22日-35决策导向RL后训练-11-22-2)]]></description>
+<pubDate>Sun, 22 Nov 2026 00:55:32 GMT</pubDate>
+</item>
+<item>
+<title>11月22日 (4/5) AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher</title>
+<link>https://arxiv.org/abs/2611.26510</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.26510</guid>
+<description><![CDATA[**作者**：Guoxin Chen 等（中国人民大学）
+
+**总结**：提出自主后训练系统 AutoMaster：LLM 智能体分析教师轨迹、设计自然语言 skill 抑制坏习惯、激发好行为，再用 Skill-FT 微调学生。在 Terminal、Search、软件工程任务、Qwen3.5-4B/9B 学生上六组设定全部优于 vanilla SFT，平均提升 1.42–8.99 个百分点。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月22日-45自主后训练-11-22)]]></description>
+<pubDate>Sun, 22 Nov 2026 00:55:32 GMT</pubDate>
+</item>
+<item>
+<title>11月22日 (5/5) Policy Improvement-Guided Replay for Continual Reinforcement Learning</title>
+<link>https://arxiv.org/abs/2611.25989</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.25989</guid>
+<description><![CDATA[**作者**：Qin-Wen Luo 等（南京航空航天大学）
+
+**总结**：从策略改进原理重看持续 RL 的遗忘问题，提出 CoLiR：用“对比似然”给历史 prompt 打分、只回放最值得保的旧任务。在 Qwen3-VL 2B/4B/8B 三个尺寸上取得最高的最终平均准确率与阶段平均准确率，8B 上相对 CPO 的最终准确率优势达 9.99 个百分点。
+
+**今日点评**：今日五篇有一个共同指向：RL 后训练的瓶颈正在从“怎么训”转向“训什么、采什么、留什么”——成功样本的出现频率、置信度的相对排序、奖励与决策成本的对齐、教师轨迹的行为质量、历史任务的回放选择，五个工作分别在采样、奖励、数据、回放四个环节上把启发式换成了可计算的原则。最值得跟进的是第一篇给出的采样预算经验法则与第三篇的决策遗憾奖励，前者直接指导 RLVR 的采样配置，后者把 LLM 后训练接进了真实优化场景。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月22日-55持续RL回放防遗忘-11-22-2)]]></description>
+<pubDate>Sun, 22 Nov 2026 00:55:32 GMT</pubDate>
 </item>
 </channel>
 </rss>
