@@ -6,63 +6,6 @@
 <description>每天精选 5 篇值得读的论文，中文解读。</description>
 <language>zh-CN</language>
 <item>
-<title>10月27日 (1/5) Frontier-OPD: Discovering the Edge of Agent Capability and Teaching Agents to Go Beyond</title>
-<link>https://arxiv.org/abs/2610.32802</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.32802</guid>
-<description><![CDATA[**作者**：Zheng Jiang 等（清华大学）
-
-**总结**：针对多轮智能体的 on-policy 蒸馏，论文提出“学习前沿”概念：只在学生既不会、给了指导又能接住的决策点上采教师监督。通过共享状态轨迹图做轨迹均衡的分歧聚合筛出候选，再用教师桥接加匹配窗口验证决定是否采纳，在 ALFWorld、WebShop、ScienceWorld 上均优于对照蒸馏基线，且在 ALFWorld 计时设定下以最短耗时到达 55% 解决率目标。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-15OPD学习前沿蒸馏-10-27)]]></description>
-<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
-</item>
-<item>
-<title>10月27日 (2/5) NgramRL: Accelerating RL Post-Training for Structured Generation via Rollout-Aware N-gram Speculative Decoding</title>
-<link>https://arxiv.org/abs/2610.32881</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.32881</guid>
-<description><![CDATA[**作者**：Nilesh Prasad Pandey 等（加州大学圣地亚哥分校、西弗吉尼亚大学）
-
-**总结**：RL 后训练的 rollout 生成可占单步 70% 以上时间，而 GRPO 会反复采样同一批 prompt。NgramRL 用策略自身近期 rollout 构建 per-prompt n-gram 草稿缓存做推测解码，不占 GPU 显存、不改 rollout 分布，热缓存下每前向提交 3.60–7.77 个 token；配合自适应 fan-out 预取器，Spider 上 rollout 吞吐提升 1.38 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-25历史轨迹推测解码加速-10-27)]]></description>
-<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
-</item>
-<item>
-<title>10月27日 (3/5) KnitTrans: Coordinated Trajectory Transfer for Effective and Efficient LLM Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.32389</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.32389</guid>
-<description><![CDATA[**作者**：Bangjun Xiao 等（北京大学、小米）
-
-**总结**：大模型 RL 解耦执行后，rollout 到训练的轨迹交接成为瓶颈。KnitTrans 以保约束的 mini-batch 准入、按需轨迹数据访问与多模态编码去重三招协调这条路径，在 256 卡、235B–671B 模型规模上把架构陈旧度最多降低 93%，多模态任务传输加训练加速最高 5.8 倍。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-35轨迹传输协同提效-10-27)]]></description>
-<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
-</item>
-<item>
-<title>10月27日 (4/5) Where Rounding Happens Matters: Rounding-Location Alignment Stabilizes LLM Reinforcement Learning</title>
-<link>https://arxiv.org/abs/2610.32951</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.32951</guid>
-<description><![CDATA[**作者**：Yijing Ke 等（字节跳动 Seed、北京大学）
-
-**总结**：推理与训练分属不同系统时，即使权重与 BF16 张量相同，舍入位置的差异也会让 on-policy 更新变相 off-policy 乃至训崩。论文只需把训练侧 RoPE、SwiGLU 与残差 RMSNorm 三处的舍入与推理侧对齐，就在四个 Qwen 家族模型上防止了默认 BF16 基线的崩溃，且仅 RoPE 对齐在所研究的运行中也已足够，开销仅 0.90–2.04% 延迟。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-45舍入位置对齐稳训练-10-27)]]></description>
-<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
-</item>
-<item>
-<title>10月27日 (5/5) Direction-Aware Token Credit Assignment with Reward-Model Gradients</title>
-<link>https://arxiv.org/abs/2610.32772</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2610.32772</guid>
-<description><![CDATA[**作者**：Yikuan Hu 等（南京大学、新加坡国立大学、清华大学、南洋理工大学）
-
-**总结**：GRPO 把 response 级优势平分给所有 token，但并非每个位置的更新都朝奖励变高的方向走。DATC 以“做功”视角给 token 分信用：把冻结奖励模型的梯度映射到策略 logit 空间，沿 GRPO 更新方向做功越大权重越大，在 Qwen3-14B 与 Llama-3.1-8B 的 Base/Instruct 四组设置上全部跑赢 GRPO。
-
-**今日点评**：今日 5 篇有一个清晰主线：RL 提效正在从“改算法”走向“改执行细节”——Frontier-OPD 筛准监督、NgramRL 复用历史 rollout、KnitTrans 修好轨迹交接、舍入对齐修好数值执行、DATC 把优势精确分到 token；其中 Frontier-OPD 与舍入对齐这两篇最值得精读：前者给智能体蒸馏立了一个可复用的监督筛选框架，后者提醒我们 BF16 时代的训练稳定性可能藏在几个不起眼的舍入位置里。
-
-**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--10月27日-55方向感知信用分配-10-27)]]></description>
-<pubDate>Tue, 27 Oct 2026 00:54:10 GMT</pubDate>
-</item>
-<item>
 <title>10月28日 (1/5) ScaleRLT: Exact Log-Probabilities and Fast Deferred Rollouts for Reinforcement Learning on Looped Transformers</title>
 <link>https://arxiv.org/abs/2610.34427</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2610.34427</guid>
@@ -1714,6 +1657,63 @@
 
 **论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月25日-55编码智能体数据审计-11-25)]]></description>
 <pubDate>Wed, 25 Nov 2026 00:58:04 +0000</pubDate>
+</item>
+<item>
+<title>11月26日 (1/5) To Critic Or Not To Critic</title>
+<link>https://arxiv.org/abs/2611.32013</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.32013</guid>
+<description><![CDATA[**作者**：Jason Wei 等（Scale AI Research）
+
+**总结**：用 1200 多次训练对照比较 PPO 与 GRPO：小批量时 PPO 领先，大批量时 GRPO 追平甚至反超，critic 只在小算力预算下划算。终端 agent 任务上，PPO 以约四分之一的算力（91 vs 342 H100 GPU 小时）打平大批量 GRPO。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月26日-15Critic-去留之争-11-26)]]></description>
+<pubDate>Thu, 26 Nov 2026 01:00:00 GMT</pubDate>
+</item>
+<item>
+<title>11月26日 (2/5) Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe</title>
+<link>https://arxiv.org/abs/2611.32884</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.32884</guid>
+<description><![CDATA[**作者**：Richmond Sin Jing Xuan 等（南洋理工大学）
+
+**总结**：针对长程 agent 证据不足就抢答的“懒惰”，提出用模拟器精确后验做过程奖励的 RLVB：9 个设定平均比基座提升 17.1%，且比用 LLM 评委的 PPO 少用 1.6 倍 GPU 小时。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月26日-25可验证信念治懒-11-26)]]></description>
+<pubDate>Thu, 26 Nov 2026 01:00:00 GMT</pubDate>
+</item>
+<item>
+<title>11月26日 (3/5) U-Statistics-Powered LLM Reasoning</title>
+<link>https://arxiv.org/abs/2611.33064</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.33064</guid>
+<description><![CDATA[**作者**：Shijin Gong 等（麻省理工学院、伦敦政治经济学院、中国科学技术大学）
+
+**总结**：把 GRPO 组大小选择转化为方差比估计问题，提出悲观估计器自适应选组：30 组设定中 27 组取得最低超额梯度均方误差，Qwen3-8B 在 10 个数学基准上平均分最高，额外训练时间仅 7–10%。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月26日-35GRPO-组大小自适应-11-26)]]></description>
+<pubDate>Thu, 26 Nov 2026 01:00:00 GMT</pubDate>
+</item>
+<item>
+<title>11月26日 (4/5) Reinforcement Learning Can Be Recovered From Its Own Rollouts</title>
+<link>https://arxiv.org/abs/2611.33102</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.33102</guid>
+<description><![CDATA[**作者**：Jiayi Sheng 等（Tufa Labs、卡内基梅隆大学、哈佛大学）
+
+**总结**：只用 SFT 按原顺序重放 RL 训练存档的 rollout、不看任何奖励，就能几乎完整复现整条在线 RL 学习曲线；只用最后几步的 rollout 常能恢复最终模型性能。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月26日-45SFT-复现在线-RL-11-26)]]></description>
+<pubDate>Thu, 26 Nov 2026 01:00:00 GMT</pubDate>
+</item>
+<item>
+<title>11月26日 (5/5) ARS-VLM: Visually Aligned Augmented Random Search for Vision-Language Models</title>
+<link>https://arxiv.org/abs/2611.32147</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.32147</guid>
+<description><![CDATA[**作者**：Xiangwei Wang 等（墨尔本大学、复旦大学、上海交通大学）
+
+**总结**：把零阶方法 ARS 引入视觉语言模型推理后训练：Qwen3-VL-8B 上 20 步达到 GRPO 150 步的验证精度，静态显存仅为 GRPO 的约四分之一，7 个 OOD 基准精度相当。
+
+**今日点评**：今日五篇都指向同一个问题：RL 训练的钱到底花在哪里——critic 值不值、组大小怎么定、rollout 能不能复用、能不能不反向传播。共识正在形成：小预算下 critic 与精细的优势估计仍划算，但规模上去后，简单、无 critic、甚至零阶的路线正在追平；与此同时，RL 产生的 rollout 本身开始被当作可复用的资产，而不是一次性消耗品。
+
+**论文笔记**：[点击查看](https://telegra.ph/每日论文速览--11月26日-55ARS-VLM-零阶提效-11-26)]]></description>
+<pubDate>Thu, 26 Nov 2026 01:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
